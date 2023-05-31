@@ -1,0 +1,67 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+.baseContainer {
+  display: grid;
+  grid-template-areas: "header" "nav" "footer";
+  background: white;
+  width: 100%;
+  height: 100%;
+}
+.baseContainer header {
+  display: flex;
+  flex-flow: column wrap;
+  grid-area: header;
+  background-color: #BDBDBD;
+  height: 5rem;
+  width: 100%;
+  padding: 0 10rem;
+}
+.baseContainer header a:nth-child(1) img {
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+}
+.baseContainer header a:nth-child(2) {
+  background-color: inherit;
+  align-self: flex-end;
+}
+.baseContainer header a i {
+  font-size: 3rem;
+}
+.baseContainer nav {
+  display: flex;
+  grid-area: nav;
+  height: 4rem;
+  width: 100%;
+  background-color: #D32F2F;
+  padding: 0 10rem;
+}
+.baseContainer nav .links {
+  background-color: inherit;
+  align-self: center;
+  width: 100%;
+}
+.baseContainer footer {
+  grid-area: footer;
+  height: 10rem;
+  width: 100%;
+  background-color: black;
+}
+.baseContainer footer p {
+  color: #757575;
+}
+
+/*# sourceMappingURL=base.css.map */

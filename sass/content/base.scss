@@ -1,13 +1,7 @@
 @use '../common/index' as c;
 $headerHeight: 7vh;
 $navHeight: 5vh;
-
-* { @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
-    padding: 0px;
-    margin: 0px;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
 a {
     text-decoration: none;
@@ -43,20 +37,25 @@ a {
                 img {
                     margin-top: 2rem;
                 }
+
+                i {
+                    font-size: 3rem;
+                    color: c.$darkPrimary;
+                }
             }
         }
 
-        a:nth-child(2) {
+        > a:nth-child(2) {
+            color: c.$primaryText;
+            font-weight: bold;
             background-color: inherit;
             justify-self: flex-end;
+            padding: 1.5rem;
+            border-radius: c.$borderRadius;
+            background-color: c.$lightPrimary;
         }
-
-        a i {
-            font-size: 3rem;
-            color: c.$darkPrimary;
-        }
-
     }
+
     nav {
         display: flex;
         grid-area: nav;
@@ -64,7 +63,7 @@ a {
         width: 100%;
         background-color: c.$darkPrimary;
         padding: 0 10rem;
-        border-radius: 0 0 2rem 2rem;
+        border-radius: 0 0 c.$borderRadius c.$borderRadius;
 
         .links {
             @include c.flex(initial, initial, row, nowrap);
@@ -88,7 +87,7 @@ a {
         width: 100%;
         background-color: black;
         padding: 2rem 5rem;
-        border-radius: 2rem 2rem 0 0;
+        border-radius: c.$borderRadius c.$borderRadius 0 0;
 
         .duvidas, .ajuda {
             h2:nth-child(1) {

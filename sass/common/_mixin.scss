@@ -1,0 +1,29 @@
+@mixin widhgt($width,$height){
+    width: $width;
+    height: $height;
+}
+
+@mixin flex($justify,$align,$direction:row){
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    flex-direction: $direction;
+}
+
+@mixin flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@mixin sizeColor($font,$color,$weight){
+    font-size: $font;
+    color: $color;
+    font-weight: $weight;
+}
+
+@mixin containerAll{
+    height: 100vh;
+    width: 100vw;
+}

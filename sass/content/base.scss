@@ -1,4 +1,4 @@
-@use "./colors.scss" as c;
+@use '../common/index' as c;
 * { 
     padding: 0px;
     margin: 0px;
@@ -6,13 +6,7 @@
     text-decoration: none;
 }
 
-html {
-    font-size: 62.5%;
-}
 
-body {
-    font-size: 1.6rem;
-}
 
 .baseContainer {
     display: grid;

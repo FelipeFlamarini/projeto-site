@@ -21,7 +21,7 @@ a {
 
 .baseContainer {
   display: grid;
-  grid-template-areas: "header" "nav" "footer";
+  grid-template-areas: "header" "nav" "main" "footer";
   grid-template-rows: 7vh 5vh;
   background: #BDBDBD;
   height: 100vh;
@@ -111,6 +111,78 @@ a {
 }
 .baseContainer footer .duvidas ul li a, .baseContainer footer .ajuda ul li a {
   color: #757575;
+}
+
+.index-container {
+  width: 100%;
+}
+.index-container .bg-image {
+  width: 100%;
+  height: 36rem;
+  background-image: url(../sass/img/familia-index.jpg);
+  background-size: 100% 36rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.index-container .bg-image .search-date {
+  width: 100rem;
+  height: 8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  background-color: #03A9F4;
+  padding: 1rem;
+  border-radius: 2rem;
+}
+.index-container .bg-image .search-date > div {
+  background-color: #FFFFFF;
+  border-radius: 2rem;
+}
+.index-container .bg-image .search-date .local-retirada {
+  width: 48.9rem;
+  height: 6.4rem;
+  display: flex;
+  justify-content: "flex-start";
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem;
+}
+.index-container .bg-image .search-date .local-retirada input {
+  width: 44rem;
+  border: none;
+}
+.index-container .bg-image .search-date .data-retirda, .index-container .bg-image .search-date .hora-retirda, .index-container .bg-image .search-date .hora-devolver, .index-container .bg-image .search-date .data-devolver {
+  width: 13.4rem;
+  height: 6.4rem;
+  display: flex;
+  padding: 1rem;
+}
+.index-container .bg-image .search-date .data-retirda > div:nth-child(1), .index-container .bg-image .search-date .hora-retirda > div:nth-child(1), .index-container .bg-image .search-date .hora-devolver > div:nth-child(1), .index-container .bg-image .search-date .data-devolver > div:nth-child(1) {
+  width: 4rem;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.index-container .bg-image .search-date .data-retirda > div:nth-child(1) i, .index-container .bg-image .search-date .hora-retirda > div:nth-child(1) i, .index-container .bg-image .search-date .hora-devolver > div:nth-child(1) i, .index-container .bg-image .search-date .data-devolver > div:nth-child(1) i {
+  font-size: 2rem;
+}
+.index-container .bg-image .search-date .data-retirda > div:nth-child(2), .index-container .bg-image .search-date .hora-retirda > div:nth-child(2), .index-container .bg-image .search-date .hora-devolver > div:nth-child(2), .index-container .bg-image .search-date .data-devolver > div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+}
+.index-container .bg-image .search-date .data-retirda > div:nth-child(2) span:nth-child(1), .index-container .bg-image .search-date .hora-retirda > div:nth-child(2) span:nth-child(1), .index-container .bg-image .search-date .hora-devolver > div:nth-child(2) span:nth-child(1), .index-container .bg-image .search-date .data-devolver > div:nth-child(2) span:nth-child(1) {
+  font-size: 1rem;
+}
+.index-container .bg-image .search-date .hora-retirda, .index-container .bg-image .search-date .hora-devolver {
+  width: 8.7rem;
+  height: 6.4rem;
 }
 
 /*# sourceMappingURL=base.css.map */

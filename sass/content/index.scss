@@ -1,0 +1,73 @@
+@use '../common/index' as c;
+
+$altura-search:6.4rem;
+
+.index-container{
+    width: 100%;
+    
+    .bg-image{
+        width: 100%;
+        height:36rem;
+        background-image: url(../sass/img/familia-index.jpg);
+        background-size: 100% 36rem;
+        @include c.flex-center;
+
+    .search-date{
+        @include c.widhgt(100rem,8rem);
+        @include c.flex-center;
+        gap: 1rem;
+        background-color:c.$accent ;
+        padding: 1rem;
+        border-radius: c.$borderRadius;
+        >div{
+            background-color: c.$icons;
+            border-radius: c.$borderRadius
+        }
+
+        .local-retirada{
+            @include c.widhgt(48.9rem,$altura-search);
+            @include c.flex('flex-start',center);
+            gap: 1rem;
+            padding:1rem;
+            input{
+                width:44rem;
+                border: none;
+
+            }
+        }
+        
+        .data-retirda{
+            @include c.widhgt(13.4rem,$altura-search);
+            display: flex;
+            padding: 1rem;
+            >div:nth-child(1){
+                @include c.widhgt(4rem,100%); 
+                @include c.flex(flex-start,center);
+                i{
+                    font-size: 2rem
+                }
+            }
+            >div:nth-child(2){
+                display: flex;
+                flex-direction: column;
+                span:nth-child(1){
+                    font-size: 1rem;
+                }
+            }
+        }
+
+        .data-devolver{
+            @extend .data-retirda;
+        }
+
+        .hora-retirda{
+            @include c.widhgt(8.7rem,$altura-search);
+            @extend .data-retirda;
+        }
+
+        .hora-devolver{
+            @extend .hora-retirda;
+        }
+    }
+}
+}

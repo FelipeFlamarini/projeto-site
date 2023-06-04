@@ -15,6 +15,134 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+.index-container {
+  width: 100%;
+  border: 2px solid rgb(0, 4, 255);
+  height: auto;
+}
+.index-container .bg-image {
+  width: 100%;
+  height: 50rem;
+  margin-bottom: 1rem;
+  background-image: url(../sass/img/familia-index.jpg);
+  background-size: 100% 50rem;
+  display: flex;
+  justify-content: none;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.index-container .bg-image .titulo-index {
+  height: auto;
+}
+.index-container .bg-image .titulo-index h1 {
+  font-size: 6rem;
+  color: #03A9F4;
+}
+.index-container .bg-image .vantagens-index {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.index-container .bg-image .vantagens-index div span {
+  font-size: 2.2rem;
+}
+.index-container .bg-image .vantagens-index div i {
+  font-size: 2.3rem;
+}
+.index-container .bg-image .vantagens-index div i, .index-container .bg-image .vantagens-index div span {
+  color: #FFFFFF;
+}
+.index-container .bg-image .all-search-date {
+  margin-top: 8rem;
+  width: 100rem;
+  height: 15rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  background-color: #03A9F4;
+  padding: 1rem;
+  border-radius: 2rem;
+}
+.index-container .bg-image .all-search-date .search-date {
+  width: 99rem;
+  height: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.index-container .bg-image .all-search-date .search-date > div {
+  background-color: #FFFFFF;
+  border-radius: 2rem;
+}
+.index-container .bg-image .all-search-date .search-date .local-retirada {
+  width: 48.9rem;
+  height: 6.4rem;
+  display: flex;
+  justify-content: "flex-start";
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem;
+}
+.index-container .bg-image .all-search-date .search-date .local-retirada input {
+  width: 44rem;
+  border: none;
+  outline: none;
+}
+.index-container .bg-image .all-search-date .search-date .data-retirda, .index-container .bg-image .all-search-date .search-date .hora-retirda, .index-container .bg-image .all-search-date .search-date .hora-devolver, .index-container .bg-image .all-search-date .search-date .data-devolver {
+  width: 13.4rem;
+  height: 6.4rem;
+  display: flex;
+  padding: 1rem;
+}
+.index-container .bg-image .all-search-date .search-date .data-retirda > div:nth-child(1), .index-container .bg-image .all-search-date .search-date .hora-retirda > div:nth-child(1), .index-container .bg-image .all-search-date .search-date .hora-devolver > div:nth-child(1), .index-container .bg-image .all-search-date .search-date .data-devolver > div:nth-child(1) {
+  width: 4rem;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.index-container .bg-image .all-search-date .search-date .data-retirda > div:nth-child(1) i, .index-container .bg-image .all-search-date .search-date .hora-retirda > div:nth-child(1) i, .index-container .bg-image .all-search-date .search-date .hora-devolver > div:nth-child(1) i, .index-container .bg-image .all-search-date .search-date .data-devolver > div:nth-child(1) i {
+  font-size: 2rem;
+}
+.index-container .bg-image .all-search-date .search-date .data-retirda > div:nth-child(2), .index-container .bg-image .all-search-date .search-date .hora-retirda > div:nth-child(2), .index-container .bg-image .all-search-date .search-date .hora-devolver > div:nth-child(2), .index-container .bg-image .all-search-date .search-date .data-devolver > div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+}
+.index-container .bg-image .all-search-date .search-date .data-retirda > div:nth-child(2) span:nth-child(1), .index-container .bg-image .all-search-date .search-date .hora-retirda > div:nth-child(2) span:nth-child(1), .index-container .bg-image .all-search-date .search-date .hora-devolver > div:nth-child(2) span:nth-child(1), .index-container .bg-image .all-search-date .search-date .data-devolver > div:nth-child(2) span:nth-child(1) {
+  font-size: 1rem;
+}
+.index-container .bg-image .all-search-date .search-date .hora-retirda, .index-container .bg-image .all-search-date .search-date .hora-devolver {
+  width: 8.7rem;
+  height: 6.4rem;
+}
+.index-container .bg-image .all-search-date .btn-search {
+  width: 94rem;
+  height: 3rem;
+  border: none;
+  border-radius: 2rem;
+  background-color: #068323;
+  cursor: pointer;
+}
+.index-container .bg-image .all-search-date .btn-search:hover {
+  transition: 0.2s;
+  background-color: #017a1e;
+}
+.index-container .bg-image .all-search-date .btn-search span {
+  color: #FFFFFF;
+  font-size: 2rem;
+}
+
 a {
   text-decoration: none;
 }
@@ -111,78 +239,6 @@ a {
 }
 .baseContainer footer .duvidas ul li a, .baseContainer footer .ajuda ul li a {
   color: #757575;
-}
-
-.index-container {
-  width: 100%;
-}
-.index-container .bg-image {
-  width: 100%;
-  height: 36rem;
-  background-image: url(../sass/img/familia-index.jpg);
-  background-size: 100% 36rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.index-container .bg-image .search-date {
-  width: 100rem;
-  height: 8rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  background-color: #03A9F4;
-  padding: 1rem;
-  border-radius: 2rem;
-}
-.index-container .bg-image .search-date > div {
-  background-color: #FFFFFF;
-  border-radius: 2rem;
-}
-.index-container .bg-image .search-date .local-retirada {
-  width: 48.9rem;
-  height: 6.4rem;
-  display: flex;
-  justify-content: "flex-start";
-  align-items: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 1rem;
-  padding: 1rem;
-}
-.index-container .bg-image .search-date .local-retirada input {
-  width: 44rem;
-  border: none;
-}
-.index-container .bg-image .search-date .data-retirda, .index-container .bg-image .search-date .hora-retirda, .index-container .bg-image .search-date .hora-devolver, .index-container .bg-image .search-date .data-devolver {
-  width: 13.4rem;
-  height: 6.4rem;
-  display: flex;
-  padding: 1rem;
-}
-.index-container .bg-image .search-date .data-retirda > div:nth-child(1), .index-container .bg-image .search-date .hora-retirda > div:nth-child(1), .index-container .bg-image .search-date .hora-devolver > div:nth-child(1), .index-container .bg-image .search-date .data-devolver > div:nth-child(1) {
-  width: 4rem;
-  height: 100%;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-.index-container .bg-image .search-date .data-retirda > div:nth-child(1) i, .index-container .bg-image .search-date .hora-retirda > div:nth-child(1) i, .index-container .bg-image .search-date .hora-devolver > div:nth-child(1) i, .index-container .bg-image .search-date .data-devolver > div:nth-child(1) i {
-  font-size: 2rem;
-}
-.index-container .bg-image .search-date .data-retirda > div:nth-child(2), .index-container .bg-image .search-date .hora-retirda > div:nth-child(2), .index-container .bg-image .search-date .hora-devolver > div:nth-child(2), .index-container .bg-image .search-date .data-devolver > div:nth-child(2) {
-  display: flex;
-  flex-direction: column;
-}
-.index-container .bg-image .search-date .data-retirda > div:nth-child(2) span:nth-child(1), .index-container .bg-image .search-date .hora-retirda > div:nth-child(2) span:nth-child(1), .index-container .bg-image .search-date .hora-devolver > div:nth-child(2) span:nth-child(1), .index-container .bg-image .search-date .data-devolver > div:nth-child(2) span:nth-child(1) {
-  font-size: 1rem;
-}
-.index-container .bg-image .search-date .hora-retirda, .index-container .bg-image .search-date .hora-devolver {
-  width: 8.7rem;
-  height: 6.4rem;
 }
 
 /*# sourceMappingURL=base.css.map */

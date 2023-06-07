@@ -317,4 +317,64 @@ a {
   color: #757575;
 }
 
+.container-login {
+  height: 37.1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  background-image: linear-gradient(to bottom right, #FFCDD2 20%, #03A9F4);
+}
+.container-login .all-login {
+  padding: 1rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  border-radius: 2rem;
+  width: 30rem;
+  height: 30rem;
+  gap: 1rem;
+  background-color: #FFCDD2;
+}
+.container-login .all-login .login-email {
+  margin-bottom: 2rem;
+}
+.container-login .all-login .login-email label, .container-login .all-login .login-password label {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.container-login .all-login .login-email div, .container-login .all-login .login-password div {
+  display: flex;
+}
+.container-login .all-login .login-email div i, .container-login .all-login .login-password div i {
+  font-size: 3rem;
+  margin-right: 0.5rem;
+}
+.container-login .all-login .login-email div input, .container-login .all-login .login-password div input {
+  height: 3rem;
+  border: none;
+  border-radius: 1rem;
+  outline: none;
+  padding-left: 1rem;
+  font-size: 1.5rem;
+}
+.container-login .all-login button {
+  margin-top: 1rem;
+  width: 20rem;
+  height: 3rem;
+  border-radius: 2rem;
+  border: none;
+  cursor: pointer;
+  background-color: #068323;
+  font-weight: bold;
+}
+.container-login .all-login button:hover {
+  background-color: #017a1e;
+}
+.container-login .all-login button span {
+  color: #FFFFFF;
+}
+
 /*# sourceMappingURL=base.css.map */

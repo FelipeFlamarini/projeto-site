@@ -145,13 +145,20 @@ body {
   font-size: 2rem;
 }
 .index-container .all-cars {
-  border: 3px solid red;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   flex-wrap: wrap;
   background-color: #BDBDBD;
+}
+.index-container .all-cars .h1-cars h1 {
+  font-size: 5rem;
+  color: #03A9F4;
+}
+.index-container .all-cars .texto-cars p {
+  font-size: 1.4rem;
+  text-align: center;
 }
 .index-container .all-cars .carros-img {
   width: 20rem;
@@ -166,12 +173,13 @@ body {
 }
 .index-container .lista-carros-index .carro {
   width: 30rem;
-  height: 30rem;
+  height: 36rem;
   border-radius: 2rem;
   padding: 0.5rem;
   border: 1px solid #757575;
   display: flex;
   flex-direction: column;
+  background-color: #FFFFFF;
 }
 .index-container .lista-carros-index .carro div:nth-child(1) {
   align-self: center;
@@ -183,13 +191,16 @@ body {
 .index-container .lista-carros-index .carro .alugar {
   display: grid;
   height: 10rem;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: auto auto;
   grid-template-columns: 60% 40%;
 }
 .index-container .lista-carros-index .carro .alugar > span:nth-child(1) {
   grid-column: 1/3;
   grid-row: 1/2;
   font-size: 2rem;
+}
+.index-container .lista-carros-index .carro .alugar > span:nth-child(2) {
+  font-size: 2.4rem;
 }
 .index-container .lista-carros-index .carro .alugar button {
   grid-column: 2/3;
@@ -198,6 +209,14 @@ body {
   width: 8rem;
   align-self: center;
   justify-self: center;
+  border-radius: 2rem;
+  border: none;
+  background-color: #068323;
+  cursor: pointer;
+}
+.index-container .lista-carros-index .carro .alugar button span {
+  color: white;
+  font-weight: bold;
 }
 
 a {

@@ -21,7 +21,7 @@ a {
 
 .baseContainer {
   display: grid;
-  grid-template-areas: "header" "nav" "footer";
+  grid-template-areas: "header" "nav" "main" "footer";
   grid-template-rows: 7vh 5vh;
   background: #BDBDBD;
   height: 100vh;
@@ -111,6 +111,12 @@ a {
 }
 .baseContainer footer .duvidas ul li a, .baseContainer footer .ajuda ul li a {
   color: #757575;
+}
+
+.productContainer {
+  grid-area: main;
+  display: grid;
+  grid-template-areas: "image info purchase";
 }
 
 /*# sourceMappingURL=base.css.map */

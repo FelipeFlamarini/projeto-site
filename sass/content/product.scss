@@ -1,0 +1,8 @@
+@use '../common/index' as c;
+
+.productContainer {
+    grid-area: main;
+    display: grid;
+    grid-template-areas: 
+    "image info purchase";
+}

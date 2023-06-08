@@ -11,6 +11,7 @@ a {
     grid-template-areas: 
     "header"
     "nav"
+    "main"
     "footer";
     grid-template-rows: $headerHeight $navHeight;
     background: c.$divider;

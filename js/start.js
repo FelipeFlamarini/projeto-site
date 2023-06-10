@@ -4,38 +4,6 @@ var url = require("url");
 var mysql = require("mysql2");
 var path = require("path")
 
-// conectando à database-----------------------------------------------
-
-var conProducts = mysql.createConnection({
-  host:"localhost",
-  user: "admin",
-  password: "admin",
-  database: "products"
-});
-
-var conAccounts = mysql.createConnection({
-  host:"localhost",
-  user: "admin",
-  password: "admin",
-  database: "accounts"
-});
-
-// operações na database---------------------------------------------
-
-  // products----------------------------------------------------------------
-
-    // getProductInfo -----------------
-
-    // insertProductInfo -----------------
-
-    //editProductinfo -------------------
-
-  //  accounts-----------------------------------------------------------------
-
-    // createAccount ---------------------------
-
-    // authenticateLogin -----------------------------
-
 // iniciando o webserver----------------------------------------------------
 
 const host = "localhost";
@@ -53,7 +21,9 @@ const requestListener = function (req, res) {
         if (ext == ".css") {
           res.writeHead(200, {"Content-Type": "text/css"});
         }
-        // else res.writeHead(200, {"Content-Type": "text/html"});
+        if (ext == ".js") {
+          res.writeHead(200, {"Content-Type": "text/javascript"});
+        }
       };
       res.write(data);
       res.end();

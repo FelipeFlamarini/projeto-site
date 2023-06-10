@@ -58,5 +58,12 @@
         }
     }
 }
-
+        @media (max-width:412px){
+            .all-login{
+            width: 100%;
+            height: 100%;
+            @include c.flex-center('column');
+            border-radius:0;
+            }
+        }
 }

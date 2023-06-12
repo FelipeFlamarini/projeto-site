@@ -4,6 +4,7 @@ const url = require("url");
 const DB = require("./js/DBactions");
 const path = require("path");
 const express = require("express");
+const util = require("node:util")
 
 const app = express();
 
@@ -18,13 +19,20 @@ const port = 8080;
 app.set("view engine", "ejs");
 app.use(express.static(__dirname));
 
-app.get("/product", function (req, res) {
-  res.render(__dirname + "/product.ejs")
+app.get("/product", async function (req, res) {
+  var q = url.parse(req.url, true);
+  var info = await DB.getProductAllInfoById(1);
+  res.render(__dirname + "/product.ejs", {
+    info: info,
+  });
 });
 
 app.get("*", function (req, res) {
-  res.render(__dirname + "/404.ejs");
-})
+  var q = url.parse(req.url, true);
+  res.render(__dirname + "/404.ejs", {
+    q: q,
+  });
+});
 
 app.listen(port, host, () => {
 console.log(`Server is running on http://${host}:${port}`)});

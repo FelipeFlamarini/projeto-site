@@ -21,11 +21,11 @@ a {
 
 .baseContainer {
   display: grid;
-  grid-template-areas: "header" "nav" "footer";
+  grid-template-areas: "header" "nav" "main" "footer";
   grid-template-rows: 7vh 5vh;
   background: #BDBDBD;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
 }
 .baseContainer header {
   display: flex;
@@ -64,6 +64,9 @@ a {
   padding: 1.5rem;
   border-radius: 2rem;
   background-color: #FFCDD2;
+}
+.baseContainer header .btn-dropdown {
+  display: none;
 }
 .baseContainer nav {
   display: flex;
@@ -111,6 +114,71 @@ a {
 }
 .baseContainer footer .duvidas ul li a, .baseContainer footer .ajuda ul li a {
   color: #757575;
+}
+.baseContainer .responsive-navBar {
+  display: none;
+}
+@media (max-width: 640px) {
+  .baseContainer header {
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  .baseContainer header .logo {
+    margin-left: -3.2rem;
+  }
+  .baseContainer header .btn-dropdown {
+    display: block;
+    background-color: black;
+    height: 4rem;
+    width: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+  }
+  .baseContainer header .btn-dropdown i {
+    font-size: 3rem;
+    color: #D32F2F;
+  }
+  .baseContainer .nav {
+    display: none;
+  }
+  .baseContainer .btn-reservas {
+    display: none;
+  }
+  .baseContainer .responsive-navBar {
+    position: absolute;
+    left: 0rem;
+    top: 3.9rem;
+    width: 100%;
+    display: none;
+  }
+  .baseContainer .responsive-navBar ul {
+    list-style: none;
+  }
+  .baseContainer .responsive-navBar ul li {
+    background-color: #03A9F4;
+  }
+  .baseContainer .responsive-navBar ul li:hover {
+    background-color: #0395d8;
+  }
+  .baseContainer .responsive-navBar ul li a {
+    font-size: 1.7rem;
+    color: black;
+    font-weight: bold;
+  }
+  .baseContainer .active {
+    display: block;
+  }
+  .baseContainer footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    padding: 1rem;
+    gap: 2rem;
+  }
 }
 
 /*# sourceMappingURL=base.css.map */

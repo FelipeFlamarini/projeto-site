@@ -1,10 +1,7 @@
-const http = require("node:http");
 const fs = require("fs");
 const url = require("url");
-const DB = require("./js/DBactions");
-const path = require("path");
+const DB = require("./public/js/DBactions");
 const express = require("express");
-const util = require("node:util")
 
 const app = express();
 
@@ -15,23 +12,33 @@ const app = express();
 // Abrindo o webserver com Express
 const host = "localhost";
 const port = 8080;
+const path = "/view"
 
 app.set("view engine", "ejs");
-app.use(express.static(__dirname));
+app.use(express.static(__dirname + "/public"));
 
 app.get("/product", async function (req, res) {
   var q = url.parse(req.url, true);
-  var info = await DB.getProductAllInfoById(1);
-  res.render(__dirname + "/product.ejs", {
+  console.log(q.pathname);
+  if (req.query.id) var info = await DB.getProductAllInfoById(req.query.id);
+  res.render(__dirname + path + "/product.ejs", {
     info: info,
   });
 });
 
-app.get("*", function (req, res) {
+app.get("*", async function (req, res) {
   var q = url.parse(req.url, true);
-  res.render(__dirname + "/404.ejs", {
-    q: q,
-  });
+  const ext = ".ejs";
+  if (fs.existsSync("." + path + q.pathname + ext)) {
+    console.log(q.pathname)
+    res.render(__dirname + path + q.pathname + ext);
+  }
+  else {
+    console.log("404 " + q.pathname);
+    res.render(__dirname + "/404.ejs", {
+      q: q,
+    });
+  }
 });
 
 app.listen(port, host, () => {

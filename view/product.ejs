@@ -35,6 +35,7 @@
         <main>
         <div class="productContainer">
                 <div class="debug">
+                    <% if (info) { %>
                     <p id="id"><%= info.id%></p>
                     <p id="name"><%= info.name%></p>
                     <p id="model1"><%= info.model1%></p>
@@ -50,6 +51,7 @@
                     <p id="airbags"><%= info.airbags%></p>
                     <p id="windows"><%= info.windows%></p>
                     <p id="locks"><%= info.locks%></p>
+                    <% } %>
                 </div>
 
                 <div class="image">

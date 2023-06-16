@@ -8,8 +8,8 @@ const DB = mysql.createConnection({
     database: "website"
   });
 
-function nothing() {
-    console.log("nothing");
+function debug() {
+    console.log("debug");
 }
   
   // operações na database---------------------------------------------
@@ -33,19 +33,24 @@ function nothing() {
             result = query[0][0];
             return result;
         };
+
+      // createProduct -----------------
+        async function createProduct(info) {
+          return result;
+        }
   
       //editProductinfo -------------------
-      function editProductInfo(id, info, insertion) {
+      async function editProductInfo(id, info, insertion) {
 
         return result;
       }
     // table accounts-----------------------------------------------------------------
       // createAccount ---------------------------
-      function createAccount(id, info) {
+      async function createAccount(id, info) {
 
       }
       // authenticateLogin -----------------------------
-      function authenticateLogin(id, info) {
+      async function authenticateLogin(id, info) {
 
       }
 

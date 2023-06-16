@@ -2,15 +2,15 @@
 
 .container-userConfig{
     grid-area: main;
-    height: 37rem;
+    height: auto;
+    
 
     .all-user-config{
         height: 39rem;
-        @include c.flex(flex-start,none);
+        @include c.flex(center,none,none,wrap);
         padding: 1rem 2rem;
-        display: flex;
-        justify-content: center;
-
+       background-color: c.$divider;
+        gap: 2rem;
 
         .personName{
             background-color: white;
@@ -46,7 +46,7 @@
                 gap: .5rem;
 
             div{
-                @include c.flex(flex-start,center);
+                @include c.flex(flex-start,center,none,nowrap);
                 gap: .5rem;
                 width: 100%;
                 padding: .2rem;
@@ -124,6 +124,47 @@
             }
         }
 
+    }
+
+    @media(max-width:1031px){
+        .all-user-config{
+            height: 95rem;
+            .personName{
+                width: 80%;
+                @include c.flex(none,flex-start,column);
+                height: 40rem;
+                margin-right: 0;
+                .top{
+                    align-self: center;
+                }
+
+                .bottom{
+                    div{
+                        width: 100%;
+                        i{
+                            font-size: 2.3rem;
+                        }
+
+                        span{
+                            font-size: 2rem;
+                        }
+                    }
+                }
+            }
+
+            .profile{
+                width: 80%;
+                height: 42rem;
+                margin-bottom: 4rem;
+                .name-pwd{
+                    grid-template-columns: 1fr;
+                    grid-template-rows: repeat(4,auto);
+                    input{
+                        width: 100%;
+                    }
+                }
+            }
+        }
     }
 }
 

@@ -220,5 +220,54 @@ $altura-search:6.4rem;
         }
     }
 
+        .container-accordion{
+            padding: 1rem;
+            @include c.flex-center(column);
+            gap: 1rem;
+            background-color: c.$divider;
+            
+            .h2-accordion{
+                align-self: flex-start;
+                margin-left: 20rem;
+            }
 
+            .accordion-1{
+                width: 70%;
+                .title-accordion {
+                    background-color: c.$primaryText;
+                    color: white;
+                    cursor: pointer;
+                    padding: 18px;
+                    width: 100%;
+                    border: none;
+                    text-align: left;
+                    outline: none;
+                    font-size: 15px;
+                    transition: 0.4s;
+                    
+                  }
+                  
+                  .title-accordion:nth-child(1){
+                    border-radius: c.$borderRadius c.$borderRadius 0 0;
+                  }
+
+                  .title-accordion:nth-child(5){
+                    border-radius: 0 0 c.$borderRadius c.$borderRadius ;
+                  }
+
+                  .active, .title-accordion:hover {
+                    background-color:c.$secondaryText ;
+                  }
+                  
+                  .content {
+                    padding: 0 18px;
+                    background-color: c.$primaryText;
+                    color: white;
+                    max-height: 0;
+                    overflow: hidden;
+                    transition: max-height 0.2s ease-out;
+                    width: 100%;
+                  }
+            }
+        }
 }

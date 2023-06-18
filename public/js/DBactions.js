@@ -36,14 +36,28 @@ function debug() {
 
       // createProduct -----------------
         async function createProduct(info) {
+          // info é uma array pré-definida, portanto essa função
+          // é unicamente compatível com /createProductPost
+          var sql = "INSERT INTO products VALUES (" + info + ")";
+          const query = await DB.promise().query(sql);
+          if (query[0].affectedRows) result = true;
+          else result = false;
           return result;
         }
   
-      //editProductinfo -------------------
-      async function editProductInfo(id, info, insertion) {
+      //editProductInfoById -------------------
+        async function editProductInfoById(id, info, insertion) {
+          return result;
+        }
 
-        return result;
-      }
+      // deleteProductById
+        async function deleteProductById(id) {
+          var sql = "DELETE FROM products WHERE id=" + id;
+          const query = await DB.promise().query(sql);
+          if (query[0].affectedRows) result = true;
+          else result = false;
+          return result;
+        }
     // table accounts-----------------------------------------------------------------
       // createAccount ---------------------------
       async function createAccount(id, info) {
@@ -57,7 +71,9 @@ function debug() {
 module.exports = {
     // products
     getProductAllInfoById,
-    editProductInfo,
+    createProduct,
+    editProductInfoById,
+    deleteProductById,
 
     // accounts
     createAccount,

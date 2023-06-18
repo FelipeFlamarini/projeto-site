@@ -1,8 +1,103 @@
 @use '../common/index' as c;
 
 .productContainer {
-    grid-area: main;
+    grid-area: "main";
     display: grid;
-    grid-template-areas: 
-    "image info purchase";
+    grid-template-areas:
+    "image info",
+    "description";
+    grid-template-columns: 1fr 1fr;
+    padding: 4rem 10rem;
+    // justify-content: center;
+    align-items: center;
+
+    .image {
+        grid-area: "image";
+        // border: 1px solid blue;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        width: 80%;
+        align-self: end;
+
+        #carName {            
+            font-size: 3rem;
+            // align-self: center;
+        }
+
+        .main {
+            width: 58.6rem;
+            height: 31.6rem;
+            background-color: white;
+        }
+
+        .alt {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 5rem;
+            width: 58.6rem;
+            gap: 2rem;
+            
+            .altImgs {
+                height: 1.5rem;
+                width: 1.5rem;
+                background-color: white;
+                border-radius: 50%;
+            }
+        }
+    }
+
+    .info {
+        grid-area: "info";
+        display: flex;
+        margin: 0 auto;
+        flex-flow: column nowrap;
+        background-color: white;
+        border-radius: c.$borderRadius;
+        padding: 2.5rem 4rem;
+        border: 1px solid red;
+        width: 40%;
+        height: 90%;
+
+        * {
+            font-size: 2rem;
+        }
+
+        .infoIcons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 3rem;
+
+            div {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                
+                img {
+                    height: 40%;
+                    width: 40%
+                }
+            }
+        }
+
+        a {
+            margin-top: 2rem;
+            padding: 1rem;
+            border-radius: c.$borderRadius;
+            align-self: center;
+            background-color: c.$lightPrimary;
+            text-decoration: none;
+            font-weight: bold;
+            color: c.$primaryText;
+        }
+    }
+
+    .description {
+        grid-area: "description";
+    }
 }

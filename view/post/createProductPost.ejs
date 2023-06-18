@@ -10,21 +10,25 @@
 <body>
     <div class="baseContainer">
 
-        <%- include("./partials/header.ejs") %>
+        <%- include("../partials/header.ejs") %>
 
-        <%- include("./partials/nav.ejs") %>
+        <%- include("../partials/nav.ejs") %>
 
         <!-- CONTAINER PRINCIPAL -->
         <main>
             <div class="createProductPostContainer">
-                <p>Seu produto foi criado</p>
+                <% if (result) { %>
+                    <p>Seu produto foi criado</p>
+                <% } else { %>
+                    <p>Seu produto não foi criado, tente novamente</p>
+                <% } %>
                 <form action="http://127.0.0.1:8080/createProduct">
                     <button>Retornar</button>
                 </form>
             </div>
         </main>
 
-        <%- include("./partials/footer.ejs") %>
+        <%- include("../partials/footer.ejs") %>
     </div>
 </body>
 </html>

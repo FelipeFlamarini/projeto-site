@@ -21,28 +21,58 @@
             <% if (info) { %>
                 <div class="productContainer">
                     <div class="image">
-                        <!-- carrossel -->
-                    </div>
-                    <div class="info">
-                            <p id="id"><%= info.id%></p>
-                            <p id="name"><%= info.name%></p>
-                            <p id="model1"><%= info.model1%></p>
-                            <p id="model2"><%= info.model2%></p>
-                            <p id="year"><%= info.year%></p>
-                            <p id=seats><%= info.seats%></p>
-                            <p id="doors"><%= info.doors%></p>
-                            <p id="trunkL"><%= info.trunkL%></p>
-                            <p id="fuel"><%= info.fuel%></p>
-                            <p id="transmission"><%= info.transmission%></p>
-                            <p id="steering"><%= info.steering%></p>
-                            <p id="ABS"><%= info.ABS%></p>
-                            <p id="airbags"><%= info.airbags%></p>
-                            <p id="windows"><%= info.windows%></p>
-                            <p id="locks"><%= info.locks%></p>
+                        <p id="carName"><%= info.name%> <%= info.model1%> <%= info.model2%> <%= info.year%></p>
+
+                        <% if (imgs.length) { %>
+                            <div class="main">
+                                <img src="<%= imgsPath + imgs[imgDisplay]%>" alt="">
+                            </div>
+                            <div class="alt">
+                                <% for (let i = 0; i < imgs.length; i++) { %>
+                                    <a class="altImgs" href="http://localhost:8080/product?id=<%= info.id%>&img=<%= i %>"></a>
+                                <% } %>
+                            </div>
+                        <% } else {%>
+                            <div class="main">
+                                <p>Imagem indisponível</p>
+                            </div>
+                        <% } %> 
+                        
                     </div>
 
-                    <div class="purchase">
-
+                    <div class="info">                    
+                            <p id="fuel"><strong>Combustível:</strong> <%= info.fuel%></p>
+                            <p id="transmission"><strong>Transmissão:</strong> <%= info.transmission%></p>
+                            <p id="steering"><strong>Direção:</strong> <%= info.steering%></p>
+                            <p id="ABS"><strong>ABS:</strong> 
+                            <% if (info.ABS) { %>
+                                sim
+                            <% } else { %>
+                                não
+                            <% } %>
+                            </p>
+                            <p id="airbags"><strong>Airbags:</strong> 
+                                <% if (info.airbags) { %>
+                                    sim
+                                <% } else { %>
+                                    não
+                                <% } %>
+                            </p>
+                            <div class="infoIcons">
+                                <div>
+                                    <img src="./imgs/seatsIcon.png" alt="">
+                                    <p><%= info.seats%></p>
+                                </div>
+                                <div>
+                                    <img src="./imgs/doorsIcon.png" alt="">
+                                    <p><%= info.doors%></p>
+                                </div>
+                                <div>
+                                    <img src="./imgs/fuelIcon.png" alt="">
+                                    <p><%= info.trunkL%>L</p>
+                                </div>
+                            </div>
+                            <a href="#">ALUGAR</a>
                     </div>
                     
                     <div class="description">

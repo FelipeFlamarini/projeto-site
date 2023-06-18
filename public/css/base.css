@@ -114,9 +114,93 @@ a {
 }
 
 .productContainer {
-  grid-area: main;
+  grid-area: "main";
   display: grid;
-  grid-template-areas: "image info purchase";
+  grid-template-areas: "image info", "description";
+  grid-template-columns: 1fr 1fr;
+  padding: 4rem 10rem;
+  align-items: center;
+}
+.productContainer .image {
+  grid-area: "image";
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 80%;
+  align-self: end;
+}
+.productContainer .image #carName {
+  font-size: 3rem;
+}
+.productContainer .image .main {
+  width: 58.6rem;
+  height: 31.6rem;
+  background-color: white;
+}
+.productContainer .image .alt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 5rem;
+  width: 58.6rem;
+  gap: 2rem;
+}
+.productContainer .image .alt .altImgs {
+  height: 1.5rem;
+  width: 1.5rem;
+  background-color: white;
+  border-radius: 50%;
+}
+.productContainer .info {
+  grid-area: "info";
+  display: flex;
+  margin: 0 auto;
+  flex-flow: column nowrap;
+  background-color: white;
+  border-radius: 2rem;
+  padding: 2.5rem 4rem;
+  border: 1px solid red;
+  width: 40%;
+  height: 90%;
+}
+.productContainer .info * {
+  font-size: 2rem;
+}
+.productContainer .info .infoIcons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3rem;
+}
+.productContainer .info .infoIcons div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.productContainer .info .infoIcons div img {
+  height: 40%;
+  width: 40%;
+}
+.productContainer .info a {
+  margin-top: 2rem;
+  padding: 1rem;
+  border-radius: 2rem;
+  align-self: center;
+  background-color: #FFCDD2;
+  text-decoration: none;
+  font-weight: bold;
+  color: #212121;
+}
+.productContainer .description {
+  grid-area: "description";
+}
+
+.createProductContainer form {
+  margin: 1rem 2rem;
+  display: grid;
 }
 
 /*# sourceMappingURL=base.css.map */

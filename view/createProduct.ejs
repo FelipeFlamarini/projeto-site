@@ -18,9 +18,43 @@
         <main>
             <div class="createProductContainer">
                 <form method="post" action="http://127.0.0.1:8080/createProductPost">
-                    <input type="text" name="teste">
-                    <input type="text" name="teste2">
-                    <button>Click</button>
+                    <div class="nomeDoVeiculo">
+                        <label for="">Nome do veículo</label>
+                        <input type="text" id="name" name="name" placeholder="Marca">
+                        <input type="text" id="model1" name="model1" placeholder="Modelo">
+                        <input type="text" id="model2" name="model2" placeholder="Variação">
+                        <input type="text" id="year" name="year" placeholder="Ano">
+                    </div>
+                    <label for="">Detalhes</label>
+                    <input type="number" id="seats" name="seats" placeholder="Lugares">
+                    <input type="number" id="doors" name="doors" placeholder="Portas">
+                    <input type="number" id="trunkL" name="trunkL" placeholder="Capacidade do tanque em litros">
+                    <select id="fuel" name="fuel">
+                        <option value="Gasolina">Gasolina</option>
+                        <option value="Diesel">Diesel</option>
+                        <option value="Flex">Flex</option>
+                    </select>
+                    <select id="transmission" name="transmission">
+                        <option value="Manual">Manual</option>
+                        <option value="Automática">Automática</option>
+                        <option value="Automatizada">Automatizada</option>
+                        <option value="CV">CV</option>
+                    </select>
+                    <select id="steering" name="steering">
+                        <option value="Mecânica">Mecânica</option>
+                        <option value="Hidráulica">Hidráulica</option>
+                        <option value="Elétrica">Elétrica</option>
+                        <option value="Eletro-hidráulica">Eletro-hidráulica</option>
+                    </select>
+                    <select id="ABS" name="ABS">
+                        <option value="1">Sim</option>
+                        <option value="0">Não</option>
+                    </select>
+                    <select id="airbags" name="airbags">
+                        <option value="1">Sim</option>
+                        <option value="0">Não</option>
+                    </select>
+                    <button>Send</button>
                 </form>
             </div>
         </main>

@@ -15,6 +15,139 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+.glide {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+.glide * {
+  box-sizing: inherit;
+}
+.glide__track {
+  overflow: hidden;
+}
+.glide__slides {
+  position: relative;
+  width: 100%;
+  list-style: none;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  touch-action: pan-Y;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+  display: flex;
+  flex-wrap: nowrap;
+  will-change: transform;
+}
+.glide__slides--dragging {
+  user-select: none;
+}
+.glide__slide {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  white-space: normal;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.glide__slide a {
+  user-select: none;
+  -webkit-user-drag: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+.glide__arrows {
+  -webkit-touch-callout: none;
+  user-select: none;
+}
+.glide__bullets {
+  -webkit-touch-callout: none;
+  user-select: none;
+}
+.glide--rtl {
+  direction: rtl;
+}
+
+.glide__arrow {
+  position: absolute;
+  display: block;
+  top: 50%;
+  z-index: 2;
+  color: white;
+  text-transform: uppercase;
+  padding: 9px 12px;
+  background-color: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
+  box-shadow: 0 0.25em 0.5em 0 rgba(0, 0, 0, 0.1);
+  text-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.1);
+  opacity: 1;
+  cursor: pointer;
+  transition: opacity 150ms ease, border 300ms ease-in-out;
+  transform: translateY(-50%);
+  line-height: 1;
+}
+.glide__arrow:focus {
+  outline: none;
+}
+.glide__arrow:hover {
+  border-color: white;
+}
+.glide__arrow--left {
+  left: 2em;
+}
+.glide__arrow--right {
+  right: 2em;
+}
+.glide__arrow--disabled {
+  opacity: 0.33;
+}
+.glide__bullets {
+  position: absolute;
+  z-index: 2;
+  bottom: 2em;
+  left: 50%;
+  display: inline-flex;
+  list-style: none;
+  transform: translateX(-50%);
+}
+.glide__bullet {
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  transition: all 300ms ease-in-out;
+  cursor: pointer;
+  line-height: 0;
+  box-shadow: 0 0.25em 0.5em 0 rgba(0, 0, 0, 0.1);
+  margin: 0 0.25em;
+}
+.glide__bullet:focus {
+  outline: none;
+}
+.glide__bullet:hover, .glide__bullet:focus {
+  border: 2px solid white;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.glide__bullet--active {
+  background-color: white;
+}
+.glide--swipeable {
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+}
+.glide--dragging {
+  cursor: grabbing;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
+}
+
 .index-container {
   width: 100%;
   border: 2px solid rgb(0, 4, 255);
@@ -146,11 +279,12 @@ body {
 }
 .index-container .all-cars {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   flex-wrap: wrap;
   background-color: #BDBDBD;
+  height: 50rem;
 }
 .index-container .all-cars .h1-cars h1 {
   font-size: 5rem;
@@ -163,6 +297,67 @@ body {
 .index-container .all-cars .carros-img {
   width: 20rem;
   border-radius: 2rem;
+}
+.index-container .all-cars .container-carousel {
+  width: 94rem;
+  height: 20rem;
+}
+.index-container .all-cars .container-carousel .glide__arrow {
+  color: black;
+  border: 1px solid black;
+}
+.index-container .all-cars .container-carousel .glide__arrow--left {
+  left: -10rem;
+}
+.index-container .all-cars .container-carousel .glide__arrow--right {
+  right: -10rem;
+}
+.index-container .all-cars .container-carousel .glide__slide .carro {
+  width: 30rem;
+  height: 36rem;
+  border-radius: 2rem;
+  padding: 0.5rem;
+  border: 1px solid #757575;
+  display: flex;
+  flex-direction: column;
+  background-color: #FFFFFF;
+}
+.index-container .all-cars .container-carousel .glide__slide .carro div:nth-child(1) {
+  align-self: center;
+}
+.index-container .all-cars .container-carousel .glide__slide .carro > div:nth-child(3) {
+  display: flex;
+  gap: 1rem;
+}
+.index-container .all-cars .container-carousel .glide__slide .carro .alugar {
+  display: grid;
+  height: 10rem;
+  grid-template-rows: auto auto;
+  grid-template-columns: 60% 40%;
+}
+.index-container .all-cars .container-carousel .glide__slide .carro .alugar > span:nth-child(1) {
+  grid-column: 1/3;
+  grid-row: 1/2;
+  font-size: 2rem;
+}
+.index-container .all-cars .container-carousel .glide__slide .carro .alugar > span:nth-child(2) {
+  font-size: 2.4rem;
+}
+.index-container .all-cars .container-carousel .glide__slide .carro .alugar button {
+  grid-column: 2/3;
+  grid-row: 1/3;
+  height: 5rem;
+  width: 8rem;
+  align-self: center;
+  justify-self: center;
+  border-radius: 2rem;
+  border: none;
+  background-color: #068323;
+  cursor: pointer;
+}
+.index-container .all-cars .container-carousel .glide__slide .carro .alugar button span {
+  color: white;
+  font-weight: bold;
 }
 .index-container .lista-carros-index {
   display: flex;

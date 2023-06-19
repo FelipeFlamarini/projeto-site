@@ -11,9 +11,9 @@ const DB = mysql.createConnection({
 function debug() {
     console.log("debug");
 }
-  
+
   // operações na database---------------------------------------------
-    // table products - retornos são em array ----------------------------------------------------------------
+    // table products -----------------------------------------------------
       // getColumnsNames
       async function getColumnsNames (table) {
         let result = []
@@ -36,11 +36,13 @@ function debug() {
 
       // createProduct -----------------
         async function createProduct(info) {
-          // info é uma array pré-definida, portanto essa função
-          // é unicamente compatível com /createProductPost
           var sql = "INSERT INTO products VALUES (" + info + ")";
           const query = await DB.promise().query(sql);
-          if (query[0].affectedRows) result = true;
+          var result = [];
+          if (query[0].affectedRows) {
+            result[0] = true;
+            result[1] = query[0].insertId;
+          }
           else result = false;
           return result;
         }

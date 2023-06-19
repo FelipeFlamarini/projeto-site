@@ -18,13 +18,12 @@
         <main>
             <div class="createProductPostContainer">
                 <% if (result) { %>
-                    <p>Seu produto foi criado</p>
+                    <p><strong>Seu produto foi criado</strong></p>
+                    <a href="<%= productUrl %>">Ir à página do produto</a>
                 <% } else { %>
-                    <p>Seu produto não foi criado, tente novamente</p>
+                    <p><strong>Seu produto não foi criado, tente novamente</strong></p>
                 <% } %>
-                <form action="http://127.0.0.1:8080/createProduct">
-                    <button>Retornar</button>
-                </form>
+                <a href="http://localhost:8080/createProduct">Retornar</a>
             </div>
         </main>
 

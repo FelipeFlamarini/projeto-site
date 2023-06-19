@@ -2,7 +2,7 @@
 $containerHeight: 31.6rem;
 
 .productContainer {
-    grid-area: "main";
+    grid-area: main;
     display: grid;
     grid-template-areas:
     "image info"
@@ -24,7 +24,7 @@ $containerHeight: 31.6rem;
         // margin-left: 2vw;
         background-color: white;
         border-radius: c.$borderRadius;
-        border: 1px dashed red;
+        border: 1px solid red;
 
         #carName {
             margin-top: 1rem;
@@ -37,8 +37,8 @@ $containerHeight: 31.6rem;
             width: inherit;
             height: $containerHeight;
             background-color: white;
-            border-left: 1px dashed red;
-            border-right: 1px dashed red;
+            border-left: 1px solid red;
+            border-right: 1px solid red;
 
             #mainImage {
                 mix-blend-mode: multiply;
@@ -68,14 +68,14 @@ $containerHeight: 31.6rem;
     .info {
         grid-area: info;
         display: flex;
-        // margin: 0 auto;
+        justify-content: center;
         flex-flow: column nowrap;
         background-color: white;
         border-radius: c.$borderRadius;
-        padding: 2.5rem 4rem;
-        border: 1px dashed red;
+        padding: 3rem 4rem;
+        border: 1px solid red;
         width: 40rem;
-        height: 42.5rem;
+        height: 100%;
         margin-left: 18rem;
 
         * {
@@ -126,7 +126,7 @@ $containerHeight: 31.6rem;
         flex-flow: column nowrap;
         gap: 2rem;
         margin-top: 5rem;
-        border: 1px dashed red;
+        border: 1px solid red;
         border-radius: c.$borderRadius;
         width: 100%;
         background-color: white;

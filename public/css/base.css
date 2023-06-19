@@ -124,8 +124,43 @@ html {
   color: #757575;
 }
 
+.errorContainer {
+  grid-area: main;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.errorContainer img {
+  transform: scale(2) translateY(-20%);
+  object-fit: cover;
+  height: 100%;
+  width: 50%;
+}
+.errorContainer .message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  background-color: white;
+  border: 1px solid red;
+  border-radius: 2rem;
+  font-weight: bold;
+  padding: 2rem;
+  height: 7rem;
+  width: 50rem;
+}
+.errorContainer .message a {
+  text-align: center;
+  text-decoration: none;
+  color: black;
+}
+
 .productContainer {
-  grid-area: "main";
+  grid-area: main;
   display: grid;
   grid-template-areas: "image info" "description description";
   grid-template-columns: 1fr 1fr;
@@ -142,7 +177,7 @@ html {
   justify-self: end;
   background-color: white;
   border-radius: 2rem;
-  border: 1px dashed red;
+  border: 1px solid red;
 }
 .productContainer .image #carName {
   margin-top: 1rem;
@@ -155,8 +190,8 @@ html {
   width: inherit;
   height: 31.6rem;
   background-color: white;
-  border-left: 1px dashed red;
-  border-right: 1px dashed red;
+  border-left: 1px solid red;
+  border-right: 1px solid red;
 }
 .productContainer .image .main #mainImage {
   mix-blend-mode: multiply;
@@ -182,13 +217,14 @@ html {
 .productContainer .info {
   grid-area: info;
   display: flex;
+  justify-content: center;
   flex-flow: column nowrap;
   background-color: white;
   border-radius: 2rem;
-  padding: 2.5rem 4rem;
-  border: 1px dashed red;
+  padding: 3rem 4rem;
+  border: 1px solid red;
   width: 40rem;
-  height: 42.5rem;
+  height: 100%;
   margin-left: 18rem;
 }
 .productContainer .info * {
@@ -236,19 +272,183 @@ html {
   flex-flow: column nowrap;
   gap: 2rem;
   margin-top: 5rem;
-  border: 1px dashed red;
+  border: 1px solid red;
   border-radius: 2rem;
   width: 100%;
   background-color: white;
   padding: 2rem 4rem;
 }
 
+.createProductContainer {
+  grid-area: main;
+  background-color: white;
+  padding: 3rem;
+  margin: 0 auto;
+  gap: 1rem;
+  border-radius: 2rem;
+  border: 1px solid red;
+  width: 70rem;
+  height: auto;
+}
 .createProductContainer form {
-  margin: 1rem 2rem;
-  display: grid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column wrap;
+  gap: 1rem;
+  /* Chrome, Safari, Edge, Opera */
+  /* Firefox */
+}
+.createProductContainer form .nomeDoVeiculo {
+  margin-bottom: 3rem;
+}
+.createProductContainer form .details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column wrap;
+  gap: 0.8rem;
+}
+.createProductContainer form .details .row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+.createProductContainer form label {
+  font-weight: bold;
+}
+.createProductContainer form > label {
+  font-size: 2rem;
+}
+.createProductContainer form input, .createProductContainer form select {
+  width: 8rem;
+  text-align: center;
+}
+.createProductContainer form input::-webkit-outer-spin-button,
+.createProductContainer form input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.createProductContainer form input[type=number] {
+  -moz-appearance: textfield;
+}
+.createProductContainer form #name {
+  width: 12rem;
+}
+.createProductContainer form #seats, .createProductContainer form #doors {
+  width: 2rem;
+}
+.createProductContainer form #trunkL {
+  width: 4rem;
+}
+.createProductContainer form #transmission {
+  width: 11rem;
+}
+.createProductContainer form #steering {
+  width: 12rem;
+}
+.createProductContainer form #ABS, .createProductContainer form #airbags {
+  width: 5rem;
+}
+.createProductContainer form #img {
+  width: auto;
+}
+.createProductContainer form #description {
+  width: 100%;
+  height: 10rem;
+  padding: 1rem;
+}
+.createProductContainer form button {
+  margin-top: 3rem;
+  background-color: #FFCDD2;
+  border: none;
+  width: 10rem;
+  height: 4rem;
+  border-radius: 2rem;
+  font-size: 2rem;
+}
+
+.createProductPostContainer {
+  grid-area: main;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column wrap;
+  background-color: white;
+  border: 1px solid red;
+  border-radius: 2rem;
+  width: 30rem;
+  height: 10rem;
+  gap: 2rem;
+  padding: 3rem;
+}
+.createProductPostContainer a {
+  text-decoration: none;
+  color: black;
+}
+
+.deleteProductContainer {
+  grid-area: main;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 2rem;
+  width: 30rem;
+  height: 14rem;
+  border: 1px solid red;
+  /* Chrome, Safari, Edge, Opera */
+  /* Firefox */
+}
+.deleteProductContainer input::-webkit-outer-spin-button,
+.deleteProductContainer input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.deleteProductContainer input[type=number] {
+  -moz-appearance: textfield;
+}
+.deleteProductContainer form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+  gap: 2rem;
+}
+.deleteProductContainer form input {
+  text-align: center;
+  width: 12rem;
+}
+.deleteProductContainer form button {
+  border: none;
+  background-color: #FFCDD2;
+  border-radius: 2rem;
+  width: 10rem;
+  height: 3rem;
+  font-weight: bold;
+}
+
+.deleteProductPostContainer {
+  grid-area: main;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+  background-color: white;
+  border: 1px solid red;
+  border-radius: 2rem;
+  width: 30rem;
+  height: 14rem;
+  gap: 2rem;
+}
+.deleteProductPostContainer a {
+  text-decoration: none;
+  color: black;
 }
 
 main {
+  grid-area: main;
   display: flex;
   justify-content: center;
   align-items: center;

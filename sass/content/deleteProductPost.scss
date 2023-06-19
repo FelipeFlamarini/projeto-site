@@ -1,0 +1,18 @@
+@use '../common/index' as c;
+
+.deleteProductPostContainer {
+    grid-area: main;
+    @include c.flex-center;
+    flex-flow: column nowrap;
+    background-color: white;
+    border: 1px solid red;
+    border-radius: c.$borderRadius;
+    width: 30rem;
+    height: 14rem;
+    gap: 2rem;
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+}

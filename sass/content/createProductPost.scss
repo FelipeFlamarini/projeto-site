@@ -1,0 +1,19 @@
+@use '../common/index' as c;
+
+.createProductPostContainer {
+    grid-area: main;
+    @include c.flex-center;
+    flex-flow: column wrap;
+    background-color: white;
+    border: 1px solid red;
+    border-radius: c.$borderRadius;
+    width: 30rem;
+    height: 10rem;
+    gap: 2rem;
+    padding: 3rem;
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+}

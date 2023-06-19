@@ -1,5 +1,9 @@
 @use './content/base.scss';
+@use './content/error404.scss';
 @use './content/product.scss';
 @use './content/createProduct.scss';
-@use './content/editproduct.scss';
+@use './content/createProductPost.scss';
+@use './content/deleteProduct.scss';
+@use './content/deleteProductPost.scss';
+@use './content/editProduct.scss';
 @use './content/productNotFound.scss';

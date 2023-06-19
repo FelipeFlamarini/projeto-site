@@ -17,17 +17,11 @@
         <main>
             <div class="deleteProductPostContainer">
                 <% if (result) { %>
-                    <p>Seu produto foi deletado</p>
-                    <form action="http://127.0.0.1:8080/deleteProduct">
-                        <button>Retornar</button>
-                    </form>
+                    <p>O produto foi deletado</p>
                 <% } else { %>
                     <p>O produto não foi encontrado</p>
-                    <form action="http://127.0.0.1:8080/deleteProduct">
-                        <button>Retornar</button>
-                    </form>
                 <% } %>
-
+                <a href="http://localhost:8080/deleteProduct">Retornar</a>
             </div>
         </main>
 

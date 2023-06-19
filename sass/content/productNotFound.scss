@@ -1,6 +1,7 @@
 @use '../common/index' as c;
 
 main {
+    grid-area: main;
     @include c.flex-center;
 }
 

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./css/base.css">
+    <title>Página não encontrada (404)</title>
+</head>
+<body>
+    <div class="baseContainer">
+
+        <%- include("./partials/header.ejs") %>
+
+        <%- include("./partials/nav.ejs") %>
+
+        <main>
+            <div class="errorContainer">
+                <img src="./imgs/bg/scenario4-transformed.jpeg" alt="">
+                <div class="message">
+                    <a href="http://localhost:8080/index">Parece que você deu uma volta errada! Clique aqui para encontrar o caminho de volta à página inicial</a>
+                </div>
+            </div>
+        </main>
+
+        <%- include("./partials/footer.ejs") %>
+    </div>
+    
+</body>
+</html>

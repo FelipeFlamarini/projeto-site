@@ -1,4 +1,105 @@
-.createProductContainer form {
-    margin: 1rem 2rem;
-    display: grid;
+@use '../common/index' as c;
+
+$boxSize: 8rem;
+
+.createProductContainer {
+    grid-area: main;
+    background-color: white;
+    padding: 3rem;
+    margin: 0 auto;
+    gap: 1rem;
+    border-radius: c.$borderRadius;
+    border: 1px solid red;
+    width: 70rem;
+    height: auto;
+    
+    form {
+        @include c.flex-center;
+        flex-flow: column wrap;
+        gap: 1rem;
+
+        .nomeDoVeiculo {
+            margin-bottom: 3rem;
+        }
+
+        .details {
+            @include c.flex-center;
+            flex-flow: column wrap;
+            gap: 0.8rem;
+
+            .row {
+                @include c.flex-center;
+                gap: 2rem;
+            }
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        > label {
+            font-size: 2rem;
+        }
+
+        input, select {
+            width: $boxSize;
+            text-align: center;
+        }
+
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+
+        #name {
+            width: 12rem;
+        }
+
+        #seats, #doors {
+            width: 2rem;
+        }
+
+        #trunkL {
+            width: 4rem;
+        }
+
+        #transmission {
+            width: 11rem;
+        }
+
+        #steering {
+            width: 12rem;
+        }
+
+        #ABS, #airbags {
+            width: 5rem;
+        }
+
+        #img {
+            width: auto;
+        }
+
+        #description {
+            width: 100%;
+            height: 10rem;
+            padding: 1rem;
+        }
+
+        button {
+            margin-top: 3rem;
+            background-color: c.$lightPrimary;
+            border: none;
+            width: 10rem;
+            height: 4rem;
+            border-radius: c.$borderRadius;
+            font-size: 2rem;
+        }
+    }
 }

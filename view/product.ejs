@@ -28,7 +28,7 @@
 
                     <% if (imgs.length) { %>
                         <div class="main">
-                            <img id="mainImage" src="<%= imgsPath %>0.png" alt="">
+                            <img id="mainImage" src="<%= imgsPath %><%= imgs[0] %>" alt="">
                         </div>
 
                         <div class="alt">
@@ -82,6 +82,8 @@
                 <div class="description">
                     <% if (descriptionPath) { %>
                         <%- include(descriptionPath) %>
+                    <% } else { %>
+                        <p>Descrição indisponível</p>
                     <% } %>
                 </div>
             </div>

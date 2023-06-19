@@ -1,0 +1,16 @@
+@use '../common/index' as c;
+
+main {
+    @include c.flex-center;
+}
+
+.productNotFoundContainer {
+    @include c.flex-center;
+    flex-flow: column nowrap;
+    background-color: white;
+    border-radius: c.$borderRadius;
+    border: 1px solid red;
+    width: 50rem;
+    height: 50%;
+    margin: 0 auto;
+}

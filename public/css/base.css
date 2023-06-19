@@ -19,6 +19,16 @@ a {
   text-decoration: none;
 }
 
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #BDBDBD;
+}
+
 .baseContainer {
   display: grid;
   grid-template-areas: "header" "nav" "main" "footer";
@@ -26,6 +36,7 @@ a {
   background: #BDBDBD;
   height: 100vh;
   width: 100vw;
+  max-width: 100%;
 }
 .baseContainer header {
   display: flex;
@@ -116,76 +127,101 @@ a {
 .productContainer {
   grid-area: "main";
   display: grid;
-  grid-template-areas: "image info", "description";
+  grid-template-areas: "image info" "description description";
   grid-template-columns: 1fr 1fr;
   padding: 4rem 10rem;
   align-items: center;
 }
 .productContainer .image {
-  grid-area: "image";
+  grid-area: image;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
-  width: 80%;
-  align-self: end;
+  flex-direction: column;
+  width: 58.6rem;
+  justify-self: end;
+  background-color: white;
+  border-radius: 2rem;
+  border: 1px dashed red;
 }
 .productContainer .image #carName {
+  margin-top: 1rem;
   font-size: 3rem;
 }
 .productContainer .image .main {
-  width: 58.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: inherit;
   height: 31.6rem;
   background-color: white;
+  border-left: 1px dashed red;
+  border-right: 1px dashed red;
+}
+.productContainer .image .main #mainImage {
+  mix-blend-mode: multiply;
+}
+.productContainer .image .main p {
+  font-size: 4rem;
 }
 .productContainer .image .alt {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   height: 5rem;
   width: 58.6rem;
   gap: 2rem;
 }
-.productContainer .image .alt .altImgs {
+.productContainer .image .alt a {
   height: 1.5rem;
   width: 1.5rem;
-  background-color: white;
+  background-color: #D32F2F;
   border-radius: 50%;
+  border: none;
 }
 .productContainer .info {
-  grid-area: "info";
+  grid-area: info;
   display: flex;
-  margin: 0 auto;
   flex-flow: column nowrap;
   background-color: white;
   border-radius: 2rem;
   padding: 2.5rem 4rem;
-  border: 1px solid red;
-  width: 40%;
-  height: 90%;
+  border: 1px dashed red;
+  width: 40rem;
+  height: 42.5rem;
+  margin-left: 18rem;
 }
 .productContainer .info * {
   font-size: 2rem;
 }
 .productContainer .info .infoIcons {
   display: flex;
-  align-items: center;
   justify-content: center;
-  margin-top: 3rem;
+  align-items: center;
+  margin-top: 1rem;
+  gap: 6rem;
 }
 .productContainer .info .infoIcons div {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
 }
 .productContainer .info .infoIcons div img {
-  height: 40%;
-  width: 40%;
+  height: 50px;
+  width: 50px;
+}
+.productContainer .info #price {
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.productContainer .info #price span:nth-child(2) {
+  font-size: 4rem;
 }
 .productContainer .info a {
-  margin-top: 2rem;
+  margin-top: 1rem;
   padding: 1rem;
   border-radius: 2rem;
   align-self: center;
@@ -195,12 +231,40 @@ a {
   color: #212121;
 }
 .productContainer .description {
-  grid-area: "description";
+  grid-area: description;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 2rem;
+  margin-top: 5rem;
+  border: 1px dashed red;
+  border-radius: 2rem;
+  width: 100%;
+  background-color: white;
+  padding: 2rem 4rem;
 }
 
 .createProductContainer form {
   margin: 1rem 2rem;
   display: grid;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.productNotFoundContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+  background-color: white;
+  border-radius: 2rem;
+  border: 1px solid red;
+  width: 50rem;
+  height: 50%;
+  margin: 0 auto;
 }
 
 /*# sourceMappingURL=base.css.map */

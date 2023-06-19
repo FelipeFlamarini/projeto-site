@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produto</title>
+    <% if (info) { %>
+        <title><%= info.name%> <%= info.model1%> <%= info.model2%> <%= info.year%></title>
+    <% } else { %>
+        <title>Produto não encontrado</title>
+    <% } %>
     <link rel="stylesheet" type="text/css" href="./css/base.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -18,76 +22,84 @@
 
         <!----------------- CONTAINER PRINCIPAL --------------->
         <main>
-            <% if (info) { %>
-                <div class="productContainer">
-                    <div class="image">
-                        <p id="carName"><%= info.name%> <%= info.model1%> <%= info.model2%> <%= info.year%></p>
+            <div class="productContainer">
+                <div class="image">
+                    <p id="carName"><%= info.name%> <%= info.model1%> <%= info.model2%> <%= info.year%></p>
 
-                        <% if (imgs.length) { %>
-                            <div class="main">
-                                <img src="<%= imgsPath + imgs[imgDisplay]%>" alt="">
-                            </div>
-                            <div class="alt">
-                                <% for (let i = 0; i < imgs.length; i++) { %>
-                                    <a class="altImgs" href="http://localhost:8080/product?id=<%= info.id%>&img=<%= i %>"></a>
-                                <% } %>
-                            </div>
-                        <% } else {%>
-                            <div class="main">
-                                <p>Imagem indisponível</p>
-                            </div>
-                        <% } %> 
-                        
-                    </div>
+                    <% if (imgs.length) { %>
+                        <div class="main">
+                            <img id="mainImage" src="<%= imgsPath %>0.png" alt="">
+                        </div>
 
-                    <div class="info">                    
-                            <p id="fuel"><strong>Combustível:</strong> <%= info.fuel%></p>
-                            <p id="transmission"><strong>Transmissão:</strong> <%= info.transmission%></p>
-                            <p id="steering"><strong>Direção:</strong> <%= info.steering%></p>
-                            <p id="ABS"><strong>ABS:</strong> 
-                            <% if (info.ABS) { %>
-                                sim
-                            <% } else { %>
-                                não
+                        <div class="alt">
+                            <% for (let i = 0; i < imgs.length; i++) { %>
+                                <a href="#" id="img<%= i %>"></a>
                             <% } %>
-                            </p>
-                            <p id="airbags"><strong>Airbags:</strong> 
-                                <% if (info.airbags) { %>
-                                    sim
-                                <% } else { %>
-                                    não
-                                <% } %>
-                            </p>
-                            <div class="infoIcons">
-                                <div>
-                                    <img src="./imgs/seatsIcon.png" alt="">
-                                    <p><%= info.seats%></p>
-                                </div>
-                                <div>
-                                    <img src="./imgs/doorsIcon.png" alt="">
-                                    <p><%= info.doors%></p>
-                                </div>
-                                <div>
-                                    <img src="./imgs/fuelIcon.png" alt="">
-                                    <p><%= info.trunkL%>L</p>
-                                </div>
-                            </div>
-                            <a href="#">ALUGAR</a>
-                    </div>
+                        </div>
+                        
+                    <% } else {%>
+                        <div class="main">
+                            <p><strong>Imagem indisponível</strong></p>
+                        </div>
+                        <div class="alt">
+                            <a href="" style="visibility: hidden;"></a>
+                        </div>
+                    <% } %> 
                     
-                    <div class="description">
+                </div>
 
+                <div class="info">     
+                    <p id="price"><span>R$</span><span><%= info.price %></span><span> / Diária</span></p>               
+                    <p id="fuel"><strong>Combustível:</strong> <%= info.fuel%></p>
+                    <p id="transmission"><strong>Transmissão:</strong> <%= info.transmission%></p>
+                    <p id="steering"><strong>Direção:</strong> <%= info.steering%></p>
+
+                    <% if (info.ABS) { %>
+                        <p id="ABS"><strong>ABS:</strong> sim</p>
+                    <% } %>
+                    </p>
+                    <% if (info.airbags) { %>
+                        <p id="ABS"><strong>Airbags:</strong> sim</p>
+                    <% } %>
+                    </p>
+                    <div class="infoIcons">
+                        <div>
+                            <img src="./imgs/seatsIcon.png" alt="">
+                            <p><%= info.seats%></p>
+                        </div>
+                        <div>
+                            <img src="./imgs/doorsIcon.png" alt="">
+                            <p><%= info.doors%></p>
+                        </div>
+                        <div>
+                            <img src="./imgs/fuelIcon.png" alt="">
+                            <p><%= info.trunkL%>L</p>
+                        </div>
                     </div>
+                    <a href="#">ALUGAR</a>
                 </div>
-            <% } else { %>
-                <div class="productNotFound">
-                    <p>Produto não encontrado</p>
+                
+                <div class="description">
+                    <% if (descriptionPath) { %>
+                        <%- include(descriptionPath) %>
+                    <% } %>
                 </div>
-            <% } %>
+            </div>
         </main>
         
         <!------------------ FOOTER ------------------->
         <%- include("./partials/footer.ejs") %>
     </div>
 </body>
+<% if (productId) { %>
+    <script>
+        <% for (let i = 0; i < imgs.length; i++) { %>
+            document.getElementById("img<%= i %>").onclick = function() {changeMainImage(<%= i %>)};
+        <% } %>
+
+        function changeMainImage(imageNumber) {
+            document.getElementById("mainImage").src="<%= imgsPath%>" + imageNumber + ".png";
+        }
+    </script>
+<% } %>
 </html>

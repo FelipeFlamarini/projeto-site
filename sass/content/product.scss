@@ -1,92 +1,114 @@
 @use '../common/index' as c;
+$containerHeight: 31.6rem;
 
 .productContainer {
     grid-area: "main";
     display: grid;
     grid-template-areas:
-    "image info",
-    "description";
+    "image info"
+    "description description";
     grid-template-columns: 1fr 1fr;
+    // grid-template-rows: 1fr 1fr;
     padding: 4rem 10rem;
     // justify-content: center;
     align-items: center;
 
     .image {
-        grid-area: "image";
-        // border: 1px solid blue;
-        display: flex;
+        grid-area: image;
+        @include c.flex-center;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin: 0 auto;
-        width: 80%;
-        align-self: end;
+        // margin: 0 auto;
+        width: 58.6rem;
+        justify-self: end;
+        // margin-right: 4vw;
+        // margin-left: 2vw;
+        background-color: white;
+        border-radius: c.$borderRadius;
+        border: 1px dashed red;
 
-        #carName {            
+        #carName {
+            margin-top: 1rem;
             font-size: 3rem;
             // align-self: center;
         }
 
         .main {
-            width: 58.6rem;
-            height: 31.6rem;
+            @include c.flex-center;
+            width: inherit;
+            height: $containerHeight;
             background-color: white;
+            border-left: 1px dashed red;
+            border-right: 1px dashed red;
+
+            #mainImage {
+                mix-blend-mode: multiply;
+            }
+            
+            p {
+                font-size: 4rem;
+            }
         }
 
         .alt {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            @include c.flex-center;
             height: 5rem;
             width: 58.6rem;
             gap: 2rem;
             
-            .altImgs {
+            a {
                 height: 1.5rem;
                 width: 1.5rem;
-                background-color: white;
+                background-color: c.$darkPrimary;
                 border-radius: 50%;
+                border: none;
             }
         }
     }
 
     .info {
-        grid-area: "info";
+        grid-area: info;
         display: flex;
-        margin: 0 auto;
+        // margin: 0 auto;
         flex-flow: column nowrap;
         background-color: white;
         border-radius: c.$borderRadius;
         padding: 2.5rem 4rem;
-        border: 1px solid red;
-        width: 40%;
-        height: 90%;
+        border: 1px dashed red;
+        width: 40rem;
+        height: 42.5rem;
+        margin-left: 18rem;
 
         * {
             font-size: 2rem;
         }
 
         .infoIcons {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 3rem;
+            @include c.flex-center;
+            margin-top: 1rem;
+            gap: 6rem;
 
             div {
-                display: flex;
-                align-items: center;
-                justify-content: center;
+                @include c.flex-center;
                 flex-direction: column;
                 
                 img {
-                    height: 40%;
-                    width: 40%
+                    height: 50px;
+                    width: 50px;
                 }
             }
         }
 
+        #price {
+            align-self: center;
+            @include c.flex-center;
+
+            span:nth-child(2) {
+                font-size: 4rem;
+            }
+        }
+
         a {
-            margin-top: 2rem;
+            margin-top: 1rem;
             padding: 1rem;
             border-radius: c.$borderRadius;
             align-self: center;
@@ -98,6 +120,16 @@
     }
 
     .description {
-        grid-area: "description";
+        grid-area: description;
+        // @include c.flex-center;
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 2rem;
+        margin-top: 5rem;
+        border: 1px dashed red;
+        border-radius: c.$borderRadius;
+        width: 100%;
+        background-color: white;
+        padding: 2rem 4rem;
     }
 }

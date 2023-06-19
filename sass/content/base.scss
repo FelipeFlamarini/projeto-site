@@ -6,6 +6,16 @@ a {
     text-decoration: none;
 }
 
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: c.$divider;
+}
+
 .baseContainer {
     display: grid;
     grid-template-areas: 
@@ -17,6 +27,7 @@ a {
     background: c.$divider;
     height: 100vh;
     width: 100vw;
+    max-width: 100%;
 
 
     header {

@@ -3,6 +3,7 @@ const url = require("url");
 const DB = require("./public/js/DBactions");
 const express = require("express");
 const bodyparser = require("body-parser");
+const { isFloat32Array, isInt16Array } = require("util/types");
 
 const app = express();
 
@@ -11,6 +12,7 @@ const host = "localhost";
 const port = 8080;
 const path = __dirname + "/view"
 const ext = ".ejs";
+const descriptionPath = path + "/partials/carDescriptionById"
 
 app.set("view engine", "ejs"); // define engine para mostrar EJS
 app.use(express.static(__dirname + "/public")); // pasta com CSS, scripts, imgs e afins
@@ -32,7 +34,6 @@ app.post("/createProductPost", async function (req, res) {
   var values = "id,"
   var isValueNull = false;
   Object.keys(req.body).forEach(function (key) {
-    if (req.body[key] == "") isValueNull = true;
     values += "\"" + req.body[key] + "\","
   });
   var result = await DB.createProduct(values.slice(0, -1));
@@ -44,17 +45,36 @@ app.post("/createProductPost", async function (req, res) {
 app.get("/product", async function (req, res) {
   var q = url.parse(req.url, true);
   console.log(q.pathname);
-  var imgs = fs.readdirSync("public/imgs/cars/" + req.query.id + "/");
-  var imgsPath = "imgs/cars/" + req.query.id + "/";
-  if (req.query.img) var imgDisplay = req.query.img;
-  else var imgDisplay = 0;
   if (req.query.id) var info = await DB.getProductAllInfoById(req.query.id);
-  res.render(path + "/product" + ext, {
-    info: info,
-    imgs: imgs,
-    imgsPath: imgsPath,
-    imgDisplay: imgDisplay,
-  });
+  if (info) {
+    var productId = req.query.id;
+    var imgsPath = "imgs/cars/" + productId + "/";
+    if (fs.existsSync("public/imgs/cars/" + productId + "/")) var imgs = fs.readdirSync("public/imgs/cars/" + req.query.id + "/");
+    else var imgs = 0;
+    if (fs.existsSync("view/partials/carDescriptionById/" + productId + ext)) var descriptionPath = "./partials/carDescriptionById/" + productId + ext;
+    else var descriptionPath = 0;
+    if (Number.isInteger(info.price)) info.price = info.price + ",00"
+    else {
+      if (String(info.price).split(".")[1] < 2) {
+        info.price = String(info.price).split(".")[0] + "," + String(info.price).split(".")[1] + "0";
+      }
+      else {
+        info.price = String(info.price).split(".")[0] + "," + String(info.price).split(".")[1].slice(0, 1);
+      }
+    }
+    res.render(path + "/product" + ext, {
+      productId: productId,
+      info: info,
+      imgs: imgs,
+      imgsPath: imgsPath,
+      descriptionPath: descriptionPath, 
+    });
+  }
+  else {
+    res.render(path + "/productNotFound" + ext);
+  }
+  
+  
 });
 
 app.get("/deleteProduct", async function (req, res) {

@@ -1,6 +1,8 @@
 let acc = document.getElementsByClassName("title-accordion");
 let i;
 
+const acordion3 = document.getElementById("3-accordion");
+
 for (i = 0; i < acc.length; i++) {
   acc[i].addEventListener("click", function() {
     this.classList.toggle("active");
@@ -12,3 +14,8 @@ for (i = 0; i < acc.length; i++) {
     } 
   });
 }
+
+
+acordion3.addEventListener('click',function(){
+  acordion3.classList.toggle('no-border')
+})

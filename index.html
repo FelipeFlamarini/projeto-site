@@ -7,8 +7,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="./css/base.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="./js/baseResponsive.js" defer></script>
     <script src="./js/accordion/accordion.js" defer></script>
-    
 </head>
 
 <body>
@@ -20,11 +20,15 @@
                 <a href="#"><i class='bx bxl-facebook-square'></i></a>
                 <a href="#"><i class='bx bxl-instagram-alt' ></i></a>
             </div>
-            <a href="./account.html">Minhas reservas</a>
+            <a class="btn-reservas" href="./account.html">Minhas reservas</a>
+
+            <div class="btn-dropdown" id="BtnDrop">
+                <i class='bx bx-align-justify'></i>
+            </div>
         </header>
 
         <!------------------------- NAV ------------------------>
-        <nav>
+        <nav class="nav">
             <div class="links">
                 <a href="./index.html">Home</a>
                 <a href="./listaDeCarros.html">Lista de carros</a>
@@ -32,6 +36,18 @@
                 <a href=""></a>
             </div>
         </nav>
+
+        <div class="responsive-navBar" id="RnavBar">
+            <ul>
+                <li>
+                    <a href="./account.html">Minhas reservas</a>
+                </li>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./listaDeCarros.html">Lista de carros</a></li>
+                <li><a href="./quemSomos.html">Quem somos</a></li>
+            </ul>
+        </div>
+
         <!----------------- CONTAINER PRINCIPAL --------------->
         <div class="index-container">
             <div class="bg-image">
@@ -311,15 +327,16 @@
                         <div class="content">
                             <p>A idade mínima pode variar dependendo do local e da empresa de aluguel de carros, mas geralmente é entre 21 e 25 anos. No entanto, os motoristas mais jovens podem ser elegíveis para alugar um carro mediante o pagamento de uma taxa adicional de motorista jovem.</p>
                         </div>
-                    <div class="title-accordion">
+                    <div class="title-accordion" id="3-accordion">
                         <span>Quais são os documentos necessários para alugar um carro?</span>
                     </div>
-                        <div class="content">
+                        <div class="content" >
                             <p> Geralmente, é necessário apresentar uma carteira de motorista válida, um documento de identificação válido, como um passaporte ou RG, e um cartão de crédito válido no nome do locatário.</p>
                         </div>
                 </div>
             </div>
     </div>
+        
         
         <!------------------ FOOTER ------------------->
         <footer>
@@ -348,6 +365,9 @@
     breakpoints:{
         1028:{
             perView:2
+        },
+        820:{
+            perView:1
         }
     }
 }

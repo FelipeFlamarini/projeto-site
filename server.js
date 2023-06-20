@@ -29,16 +29,99 @@ app.set("view engine", "ejs"); // define engine para mostrar EJS
 app.use(express.static(__dirname + "/public")); // pasta com CSS, scripts, imgs e afins
 app.use(bodyparser.urlencoded({ limit: "50mb", extended: false}));
 
-app.get("/", async function (req, res) {
-  // res.render(path + "index" + ext)
-})
+// routes ----------------------------------------------------
+//productList ------------------------------------------------------
+app.get("/productList", async function (req, res) {
+  var q = url.parse(req.url, true);
+  console.log(q.pathname);
+  var imgs = [];
+  var amount = 12;
+  if (!req.query.page) res.redirect("/productList?page=1")
+  else {
+    var page = req.query.page;
+    var orderBy = req.query.orderBy;
+    var ASC = req.query.ASC;
+    var transmission = req.query.transmission;
+    var steering = req.query.steering;
 
+
+    // número total de páginas
+    var count = await DB.getCount();
+    var maxPage = Math.ceil(Object.values(count[0][0]) / amount);
+    if (page > maxPage) res.redirect("/error")
+    
+    // pageSelector
+    var pageOption = [];
+    for (var i = 2, j = 0; i >= -2; i--, j++) {
+      if (page - i > 0 & page - i <= maxPage) pageOption[j] = page - i;
+      else pageOption[i] = ""
+    }
+
+    // criação dos filtros
+    // marcas
+    var nameFilter = await DB.getDistinctColumn("name");
+
+    // transmission
+    var transmissionFilter = await DB.getDistinctColumn("transmission");
+
+    // steering
+    var steeringFilter = await DB.getDistinctColumn("steering");
+
+
+    // informações de todos os produtos
+    if (!orderBy) var orderBy = "id"
+    var products = await DB.getProductsInfoWithFilter(orderBy, ASC, "", "", amount, page);
+
+    // ajusta o preço
+    // verifica se há imagem. se não, enviar imagem de indisponível
+    for (var i = 0; i < products[0].length; i++) {
+      products[0][i].price = await adjustPrice(products[0][i].price);
+      var imgsPath = "imgs/cars/" + products[0][i].id;
+      if (fs.existsSync("public/imgs/cars/" + products[0][i].id)) imgs[i] = imgsPath + "/" + fs.readdirSync("public/" + imgsPath)[0];
+      else imgs[i] = 0;
+    }
+
+    // lembrando os filtros
+    var filterQuery = q.path.split("page=")[1].slice(1)
+
+    res.render(path + "/productList" + ext, {
+      products: products[0],
+      maxPage: maxPage,
+      page: page,
+      pageOption: pageOption,
+      imgs: imgs,
+      filterQuery: filterQuery,
+      nameFilter: nameFilter,
+      transmissionFilter: transmissionFilter,
+      steeringFilter: steeringFilter,
+    });
+  }
+});
+
+//productList filters ----------------------------------
+app.post("/productListFilter", async function (req, res) {
+  console.log(req.body);
+  res.redirect(url.format({
+    pathname: "/productList",
+    query: {
+      page: 1,
+      orderBy: req.body.orderBy,
+      ASC: req.body.ASC,
+      transmission: req.body.transmission,
+      steering: req.body.steering,
+    }
+  }
+  ));
+});
+
+//createProduct ------------------------------------------------------
 app.get("/createProduct", async function (req, res) {
   var q = url.parse(req.url, true);
   console.log(q.pathname);
   res.render(path + "/createProduct" + ext)
 });
 
+//createProductPost ------------------------------------------------------
 app.post("/createProductPost", upload.array("img", 5), async function (req, res) {
   var q = url.parse(req.url, true);
   console.log(q.pathname);
@@ -80,10 +163,12 @@ app.post("/createProductPost", upload.array("img", 5), async function (req, res)
   });
 });
 
+//product ------------------------------------------------------
 app.get("/product", async function (req, res) {
   var q = url.parse(req.url, true);
   console.log(q.pathname);
-  if (req.query.id) var info = await DB.getProductAllInfoById(req.query.id);
+  if (req.query.id) var info = await DB.getProductInfoById(req.query.id);
+
   // preparando as informações vindas do DB
   if (info) {
     var productId = req.query.id;
@@ -92,15 +177,7 @@ app.get("/product", async function (req, res) {
     else var imgs = 0;
     if (fs.existsSync("view/partials/carDescriptionById/" + productId + ext)) var descriptionPath = "./partials/carDescriptionById/" + productId + ext;
     else var descriptionPath = 0;
-    if (Number.isInteger(info.price)) info.price = info.price + ",00"
-    else {
-      if (String(info.price).split(".")[1] < 2) {
-        info.price = String(info.price).split(".")[0] + "," + String(info.price).split(".")[1] + "0";
-      }
-      else {
-        info.price = String(info.price).split(".")[0] + "," + String(info.price).split(".")[1].slice(0, 1);
-      }
-    }
+    info.price = await adjustPrice(info.price);
     res.render(path + "/product" + ext, {
       productId: productId,
       info: info,
@@ -114,12 +191,14 @@ app.get("/product", async function (req, res) {
   }
 });
 
+//deleteProduct ------------------------------------------------------
 app.get("/deleteProduct", async function (req, res) {
   var q = url.parse(req.url, true);
   console.log(q.pathname);
   res.render(path + "/deleteProduct" + ext);
 })
 
+//deleteProductPost ------------------------------------------------------
 app.post("/deleteProductPost", async function (req, res) {
   var q = url.parse(req.url, true);
   console.log(q.pathname);
@@ -129,6 +208,7 @@ app.post("/deleteProductPost", async function (req, res) {
   });
 });
 
+// * ------------------------------------------------------
 app.get("*", async function (req, res) {
   var q = url.parse(req.url, true);
   if (fs.existsSync(path + q.pathname + ext)) {
@@ -143,9 +223,22 @@ app.get("*", async function (req, res) {
   }
 });
 
+// abre o server
 app.listen(port, console.log("http://localhost:${ port }"));
 
-// console.log(`Server is running on http://${host}:${port}`)});
+// util
+// ajustar valor de preço para o formato RRRR,CC
+async function adjustPrice(price) {
+  if (Number.isInteger(price)) price = price + ",00";
+  else if (String(price).split(".")[1].length == 1) {
+    price = String(price).split(".")[0] + "," + String(price).split(".")[1] + "0";
+  }
+  else {
+    price = String(price).split(".")[0] + "," + String(price).split(".")[1].slice(0, 2);
+  }
+  return price;
+}
+
   
 // abrindo o webserver com HTTP
 // const requestListener = function (req, res) {
@@ -163,7 +256,7 @@ app.listen(port, console.log("http://localhost:${ port }"));
 //         if (ext == ".js") {
 //           res.writeHead(200, {"Content-Type": "text/javascript"});
 //         }
-//       };
+//       }
 //       res.write(data);
 //       res.end();
 //     })
@@ -173,7 +266,7 @@ app.listen(port, console.log("http://localhost:${ port }"));
 //     res.write("404 " + filename + " not found");
 //     res.end();
 //   }
-// };
+// }
 
 // const server = http.createServer(requestListener);
 // server.listen(port, host, () => {

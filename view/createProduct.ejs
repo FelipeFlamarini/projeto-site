@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="./css/base.css">
-    <title>Document</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Registrar produto</title>
 </head>
 <body>
     <div class="baseContainer">
@@ -86,24 +87,24 @@
                           </select>
                         <input required type="text" id="model1" name="model1" placeholder="Modelo">
                         <input required type="text" id="model2" name="model2" placeholder="Variação">
-                        <input required type="number" id="year" name="year" placeholder="Ano">
+                        <input required type="number" step="1" min="1886" max="2030" id="year" name="year" placeholder="Ano">
                     </div>
                     <label for="details">Detalhes</label>
                     <div class="details">
                         <div class="row">
                             <div>
                                 <label for="seats">Lugares: </label>
-                                <input required type="number" step="1" id="seats" name="seats">
+                                <input required type="number" step="1" min="1" max="1000" id="seats" name="seats">
                             </div>
                             
                             <div>
                                 <label for="doors">Portas: </label>
-                                <input required type="number" step="1" id="doors" name="doors">
+                                <input required type="number" step="1" min="1" max="10" id="doors" name="doors">
                             </div>
 
                             <div>
                                 <label for="trunkL">Capacidade do tanque em litros: </label>
-                                <input required type="number" step="1" id="trunkL" name="trunkL">
+                                <input required type="number" step="1" max="99999" id="trunkL" name="trunkL">
                             </div>
                         </div>
 
@@ -159,7 +160,7 @@
                         <div class="row">
                             <div>
                                 <label for="price">Preço diário: R$</label>
-                                <input required type="number" step="0.01" id="price" name="price">
+                                <input required type="number" step="0.01" max="99999" id="price" name="price">
                             </div>
                         </div>
 

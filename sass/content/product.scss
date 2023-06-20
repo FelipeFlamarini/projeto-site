@@ -39,8 +39,12 @@ $containerHeight: 31.6rem;
             background-color: white;
             border-left: 1px solid red;
             border-right: 1px solid red;
+            overflow: hidden;
 
             #mainImage {
+                width: inherit;
+                height: inherit;
+                object-fit: contain;
                 mix-blend-mode: multiply;
             }
             

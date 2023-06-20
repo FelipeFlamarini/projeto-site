@@ -192,8 +192,12 @@ html {
   background-color: white;
   border-left: 1px solid red;
   border-right: 1px solid red;
+  overflow: hidden;
 }
 .productContainer .image .main #mainImage {
+  width: inherit;
+  height: inherit;
+  object-fit: contain;
   mix-blend-mode: multiply;
 }
 .productContainer .image .main p {
@@ -465,6 +469,133 @@ main {
   width: 50rem;
   height: 50%;
   margin: 0 auto;
+}
+
+.productListContainer {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+.productListContainer .pageSelector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-self: center;
+  width: 20rem;
+  height: 5rem;
+  background-color: white;
+  grid-column: 1/3;
+  border: 1px solid black;
+  border-radius: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.productListContainer .pageSelector a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+}
+.productListContainer .pageSelector a i {
+  font-size: 3rem;
+}
+.productListContainer .pageSelector .pages {
+  width: 80%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  font-size: 2rem;
+  font-weight: bold;
+  gap: 2rem;
+}
+.productListContainer .pageSelector .pages .unclickable {
+  pointer-events: none;
+  cursor: default;
+}
+.productListContainer .filters {
+  background-color: white;
+  border: 1px solid black;
+}
+.productListContainer .filters form {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+  height: 100%;
+}
+.productListContainer .filters form button, .productListContainer .filters form a {
+  color: black;
+  border: none;
+  background-color: #FFCDD2;
+  padding: 1rem;
+  border-radius: 2rem;
+  font-weight: bold;
+  font-size: 1.6rem;
+}
+.productListContainer .filters form label {
+  font-weight: bold;
+}
+.productListContainer .filters form select {
+  text-align: center;
+}
+.productListContainer .filters, .productListContainer .products {
+  border-radius: 2rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
+}
+.productListContainer .products {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+}
+.productListContainer .products .product {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+  border-radius: 2rem;
+  border: 1px solid black;
+  width: 100%;
+  background-color: white;
+  height: 40rem;
+}
+.productListContainer .products .product .main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column wrap;
+}
+.productListContainer .products .product .main p {
+  font-weight: bold;
+  font-size: 2.2rem;
+}
+.productListContainer .products .product .main #mainImage {
+  text-align: center;
+  line-height: 20rem;
+  height: 20rem;
+  width: 40rem;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+.productListContainer .products .product .info {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.productListContainer .products .product .info p span {
+  font-weight: bold;
+}
+.productListContainer .products .product .info p:nth-child(3) {
+  align-self: center;
+  font-size: 2rem;
+}
+.productListContainer .products .product a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  background-color: #FFCDD2;
+  padding: 1rem;
+  border-radius: 2rem;
 }
 
 /*# sourceMappingURL=base.css.map */

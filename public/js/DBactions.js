@@ -26,7 +26,7 @@ function debug() {
       }
 
       // getProductInfo -----------------
-        async function getProductAllInfoById(id) {
+        async function getProductInfoById(id) {
             let columns = await getColumnsNames("products");
             var sql = "SELECT * FROM products WHERE id = " + id;
             const query = await DB.promise().query(sql);
@@ -60,6 +60,49 @@ function debug() {
           else result = false;
           return result;
         }
+
+      // productList
+        // getProductsInfo
+        async function getProductsInfo(amount, page) {
+          var sql = "SELECT * FROM products ORDER BY id ASC LIMIT " + amount + " OFFSET " + ((page - 1) * amount);
+          const query = await DB.promise().query(sql);
+          return query;
+        }
+
+        // getCount
+        async function getCount() {
+          var sql = "SELECT COUNT(*) FROM products"
+          const query = await DB.promise().query(sql);
+          return query;
+        }
+
+        // getDistinctColumn
+        async function getDistinctColumn(column, ASC = true) {
+          var sql = "SELECT DISTINCT " + column + " FROM products ORDER BY " + column;
+          if (ASC) sql += " ASC"
+          else sql += " DESC"
+          const query = await DB.promise().query(sql);
+          var distinctColumn = []
+          for (var i = 0; i < query[0].length; i++) {
+            distinctColumn[i] = Object.values(query[0][i]);
+          }
+          return distinctColumn;
+        }
+
+        // getProductsInfoWithFilter
+        async function getProductsInfoWithFilter(orderBy, ASC = 1, info, target, amount, page) {
+          var sql = "SELECT * FROM products ";
+          if (info) sql += "WHERE " + info + "=" + target;
+          sql += "ORDER BY " + orderBy + " ";
+          if (ASC > 0) sql += "ASC ";
+          else sql += "DESC ";
+          sql += "LIMIT " + amount + " OFFSET " + ((page - 1) * amount);
+          const query = await DB.promise().query(sql);
+          console.log(sql);
+          return query;
+        }
+
+
     // table accounts-----------------------------------------------------------------
       // createAccount ---------------------------
       async function createAccount(id, info) {
@@ -72,10 +115,16 @@ function debug() {
 
 module.exports = {
     // products
-    getProductAllInfoById,
+    getProductInfoById,
     createProduct,
     editProductInfoById,
     deleteProductById,
+    
+    //productList
+    getProductsInfo,
+    getCount,
+    getDistinctColumn,
+    getProductsInfoWithFilter,
 
     // accounts
     createAccount,

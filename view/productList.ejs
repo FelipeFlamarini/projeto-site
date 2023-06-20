@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./css/base.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Carros - página <%= page %> | LocaCar</title>
+</head>
+<body>
+    <div class="baseContainer">
+
+        <%- include("./partials/header.ejs") %>
+
+        <%- include("./partials/nav.ejs") %>
+
+        <div class="productListContainer">
+
+            <%- include("./partials/pageSelector.ejs") %>
+
+            <div class="filters">
+                <form method="post" action="./productListFilter">
+                    <div>
+                        <button>Aplicar filtros</button>
+                    </div>
+
+                    <div>
+                        <label for="">Ordernar por </label>
+                        <select name="orderBy" id="orderBy">
+                            <option value="id">registro</option>
+                            <option value="year">ano</option>
+                            <option value="price">preço</option>
+                        </select>
+
+                        <select name="ASC" id="ASC">
+                            <option value="1">crescente</option>
+                            <option value="0">decrescente</option>
+                        </select>
+                    </div>
+
+                    <label for="">Marcas</label>
+                    <div>
+                        <% for(var i = 0; i < nameFilter.length; i++) { %>
+                            <label for=""><%= nameFilter[i] %></label>
+                            <input type="checkbox" name="name" value="<%= nameFilter[i] %>">
+                        <% } %>
+                    </div>
+
+                    <label for="">Tipo de transmissão</label>
+                    <div>
+                        <% for(var i = 0; i < transmissionFilter.length; i++) { %>
+                            <label for=""><%= transmissionFilter[i] %></label>
+                            <input type="checkbox" name="transmission" value="<%= transmissionFilter[i] %>">
+                        <% } %>
+                    </div>
+
+                    <label for="">Tipo de direção</label>
+                    <div>
+                        <% for(var i = 0; i < steeringFilter.length; i++) { %>
+                            <label for=""><%= steeringFilter[i] %></label>
+                            <input type="checkbox" name="steering" value="<%= steeringFilter[i] %>">
+                        <% } %>
+                    </div>
+
+                </form>
+            </div>
+
+            <div class="products">
+                    <% for (var i = 0; i < products.length; i++) { %>
+                        <div class="product">
+                            <div class="main">
+                                <p><%= products[i].name %> <%= products[i].model1 %> <%= products[i].model2 %> <%= products[i].year %></p>
+                                <% if (imgs[i]) { %>
+                                    <img id="mainImage" src="<%= imgs[i] %>" alt="">
+                                <% } else { %>
+                                    <p id="mainImage">Imagem indisponível</p>
+                                <% } %>
+                                
+                            </div>
+                            <div class="info">
+                                <p><span>Transmissão: </span><%= products[i].transmission %></p>
+                                <p><span>Direção: </span><%= products[i].steering %></p>
+                                <p><span>R$</span><%= products[i].price %><span>/Diária</span></p>
+                            </div>
+                            <a href="./product?id=<%= products[i].id %>">MAIS DETALHES</a>
+                        </div>
+                    <% } %>
+            </div>
+
+            <%- include("./partials/pageSelector.ejs") %>
+
+        </div>
+
+        <%- include("./partials/footer.ejs") %>
+
+    </div>
+</body>
+</html>

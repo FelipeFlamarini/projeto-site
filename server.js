@@ -33,7 +33,6 @@ app.use(bodyparser.urlencoded({ limit: "50mb", extended: false}));
 //productList ------------------------------------------------------
 app.get("/productList", async function (req, res) {
   var q = url.parse(req.url, true);
-  console.log(q.pathname);
   var imgs = [];
   var amount = 12;
   if (!req.query.page) res.redirect("/productList?page=1")
@@ -43,20 +42,12 @@ app.get("/productList", async function (req, res) {
     var ASC = req.query.ASC;
     var transmission = req.query.transmission;
     var steering = req.query.steering;
-
-
-    // número total de páginas
-    var count = await DB.getCount();
-    var maxPage = Math.ceil(Object.values(count[0][0]) / amount);
-    if (page > maxPage) res.redirect("/error")
-    
-    // pageSelector
-    var pageOption = [];
-    for (var i = 2, j = 0; i >= -2; i--, j++) {
-      if (page - i > 0 & page - i <= maxPage) pageOption[j] = page - i;
-      else pageOption[i] = ""
+    var queryPage = [];
+    for (var i = 2; i < req.query.length; i++) {
+      queryPage[i - 2] = req.query.page[i];
     }
-
+    
+    
     // criação dos filtros
     // marcas
     var nameFilter = await DB.getDistinctColumn("name");
@@ -68,9 +59,34 @@ app.get("/productList", async function (req, res) {
     var steeringFilter = await DB.getDistinctColumn("steering");
 
 
-    // informações de todos os produtos
+    // informações de todos os produtos com filtros
     if (!orderBy) var orderBy = "id"
-    var products = await DB.getProductsInfoWithFilter(orderBy, ASC, "", "", amount, page);
+    var filterInfo = [];
+    var filterTarget = [];
+    for (var i = 0; i < Object.keys(req.query).length - 3; i++) {
+        var info = Object.keys(req.query)[i + 3];
+        var target = Object.values(req.query)[i + 3];
+      if (target.length) {
+        filterInfo[i] = info;
+        filterTarget[i] = target;
+      }
+
+    }
+    // for (var i = 0; i < Object.values(req.query).length - 3; i++) {
+    //   filterTarget[i] = Object.values(req.query)[i + 3];
+    // }
+
+    var products = await DB.getProductsInfoWithFilter(orderBy, ASC, filterInfo, filterTarget, amount, page);
+
+    // pageSelector, ajusta o número de páginas
+    var count = await DB.getCount();
+    var maxPage = Math.ceil(Object.values(count[0][0]) / amount);
+    if (page > maxPage) res.redirect("/error")
+    var pageOption = [];
+    for (var i = 2, j = 0; i >= -2; i--, j++) {
+      if (page - i > 0 & page - i <= maxPage) pageOption[j] = page - i;
+      else pageOption[i] = ""
+    }
 
     // ajusta o preço
     // verifica se há imagem. se não, enviar imagem de indisponível
@@ -83,6 +99,7 @@ app.get("/productList", async function (req, res) {
 
     // lembrando os filtros
     var filterQuery = q.path.split("page=")[1].slice(1)
+
 
     res.render(path + "/productList" + ext, {
       products: products[0],
@@ -100,13 +117,14 @@ app.get("/productList", async function (req, res) {
 
 //productList filters ----------------------------------
 app.post("/productListFilter", async function (req, res) {
-  console.log(req.body);
+
   res.redirect(url.format({
     pathname: "/productList",
     query: {
       page: 1,
       orderBy: req.body.orderBy,
       ASC: req.body.ASC,
+      name: req.body.name,
       transmission: req.body.transmission,
       steering: req.body.steering,
     }

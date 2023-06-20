@@ -92,15 +92,30 @@ function debug() {
         // getProductsInfoWithFilter
         async function getProductsInfoWithFilter(orderBy, ASC = 1, info, target, amount, page) {
           var sql = "SELECT * FROM products ";
-          if (info) sql += "WHERE " + info + "=" + target;
+          if (target.length) {
+            sql += "WHERE "
+            for (var i = 0; i < info.length; i++) {
+              for (var j = 0; j < target.length; j++) {
+                if (!Array.isArray(target[j] & target[j].length > 0)) sql += info[i] + "=\"" + target[j] + "\" OR ";
+                else { 
+                  for (var k = 0; k < target[j].length; k++) {
+                    console.log(target[j][k]);
+                    if (target[j][k].length) sql += info[i] + "=\"" + target[j][k] + "\" OR "; 
+                  }
+                }
+              }
+            }
+            sql = sql.slice(0, -3);
+          }
           sql += "ORDER BY " + orderBy + " ";
           if (ASC > 0) sql += "ASC ";
           else sql += "DESC ";
           sql += "LIMIT " + amount + " OFFSET " + ((page - 1) * amount);
-          const query = await DB.promise().query(sql);
           console.log(sql);
+          const query = await DB.promise().query(sql);
           return query;
         }
+
 
 
     // table accounts-----------------------------------------------------------------

@@ -1,5 +1,5 @@
 <div class="pageSelector">
-    <a href="./productList?page=1"><i class='bx bxs-chevron-left' ></i></a>
+    <a href="./productList?page=1<%= filterQuery %>"><i class='bx bxs-chevron-left' ></i></a>
     <div class="pages">
         <% for (var i = 0; i < 5; i++) { %>
             <% if (pageOption[i]) { %>
@@ -9,5 +9,5 @@
             <% } %>
         <% } %>
      </div>
-    <a href="./productList?page=<%= maxPage %>"><i class='bx bxs-chevron-right'></i></a>
+    <a href="./productList?page=<%= maxPage %><%= filterQuery %>"><i class='bx bxs-chevron-right'></i></a>
 </div>

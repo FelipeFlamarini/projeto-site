@@ -40,8 +40,6 @@ app.get("/productList", async function (req, res) {
     var page = req.query.page;
     var orderBy = req.query.orderBy;
     var ASC = req.query.ASC;
-    var transmission = req.query.transmission;
-    var steering = req.query.steering;
     var queryPage = [];
     for (var i = 2; i < req.query.length; i++) {
       queryPage[i - 2] = req.query.page[i];
@@ -49,15 +47,12 @@ app.get("/productList", async function (req, res) {
     
     
     // criação dos filtros
-    // marcas
-    var nameFilter = await DB.getDistinctColumn("name");
-
-    // transmission
-    var transmissionFilter = await DB.getDistinctColumn("transmission");
-
-    // steering
-    var steeringFilter = await DB.getDistinctColumn("steering");
-
+    var productsColumns = await DB.getColumnsNames("products");
+    var filters = {};
+    for (var i = 0; i < productsColumns.length; i++) {
+      var distinctColumn = await DB.getDistinctColumn(productsColumns[i]);
+      Object.assign(filters, {[productsColumns[i]]: distinctColumn});
+    }
 
     // informações de todos os produtos com filtros
     if (!orderBy) var orderBy = "id"
@@ -66,16 +61,13 @@ app.get("/productList", async function (req, res) {
     for (var i = 0; i < Object.keys(req.query).length - 3; i++) {
         var info = Object.keys(req.query)[i + 3];
         var target = Object.values(req.query)[i + 3];
-      if (target.length) {
         filterInfo[i] = info;
-        filterTarget[i] = target;
-      }
+      if (target.length != 0) filterTarget[i] = target;
+      else filterTarget[i] = "";
 
     }
-    // for (var i = 0; i < Object.values(req.query).length - 3; i++) {
-    //   filterTarget[i] = Object.values(req.query)[i + 3];
-    // }
 
+    // recebendo produtos da DB
     var products = await DB.getProductsInfoWithFilter(orderBy, ASC, filterInfo, filterTarget, amount, page);
 
     // pageSelector, ajusta o número de páginas
@@ -97,9 +89,8 @@ app.get("/productList", async function (req, res) {
       else imgs[i] = 0;
     }
 
-    // lembrando os filtros
+    // passando os filtros
     var filterQuery = q.path.split("page=")[1].slice(1)
-
 
     res.render(path + "/productList" + ext, {
       products: products[0],
@@ -107,17 +98,15 @@ app.get("/productList", async function (req, res) {
       page: page,
       pageOption: pageOption,
       imgs: imgs,
+      filters: filters,
       filterQuery: filterQuery,
-      nameFilter: nameFilter,
-      transmissionFilter: transmissionFilter,
-      steeringFilter: steeringFilter,
     });
   }
 });
 
 //productList filters ----------------------------------
 app.post("/productListFilter", async function (req, res) {
-
+  console.log(req.body);
   res.redirect(url.format({
     pathname: "/productList",
     query: {

@@ -13,6 +13,12 @@ function debug() {
 }
 
   // operações na database---------------------------------------------
+    //custom query
+    async function customQuery(sql) {
+      const query = await DB.promise().query(sql);
+      return query;
+    }
+
     // table products -----------------------------------------------------
       // getColumnsNames
       async function getColumnsNames (table) {
@@ -92,21 +98,32 @@ function debug() {
         // getProductsInfoWithFilter
         async function getProductsInfoWithFilter(orderBy, ASC = 1, info, target, amount, page) {
           var sql = "SELECT * FROM products ";
-          if (target.length) {
+          var filter = 0;
+          for (var i = 0; i < target.length; i++) {
+            if (target[i].length) {
+              filter = 1;
+              break;
+            }
+          }
+          if (filter) { // construindo query para o mysql
             sql += "WHERE "
             for (var i = 0; i < info.length; i++) {
-              for (var j = 0; j < target.length; j++) {
-                if (!Array.isArray(target[j] & target[j].length > 0)) sql += info[i] + "=\"" + target[j] + "\" OR ";
-                else { 
-                  for (var k = 0; k < target[j].length; k++) {
-                    console.log(target[j][k]);
-                    if (target[j][k].length) sql += info[i] + "=\"" + target[j][k] + "\" OR "; 
+              if (target[i]) {
+                sql += info[i] + " IN ("
+                if (Array.isArray(target[i])) {
+                  for (var k = 0; k < target[i].length; k++) {
+                    sql += "\"" + target[i][k] + "\"";
+                    if (k < target[i].length - 1) sql += ",";
                   }
                 }
+                else sql += "\"" + target[i] + "\"";
+                sql += ") "
+                if (i < info.length - 1) sql += "AND ";
               }
             }
-            sql = sql.slice(0, -3);
           }
+          if (sql.slice(sql.length - 4, -1) == "AND") sql = sql.slice(0, -4);
+          else if (sql.slice(sql.length - 3, -1) == "OR") sql = sql.slice(0, -3);
           sql += "ORDER BY " + orderBy + " ";
           if (ASC > 0) sql += "ASC ";
           else sql += "DESC ";
@@ -129,7 +146,10 @@ function debug() {
       }
 
 module.exports = {
+    customQuery,
+
     // products
+    getColumnsNames,
     getProductInfoById,
     createProduct,
     editProductInfoById,
@@ -144,4 +164,4 @@ module.exports = {
     // accounts
     createAccount,
     authenticateLogin,
-};
+}

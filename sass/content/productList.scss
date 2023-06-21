@@ -1,8 +1,9 @@
 @use '../common/index' as c;
 
 .productListContainer {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
+    @include c.flex-center;
+    flex-flow: column nowrap;
+    padding: 2rem;
 
     .pageSelector {
         @include c.flex-center;
@@ -11,7 +12,8 @@
         height: 5rem;
         background-color: white;
         grid-column: 1 / 3;
-        border: 1px solid black;
+        // border: 1px solid black;
+        box-shadow: 0 0 .5rem black;
         border-radius: c.$borderRadius;
         margin-top: 1rem;
         margin-bottom: 1rem;
@@ -28,7 +30,6 @@
         .pages {
             width: 80%;
             display: grid;
-            // grid-template-rows: 1fr;
             grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
             font-size: 2rem;
             font-weight: bold;
@@ -41,18 +42,92 @@
         }
     }
 
-    .filters {
+    .filtersContainer {
         background-color: white;
-        border: 1px solid black;
+        // border: 1px solid black;
+        box-shadow: 0 0 .5rem black;
+        border-radius: c.$borderRadius;
+
+        @media screen and (min-width: 1440px) {
+            width: 135rem;
+        }
+
+        // @media screen and (min-width: 1000px) and (max-width: 1536px) {
+        //     width: 90rem
+        // }
+
+        @media screen and (min-width: 740px) and (max-width: 1439px) {
+            width: 65rem;
+        }
+
+        @media screen and (min-width: 320px) and (max-width: 739px) {
+            width: 40rem;
+        }
 
          form {
-            display: flex;
-            flex-flow: column nowrap;
-            align-items: center;
+            @include c.flex-center;
+            flex-flow: row wrap;
             gap: 1rem;
-            // justify-content: center;
             padding: 2rem;
             height: 100%;
+
+            .orderByContainer {
+                @include c.flex-center;
+                width: 100%;
+
+                @media screen and (min-width: 1537px) {
+                }
+
+                @media screen and (min-width: 800px) {
+                }
+            }
+
+            .apply {
+                border: none;
+                width: 100%;
+                @include c.flex-center;
+
+                @media screen and (min-width: 1537px) {
+                    
+                }
+
+                @media screen and (min-width: 800px) {
+                    
+                }
+
+                button {
+                    box-shadow: 0 0 .5rem black;
+                }
+            }
+
+            .filter {
+                @include c.flex-center;
+                flex-flow: column nowrap;
+                // border: 1px solid black;
+                box-shadow: 0 0 .5rem black;
+                padding: 1rem;
+                border-radius: c.$borderRadius;
+                gap: 0.5rem;
+                width: 30rem;
+
+                .filterOptions {
+                    line-height: 2rem;
+                    display: flex;
+                    flex-flow: row wrap;
+                    align-items: center;
+                    min-height: 0;
+                    overflow-y: auto;
+                    height: 8rem;
+                    width: 20rem;
+                    background-color: lightgray;
+                    padding: 0.5rem;
+                    box-shadow: 0 0 .8rem black;
+
+                    > div {
+                        width: inherit;
+                    }
+                }
+            }
 
             button, a {
                 color: black;
@@ -76,43 +151,67 @@
 
     .filters, .products {
         border-radius: c.$borderRadius;
-        margin-left: 3rem;
-        margin-right: 3rem;
-        // margin: 3rem;
+        // margin-left: 3rem;
+        // margin-right: 3rem;
+        margin: 3rem;
+    }
+
+    .filters {
+        height: 42rem;
     }
 
     .products {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
         // grid-template-rows: 40rem 40rem 40rem; 
         gap: 1rem;
+
+        @media screen and (min-width: 2001px) {
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            width: 180rem;
+        }
+
+        @media screen and (min-width: 1440px) and (max-width: 2000px) {
+            grid-template-columns: 1fr 1fr 1fr;
+            width: 135rem;
+        }
+
+        @media screen and (min-width: 1000px) and (max-width: 1439px) {
+            grid-template-columns: 1fr 1fr;
+            width: 90rem
+        }
         
         .product {
             @include c.flex-center;
             flex-flow: column nowrap;
             border-radius: c.$borderRadius;
-            border: 1px solid black;
+            box-shadow: 0 0 .5rem black;
             // padding: 2rem;
             width: 100%;
             background-color: white;
-            height: 40rem;
+            height: 45rem;
 
             .main {
                 @include c.flex-center;
                 flex-flow: column wrap;
+                padding: 1rem;
 
                 p {
                     font-weight: bold;
                     font-size: 2.2rem;
+                    padding: 1rem;
                 }
 
                 #mainImage {
                     text-align: center;
                     line-height: 20rem;
-                    height: 20rem;
-                    width: 40rem;
+                    max-height: 20rem;
+                    max-width: 38rem;
+                    // height: 20rem;
+                    // width: 40rem;
+                    margin-bottom: 1rem;
                     object-fit: contain;
                     mix-blend-mode: multiply;
+                    box-shadow: 0 0 1rem black;
                 }
             }
 
@@ -134,7 +233,7 @@
                     font-size: 2rem;
                 }
             }
-
+        
             a {
                 text-decoration: none;
                 color: black;
@@ -142,7 +241,13 @@
                 background-color: c.$lightPrimary;
                 padding: 1rem;
                 border-radius: c.$borderRadius;
-            };
+                box-shadow: 0 0 0.6rem black;
+                transition: all .2s ease-in-out
+            }
+
+            a:hover {
+                transform:scale(1.1);
+            }
         }
     }
 }

@@ -322,7 +322,6 @@ a {
 .index-container .bg-image {
   width: 100%;
   height: 50rem;
-  margin-bottom: 1rem;
   background-image: url(../sass/img/imagem-banner-site.jpg);
   display: flex;
   justify-content: none;
@@ -406,14 +405,29 @@ a {
   font-weight: bold;
   font-size: 1.5rem;
 }
-.index-container .bg-image .all-search-date .search-date .data-retirda, .index-container .bg-image .all-search-date .search-date .hora-retirda, .index-container .bg-image .all-search-date .search-date .hora-devolver, .index-container .bg-image .all-search-date .search-date .data-devolver {
+.index-container .bg-image .all-search-date .search-date .data-retirda, .index-container .bg-image .all-search-date .search-date .data-devolver {
   width: 13.4rem;
+  height: 6.4rem;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+.index-container .bg-image .all-search-date .search-date .data-retirda span, .index-container .bg-image .all-search-date .search-date .data-devolver span {
+  font-size: 1.2rem;
+}
+.index-container .bg-image .all-search-date .search-date .data-retirda input[type=date], .index-container .bg-image .all-search-date .search-date .data-devolver input[type=date] {
+  border: none;
+  outline: none;
+  font-size: 1.5rem;
+}
+.index-container .bg-image .all-search-date .search-date .hora-retirda, .index-container .bg-image .all-search-date .search-date .hora-devolver {
+  width: 9.5rem;
   height: 6.4rem;
   display: flex;
   padding: 1rem;
 }
-.index-container .bg-image .all-search-date .search-date .data-retirda > div:nth-child(1), .index-container .bg-image .all-search-date .search-date .hora-retirda > div:nth-child(1), .index-container .bg-image .all-search-date .search-date .hora-devolver > div:nth-child(1), .index-container .bg-image .all-search-date .search-date .data-devolver > div:nth-child(1) {
-  width: 4rem;
+.index-container .bg-image .all-search-date .search-date .hora-retirda > div:nth-child(1), .index-container .bg-image .all-search-date .search-date .hora-devolver > div:nth-child(1) {
+  width: auto;
   height: 100%;
   display: flex;
   justify-content: flex-start;
@@ -421,19 +435,21 @@ a {
   flex-direction: row;
   flex-wrap: wrap;
 }
-.index-container .bg-image .all-search-date .search-date .data-retirda > div:nth-child(1) i, .index-container .bg-image .all-search-date .search-date .hora-retirda > div:nth-child(1) i, .index-container .bg-image .all-search-date .search-date .hora-devolver > div:nth-child(1) i, .index-container .bg-image .all-search-date .search-date .data-devolver > div:nth-child(1) i {
+.index-container .bg-image .all-search-date .search-date .hora-retirda > div:nth-child(1) i, .index-container .bg-image .all-search-date .search-date .hora-devolver > div:nth-child(1) i {
   font-size: 2rem;
 }
-.index-container .bg-image .all-search-date .search-date .data-retirda > div:nth-child(2), .index-container .bg-image .all-search-date .search-date .hora-retirda > div:nth-child(2), .index-container .bg-image .all-search-date .search-date .hora-devolver > div:nth-child(2), .index-container .bg-image .all-search-date .search-date .data-devolver > div:nth-child(2) {
+.index-container .bg-image .all-search-date .search-date .hora-retirda > div:nth-child(2), .index-container .bg-image .all-search-date .search-date .hora-devolver > div:nth-child(2) {
   display: flex;
   flex-direction: column;
 }
-.index-container .bg-image .all-search-date .search-date .data-retirda > div:nth-child(2) span:nth-child(1), .index-container .bg-image .all-search-date .search-date .hora-retirda > div:nth-child(2) span:nth-child(1), .index-container .bg-image .all-search-date .search-date .hora-devolver > div:nth-child(2) span:nth-child(1), .index-container .bg-image .all-search-date .search-date .data-devolver > div:nth-child(2) span:nth-child(1) {
-  font-size: 1rem;
+.index-container .bg-image .all-search-date .search-date .hora-retirda > div:nth-child(2) span:nth-child(1), .index-container .bg-image .all-search-date .search-date .hora-devolver > div:nth-child(2) span:nth-child(1) {
+  font-size: 1.2rem;
+  margin-left: 0.5rem;
 }
-.index-container .bg-image .all-search-date .search-date .hora-retirda, .index-container .bg-image .all-search-date .search-date .hora-devolver {
-  width: 8.7rem;
-  height: 6.4rem;
+.index-container .bg-image .all-search-date .search-date .hora-retirda > div:nth-child(2) .select-bg, .index-container .bg-image .all-search-date .search-date .hora-devolver > div:nth-child(2) .select-bg {
+  border: none;
+  font-size: 1.5rem;
+  outline: none;
 }
 .index-container .bg-image .all-search-date .btn-search {
   width: 94rem;
@@ -464,7 +480,14 @@ a {
     grid-column: 1/3;
     width: 65rem;
   }
-  .index-container .bg-image .all-search-date .search-date .data-retirda, .index-container .bg-image .all-search-date .search-date .data-devolver, .index-container .bg-image .all-search-date .search-date .hora-retirda, .index-container .bg-image .all-search-date .search-date .hora-devolver {
+  .index-container .bg-image .all-search-date .search-date .data-retirda, .index-container .bg-image .all-search-date .search-date .data-devolver {
+    width: 100%;
+  }
+  .index-container .bg-image .all-search-date .search-date .data-retirda input[type=date], .index-container .bg-image .all-search-date .search-date .data-devolver input[type=date] {
+    width: 11rem;
+    font-size: 1.5rem;
+  }
+  .index-container .bg-image .all-search-date .search-date .hora-retirda, .index-container .bg-image .all-search-date .search-date .hora-devolver {
     width: 100%;
   }
 }
@@ -492,11 +515,15 @@ a {
   .index-container .bg-image .all-search-date .search-date .local-retirada {
     grid-column: 1/3;
     width: 35rem;
-    height: 5rem;
+    height: 5.8rem;
   }
-  .index-container .bg-image .all-search-date .search-date .data-retirda, .index-container .bg-image .all-search-date .search-date .data-devolver, .index-container .bg-image .all-search-date .search-date .hora-retirda, .index-container .bg-image .all-search-date .search-date .hora-devolver {
+  .index-container .bg-image .all-search-date .search-date .data-retirda, .index-container .bg-image .all-search-date .search-date .data-devolver {
     grid-column: 1/3;
-    height: 5rem;
+    height: 5.8rem;
+  }
+  .index-container .bg-image .all-search-date .search-date .hora-retirda, .index-container .bg-image .all-search-date .search-date .hora-devolver {
+    grid-column: 1/3;
+    height: 5.8rem;
   }
 }
 @media (max-width: 530px) {
@@ -506,7 +533,7 @@ a {
   .index-container .bg-image .all-search-date .search-date .local-retirada {
     grid-column: 1/3;
     width: 30rem;
-    height: 5rem;
+    height: 5.8rem;
   }
 }
 @media (max-width: 415px) {
@@ -516,7 +543,7 @@ a {
   .index-container .bg-image .all-search-date .search-date .local-retirada {
     grid-column: 1/3;
     width: 25rem;
-    height: 5rem;
+    height: 5.8rem;
   }
   .index-container .bg-image .all-search-date .search-date .local-retirada input {
     width: 85%;

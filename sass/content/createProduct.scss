@@ -2,23 +2,24 @@
 
 $boxSize: 8rem;
 
-main {
-    @include c.flex-center;
-}
-
 .createProductContainer {
     @include c.flex-center;
     grid-area: main;
     background-color: white;
     padding: 1rem;
-    margin: 3rem 3rem;
     border-radius: c.$borderRadius;
     // border: 1px solid red;
     box-shadow: 0 0 .5rem black;
     height: auto;
+    width: auto;
 
     @media screen and (min-width: 767px) {
         width: 70rem;
+        margin: 3rem auto;
+    }
+
+    @media screen and (max-width: 766px) {
+        margin: 3rem 3rem;
     }
     
     form {
@@ -53,6 +54,7 @@ main {
 
                 > label {
                     justify-self: end;
+                    align-text: center;
                 }
 
                 > input, > select {
@@ -62,6 +64,10 @@ main {
                 > textarea {
                     grid-column: 1 / 3;
                     width: 100%;
+                }
+
+                > #trunkLLabel {
+                    text-align: center;
                 }
 
                 > #trunkL {

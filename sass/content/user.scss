@@ -6,21 +6,22 @@
     
 
     .all-user-config{
-        height: 39rem;
+        // height: 39rem;
         @include c.flex(center,none,none,wrap);
-        padding: 1rem 2rem;
-       background-color: c.$divider;
+        padding: 3rem 2rem;
+        background-color: c.$divider;
         gap: 2rem;
 
         .personName{
             background-color: white;
-            height: 34rem;
+            // height: 34rem;
             padding: 1rem;
             border-radius: c.$borderRadius;
             @include c.flex-center;
             flex-direction: column;
             gap: 1rem;
             margin-right: 3rem;
+            box-shadow: 0 0 .5rem black;
 
             .top{
                 @include c.flex-center;
@@ -71,11 +72,13 @@
 
         .profile{
             border-radius: c.$borderRadius;
-            height: 34rem;
+            // height: 34rem;
             @include c.flex(flex-start,center,column);
             padding: 1rem;
             gap: 1rem;
             background-color: white;
+            box-shadow: 0 0 .5rem black;
+
             div{
                 width: 100%;
                 display: flex;
@@ -111,15 +114,45 @@
 
             .btn{
                 @include c.flex-center;
+
                 button{
                     @include c.widhgt(20rem,4rem);
                     border: none;
                     border-radius: c.$borderRadius;
+                    box-shadow: 0 0 .5rem black;
                     background-color: c.$btnSearch;
+                    transition: .2s ease-in-out;
+
                     span{
                         color: c.$icons;
                     }
                     font-weight: bold;
+                }
+
+                button:hover {
+                    transform:scale(1.1);
+                }
+            }
+
+            .links {
+                margin-top: 1.5rem;
+                @include c.flex-center;
+                gap: 2rem;
+                
+                a {
+                    border-radius: c.$borderRadius;
+                    background-color: c.$lightPrimary;
+                    padding: 1rem;
+                    text-decoration: none;
+                    color: black;
+                    font-weight: bold;
+                    transition: .2s ease-in-out;
+                    box-shadow: 0 0 .5rem black;
+                    text-align: center;
+                }
+
+                a:hover {
+                    transform:scale(1.1);
                 }
             }
         }
@@ -128,12 +161,15 @@
 
     @media(max-width:1031px){
         .all-user-config{
-            height: 95rem;
+            // height: 95rem;
             .personName{
-                width: 80%;
+                // width: 80%;
                 @include c.flex(none,flex-start,column);
-                height: 40rem;
+                // height: 40rem;
                 margin-right: 0;
+                justify-content: center;
+                align-items: center;
+
                 .top{
                     align-self: center;
                 }
@@ -154,8 +190,8 @@
 
             .profile{
                 width: 80%;
-                height: 42rem;
-                margin-bottom: 4rem;
+                // height: 42rem;
+                // margin-bottom: 4rem;
                 .name-pwd{
                     grid-template-columns: 1fr;
                     grid-template-rows: repeat(4,auto);

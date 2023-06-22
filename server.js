@@ -30,15 +30,45 @@ app.use(express.static(__dirname + "/public")); // pasta com CSS, scripts, imgs 
 app.use(bodyparser.urlencoded({ limit: "50mb", extended: false}));
 
 // routes ----------------------------------------------------
-//productList ------------------------------------------------------
 
 //index ----------------------------------------
 app.get("/", async function (req, res) {
   var q = url.parse(req.url, true);
   console.log(q.pathname);
-  res.render(path + "/index" + ext)
-})
+  res.redirect("/index");
+});
 
+app.get("/index", async function (req, res) {
+  var q = url.parse(req.url, true);
+  console.log(q.pathname);
+  var sql = "SELECT id FROM website.products ORDER BY views DESC LIMIT 5"
+  var ids = await DB.customQuery(sql)
+  var displayIds = [];
+  for (var i = 0; i < ids[0].length; i++) {
+    displayIds[i] = ids[0][i].id;
+  }
+
+  var productsInfo = []
+  for (var i = 0; i < displayIds.length; i++) {
+    productsInfo[i] = await DB.getProductInfoById(displayIds[i])
+  }
+
+  var imgs = []
+  for (var i = 0; i < productsInfo.length; i++) {
+    productsInfo[i].price = await adjustPrice(productsInfo[i].price);
+    var imgsPath = "imgs/cars/" + productsInfo[i].id;
+    if (fs.existsSync("public/imgs/cars/" + productsInfo[i].id)) imgs[i] = imgsPath + "/" + fs.readdirSync("public/" + imgsPath)[0];
+    else imgs[i] = 0;
+  }
+  console.log(imgs);
+
+  res.render(path + "/index" + ext, {
+    productsInfo: productsInfo,
+    imgs: imgs,
+  });
+});
+
+//productList ------------------------------------------------------
 app.get("/productList", async function (req, res) {
   var q = url.parse(req.url, true);
   var imgs = [];
@@ -160,7 +190,8 @@ app.post("/createProductPost", upload.array("img", 5), async function (req, res)
   Object.keys(req.body).forEach(function (key) {
     if (key != "img" & key != "description") values += "\"" + req.body[key] + "\","
   });
-  var result = await DB.createProduct(values.slice(0, -1));
+  values = values.slice(0, -1) + ",\"0\"";
+  var result = await DB.createProduct(values);
   if (result[0]) var productUrl = "http://localhost:8080/product?id=" + String(result[1]);
   else var productUrl = 0;
   
@@ -191,7 +222,7 @@ app.post("/createProductPost", upload.array("img", 5), async function (req, res)
   });
 });
 
-//product ------------------------------------------------------
+// product ------------------------------------------------------
 app.get("/product", async function (req, res) {
   var q = url.parse(req.url, true);
   console.log(q.pathname);
@@ -200,6 +231,7 @@ app.get("/product", async function (req, res) {
   // preparando as informações vindas do DB
   if (info) {
     var productId = req.query.id;
+    await DB.incrementInfoByProductId("views", productId);
     var imgsPath = "imgs/cars/" + productId + "/";
     if (fs.existsSync("public/imgs/cars/" + productId + "/")) var imgs = fs.readdirSync("public/imgs/cars/" + req.query.id + "/");
     else var imgs = 0;

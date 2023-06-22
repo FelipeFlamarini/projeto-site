@@ -2,7 +2,9 @@
 $containerHeight: 31.6rem;
 
 .productContainer {
+    grid-area: main;
     display: grid;
+    min-height: 100%;
     gap: 2rem;
     padding: 3rem 3rem;
     align-items: center;

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" href="./css/base.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="./js/baseResponsive.js" defer></script>
     <title>Carros - página <%= page %> | LocaCar</title>
 </head>
 <body>
@@ -37,7 +38,7 @@
                     </div>
 
                     <% Object.keys(filters).forEach(function (key) { %>
-                        <% if (String(key) != "id" & String(key) != "model2" & String(key) != "trunkL" & String(key) != "price" & String(key) != "id" & String(key) != "seats" & String(key) != "doors") { %>
+                        <% if (String(key) != "id" & String(key) != "model2" & String(key) != "trunkL" & String(key) != "price" & String(key) != "id" & String(key) != "seats" & String(key) != "doors" & String(key) != "views") { %>
                             <div class="filter">
                                 <label for="">
                                     <% if (key == "name") { %>

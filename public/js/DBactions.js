@@ -31,6 +31,12 @@ function debug() {
         return result;
       }
 
+      // incrementInfoByProductId
+      async function incrementInfoByProductId(info, id) {
+        sql = "UPDATE products SET " + info + " = " + info + " + 1 WHERE id=" + id;
+        const query = await DB.promise().query(sql);
+      }
+
       // getProductInfo -----------------
         async function getProductInfoById(id) {
             let columns = await getColumnsNames("products");
@@ -150,6 +156,7 @@ module.exports = {
 
     // products
     getColumnsNames,
+    incrementInfoByProductId,
     getProductInfoById,
     createProduct,
     editProductInfoById,

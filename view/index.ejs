@@ -115,172 +115,42 @@
                     <div class="glide">
                         <div class="glide__track" data-glide-el="track">
                           <ul class="glide__slides">
-                            <li class="glide__slide">
-                                <div class="carro">
-                                    <div>
-                                        <img class="carros-img" src="./imgs/carro3.jpg" alt="">
-                                    </div>
-                                    <div>
-                                        <span>Nome carro</span>
-                                    </div>
-                                    <div>
+                            <% for (var i = 0; i < productsInfo.length; i++) { %>
+                                <li class="glide__slide">
+                                    <div class="carro">
                                         <div>
-                                            <i class='bx bx-user'></i>
-                                            <span>5</span>
+                                            <span><%= productsInfo[i].name%> <%= productsInfo[i].model1%> <%= productsInfo[i].model2%> <%= productsInfo[i].year%></span>
                                         </div>
                                         <div>
-                                            <i class='bx bx-car'></i>
-                                            <span>SUV</span>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <span>Carro espaçoso, confortável, seguro, econômico e ideal para viagens familiares.</span>
-                                    </div>
-                                    
-                                    <div class="alugar">
-                                        <span>Taxa por dia</span>
-                                        <span>R$150</span>
-                                        <button>
-                                            <span>
-                                                Alugar
-                                            </span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="glide__slide">
-                                <div class="carro">
-                                    <div>
-                                        <img class="carros-img" src="./imgs/carro3.jpg" alt="">
-                                    </div>
-                                    <div>
-                                        <span>Nome carro</span>
-                                    </div>
-                                    <div>
-                                        <div>
-                                            <i class='bx bx-user'></i>
-                                            <span>5</span>
+                                            <% if (imgs[i]) { %>
+                                                <img class="carros-img" src="<%= imgs[i] %>" alt="">
+                                            <% } else { %>
+                                                <p class="carros-img">Imagem indisponível</p>
+                                            <% } %>
+                                            
                                         </div>
                                         <div>
-                                            <i class='bx bx-car'></i>
-                                            <span>SUV</span>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <span>Carro espaçoso, confortável, seguro, econômico e ideal para viagens familiares.</span>
-                                    </div>
-                                    
-                                    <div class="alugar">
-                                        <span>Taxa por dia</span>
-                                        <span>R$150</span>
-                                        <button>
-                                            <span>
-                                                Alugar
-                                            </span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="glide__slide">
-                                <div class="carro">
-                                    <div>
-                                        <img class="carros-img" src="./imgs/carro3.jpg" alt="">
-                                    </div>
-                                    <div>
-                                        <span>Nome carro</span>
-                                    </div>
-                                    <div>
-                                        <div>
-                                            <i class='bx bx-user'></i>
-                                            <span>5</span>
+                                            <div>
+                                                <i class='bx bx-user'></i>
+                                                <span><%= productsInfo[i].seats %></span>
+                                            </div>
+
                                         </div>
                                         <div>
-                                            <i class='bx bx-car'></i>
-                                            <span>SUV</span>
+                                            <span>Carro espaçoso, confortável, seguro, econômico e ideal para viagens familiares.</span>
+                                        </div>
+
+                                        
+                                        <div class="alugar">
+                                            <span>Preço diário</span>
+                                            <span>R$<%= productsInfo[i].price %></span>
+                                            <a href="./product?id=<%= productsInfo[i].id %>">
+                                                Ver mais
+                                            </a>
                                         </div>
                                     </div>
-                                    <div>
-                                        <span>Carro espaçoso, confortável, seguro, econômico e ideal para viagens familiares.</span>
-                                    </div>
-                                    
-                                    <div class="alugar">
-                                        <span>Taxa por dia</span>
-                                        <span>R$150</span>
-                                        <button>
-                                            <span>
-                                                Alugar
-                                            </span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="glide__slide">
-                                <div class="carro">
-                                    <div>
-                                        <img class="carros-img" src="./imgs/carro3.jpg" alt="">
-                                    </div>
-                                    <div>
-                                        <span>Nome carro</span>
-                                    </div>
-                                    <div>
-                                        <div>
-                                            <i class='bx bx-user'></i>
-                                            <span>5</span>
-                                        </div>
-                                        <div>
-                                            <i class='bx bx-car'></i>
-                                            <span>SUV</span>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <span>Carro espaçoso, confortável, seguro, econômico e ideal para viagens familiares.</span>
-                                    </div>
-                                    
-                                    <div class="alugar">
-                                        <span>Taxa por dia</span>
-                                        <span>R$150</span>
-                                        <button>
-                                            <span>
-                                                Alugar
-                                            </span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="glide__slide">
-                                <div class="carro">
-                                    <div>
-                                        <img class="carros-img" src="./imgs/carro3.jpg" alt="">
-                                    </div>
-                                    <div>
-                                        <span>Nome carro</span>
-                                    </div>
-                                    <div>
-                                        <div>
-                                            <i class='bx bx-user'></i>
-                                            <span>5</span>
-                                        </div>
-                                        <div>
-                                            <i class='bx bx-car'></i>
-                                            <span>SUV</span>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <span>Carro espaçoso, confortável, seguro, econômico e ideal para viagens familiares.</span>
-                                    </div>
-                                    
-                                    <div class="alugar">
-                                        <span>Taxa por dia</span>
-                                        <span>R$150</span>
-                                        <button>
-                                            <span>
-                                                Alugar
-                                            </span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </li>
-                          </ul>
+                                </li>
+                            <% } %>
                         </div>
                         <div class="glide__arrows" data-glide-el="controls">
                             <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><i class='bx bx-chevron-left'></i></button>

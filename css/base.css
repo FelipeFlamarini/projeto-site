@@ -1,0 +1,184 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Poppins", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.baseContainer {
+  display: grid;
+  grid-template-areas: "header" "nav" "main" "footer";
+  grid-template-rows: 7vh 5vh;
+  background: #BDBDBD;
+  height: 100vh;
+  width: 100%;
+}
+.baseContainer header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  grid-area: header;
+  background-color: #BDBDBD;
+  height: 7vh;
+  width: 100%;
+  padding: 0 2rem;
+  overflow: hidden;
+}
+.baseContainer header .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 3rem;
+  transform: scale(0.8);
+}
+.baseContainer header .logo a img {
+  margin-top: 2rem;
+}
+.baseContainer header .logo a i {
+  font-size: 3rem;
+  color: #D32F2F;
+}
+.baseContainer header > a:nth-child(2) {
+  color: #212121;
+  font-weight: bold;
+  background-color: inherit;
+  justify-self: flex-end;
+  padding: 1.5rem;
+  border-radius: 2rem;
+  background-color: #FFCDD2;
+}
+.baseContainer header .btn-dropdown {
+  display: none;
+}
+.baseContainer nav {
+  display: flex;
+  grid-area: nav;
+  height: 5vh;
+  width: 100%;
+  background-color: #D32F2F;
+  padding: 0 10rem;
+  border-radius: 0 0 2rem 2rem;
+}
+.baseContainer nav .links {
+  display: flex;
+  justify-content: initial;
+  align-items: initial;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 2rem;
+  background-color: inherit;
+  align-self: center;
+  width: 100%;
+}
+.baseContainer nav .links a {
+  color: #212121;
+  font-weight: bold;
+}
+.baseContainer footer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 10rem;
+  grid-area: footer;
+  height: 20rem;
+  width: 100%;
+  background-color: black;
+  padding: 2rem 5rem;
+  border-radius: 2rem 2rem 0 0;
+}
+.baseContainer footer .duvidas h2:nth-child(1), .baseContainer footer .ajuda h2:nth-child(1) {
+  color: white;
+}
+.baseContainer footer .duvidas ul, .baseContainer footer .ajuda ul {
+  line-height: 3rem;
+}
+.baseContainer footer .duvidas ul li a, .baseContainer footer .ajuda ul li a {
+  color: #757575;
+}
+.baseContainer .responsive-navBar {
+  display: none;
+}
+@media (max-width: 640px) {
+  .baseContainer header {
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  .baseContainer header .logo {
+    margin-left: -3.2rem;
+  }
+  .baseContainer header .btn-dropdown {
+    display: block;
+    background-color: black;
+    height: 4rem;
+    width: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+  }
+  .baseContainer header .btn-dropdown i {
+    font-size: 3rem;
+    color: #D32F2F;
+  }
+  .baseContainer .nav {
+    display: none;
+  }
+  .baseContainer .btn-reservas {
+    display: none;
+  }
+  .baseContainer .responsive-navBar {
+    position: absolute;
+    left: 0rem;
+    top: 3.9rem;
+    width: 100%;
+    display: none;
+  }
+  .baseContainer .responsive-navBar ul {
+    list-style: none;
+  }
+  .baseContainer .responsive-navBar ul li {
+    background-color: #03A9F4;
+  }
+  .baseContainer .responsive-navBar ul li:hover {
+    background-color: #0395d8;
+  }
+  .baseContainer .responsive-navBar ul li a {
+    font-size: 1.7rem;
+    color: black;
+    font-weight: bold;
+  }
+  .baseContainer .active {
+    display: block;
+  }
+  .baseContainer footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    padding: 1rem;
+    gap: 2rem;
+  }
+}
+
+/*# sourceMappingURL=base.css.map */

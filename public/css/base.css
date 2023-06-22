@@ -33,10 +33,13 @@ html, body {
   height: 100%;
 }
 
+.unactive {
+  display: none;
+}
+
 .baseContainer {
   display: grid;
   grid-template-areas: "header" "nav" "main" "main" "footer";
-  grid-template-rows: auto auto 2fr auto auto;
   background: #BDBDBD;
   min-height: 100%;
   width: 100%;
@@ -49,7 +52,7 @@ html, body {
   flex-wrap: nowrap;
   grid-area: header;
   background-color: #BDBDBD;
-  height: 7vh;
+  height: 15vh;
   width: 100%;
   padding: 0 2rem;
   overflow: hidden;
@@ -60,14 +63,35 @@ html, body {
   align-items: center;
   flex-direction: row;
   flex-wrap: nowrap;
-  gap: 3rem;
+  gap: 7.5rem;
   transform: scale(0.8);
 }
-.baseContainer header .logo a img {
-  margin-top: 2rem;
+.baseContainer header .logo div:nth-child(1) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin-left: 1rem;
+  width: 10rem;
+  height: 5rem;
 }
-.baseContainer header .logo a i {
+.baseContainer header .logo div:nth-child(1) a img {
+  width: inherit;
+  height: inherit;
+  margin-top: 2rem;
+  object-fit: contain;
+  overflow: hidden;
+}
+.baseContainer header .logo div:nth-child(2) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 1rem;
+}
+.baseContainer header .logo div:nth-child(2) a i {
   font-size: 3rem;
+  margin-top: 1rem;
   color: #D32F2F;
 }
 .baseContainer header > a:nth-child(2) {
@@ -84,6 +108,7 @@ html, body {
 }
 .baseContainer nav {
   display: flex;
+  justify-content: space-between;
   justify-content: space-between;
   grid-area: nav;
   height: 5vh;
@@ -105,10 +130,27 @@ html, body {
   background-color: inherit;
   align-self: center;
   width: auto;
+  width: auto;
 }
 .baseContainer nav .links a {
   color: #212121;
   font-weight: bold;
+}
+.baseContainer nav .logout-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  height: 100%;
+  margin-right: 5.5rem;
+}
+.baseContainer nav .logout-nav i {
+  font-size: 2.3rem;
+  color: black;
+}
+.baseContainer nav .logout-nav span {
+  font-weight: bold;
+  color: black;
 }
 .baseContainer nav .logout-nav {
   display: flex;
@@ -148,17 +190,11 @@ html, body {
 .baseContainer footer .duvidas ul li a, .baseContainer footer .ajuda ul li a {
   color: #757575;
 }
-.baseContainer .responsive-navBar {
-  display: none;
-}
 @media (max-width: 640px) {
   .baseContainer header {
-    padding: 0;
+    padding: 2rem;
     display: flex;
     justify-content: space-between;
-  }
-  .baseContainer header .logo {
-    margin-left: -3.2rem;
   }
   .baseContainer header .btn-dropdown {
     display: block;
@@ -183,18 +219,19 @@ html, body {
   .baseContainer .btn-reservas {
     display: none;
   }
-  .baseContainer .responsive-navBar {
-    position: absolute;
-    left: 0rem;
-    top: 3.9rem;
-    width: 100%;
-    display: none;
-  }
   .baseContainer .responsive-navBar ul {
     list-style: none;
+    z-index: 2;
+    position: absolute;
+    left: 0rem;
+    top: 5.6rem;
+    width: 100%;
   }
   .baseContainer .responsive-navBar ul li {
+    padding: 0.5rem;
     background-color: #03A9F4;
+    min-width: 100%;
+    text-align: center;
   }
   .baseContainer .responsive-navBar ul li:hover {
     background-color: #0395d8;
@@ -203,9 +240,6 @@ html, body {
     font-size: 1.7rem;
     color: black;
     font-weight: bold;
-  }
-  .baseContainer .active {
-    display: block;
   }
   .baseContainer footer {
     display: flex;
@@ -437,6 +471,7 @@ html, body {
   width: 100%;
   background-color: white;
   padding: 2rem 4rem;
+  margin-bottom: 15rem;
 }
 @media screen and (min-width: 1367px) {
   .productContainer .description {
@@ -582,6 +617,7 @@ html, body {
   box-shadow: 0 0 0.5rem black;
   border-radius: 2rem;
   width: 30rem;
+  margin: 2rem auto 45rem auto;
   gap: 2rem;
   padding: 3rem;
 }
@@ -600,7 +636,7 @@ html, body {
   border-radius: 2rem;
   width: 30rem;
   height: 14rem;
-  margin: 3rem auto;
+  margin: 2rem auto 45rem auto;
   box-shadow: 0 0 0.5rem black;
   /* Chrome, Safari, Edge, Opera */
   /* Firefox */
@@ -653,6 +689,7 @@ html, body {
   width: 30rem;
   height: 14rem;
   gap: 2rem;
+  margin: 2rem auto 45rem auto;
 }
 .deleteProductPostContainer a {
   text-decoration: none;
@@ -905,6 +942,7 @@ html, body {
   font-weight: bold;
   font-size: 2.2rem;
   padding: 1rem;
+  text-align: center;
 }
 .productListContainer .products .product .main #mainImage {
   text-align: center;
@@ -1094,9 +1132,7 @@ html, body {
 .index-container .bg-image {
   width: 100%;
   height: 50rem;
-  background-image: url(../imgs/imagem-banner-site.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
+  margin-top: -1rem;
   display: flex;
   justify-content: none;
   align-items: center;
@@ -1105,16 +1141,31 @@ html, body {
   gap: 1rem;
   padding: 1rem;
 }
+.index-container .bg-image img {
+  width: inherit;
+  height: inherit;
+  object-fit: fill;
+  position: absolute;
+  z-index: 0;
+  filter: blur(0.2rem);
+}
+.index-container .bg-image > * {
+  z-index: 1;
+}
 .index-container .bg-image .titulo-index {
   height: auto;
 }
 .index-container .bg-image .titulo-index h1 {
   font-size: 6rem;
-  color: #03A9F4;
+  color: lightgreen;
   text-align: center;
+  text-shadow: 0 0 0.8rem black;
 }
 .index-container .bg-image .titulo-index .h1-tela-pequena {
   display: none;
+  color: lightgreen;
+  text-align: center;
+  text-shadow: 0 0 0.8rem black;
 }
 .index-container .bg-image .vantagens-index {
   display: flex;
@@ -1141,6 +1192,7 @@ html, body {
   align-items: center;
   flex-direction: column;
   flex-wrap: nowrap;
+  box-shadow: 0 0 0.5rem black;
   gap: 0.7rem;
   background-color: #03A9F4;
   padding: 1rem;
@@ -1420,16 +1472,18 @@ html, body {
   flex-direction: column;
   flex-wrap: wrap;
   background-color: #BDBDBD;
-  height: 50rem;
+  height: auto;
 }
 .index-container .all-cars .h1-cars h1 {
   font-size: 5rem;
-  color: #03A9F4;
+  color: lightgreen;
+  text-align: center;
+  text-shadow: 0 0 0.8rem black;
 }
 .index-container .all-cars .texto-cars p {
-  font-size: 1.4rem;
   text-align: center;
-  padding: 0.5rem;
+  padding: 1rem;
+  font-weight: bold;
 }
 .index-container .all-cars .carros-img {
   height: 15rem;
@@ -1561,7 +1615,7 @@ html, body {
     width: 40rem;
   }
   .index-container .all-cars .texto-cars p {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     text-align: center;
   }
 }
@@ -1646,7 +1700,7 @@ html, body {
   gap: 1rem;
 }
 .index-container .container-accordion .all-accordion .h2-accordion {
-  align-self: flex-start;
+  align-self: center;
 }
 .index-container .container-accordion .all-accordion .accordion-1 {
   width: 100%;
@@ -1655,12 +1709,12 @@ html, body {
   background-color: #212121;
   color: white;
   cursor: pointer;
-  padding: 18px;
+  padding: 1.8rem;
   width: 100%;
   border: none;
   text-align: left;
   outline: none;
-  font-size: 15px;
+  font-size: 1.5rem;
   transition: 0.4s;
 }
 .index-container .container-accordion .all-accordion .accordion-1 .title-accordion:nth-child(1) {
@@ -1676,7 +1730,7 @@ html, body {
   background-color: #757575;
 }
 .index-container .container-accordion .all-accordion .accordion-1 .content {
-  padding: 0 18px;
+  padding: 0 1.8rem;
   background-color: #212121;
   color: white;
   max-height: 0;
@@ -1722,7 +1776,7 @@ html, body {
   flex-wrap: wrap;
   border-radius: 2rem;
   width: 30rem;
-  height: 30rem;
+  height: 25rem;
   gap: 1rem;
   background-color: #FFCDD2;
 }
@@ -1847,8 +1901,10 @@ html, body {
 }
 .container-userConfig .all-user-config .personName .bottom div i {
   font-size: 2rem;
+  color: black;
 }
 .container-userConfig .all-user-config .personName .bottom div span {
+  color: black;
   font-weight: bold;
   font-size: 1.5rem;
 }

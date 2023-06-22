@@ -88,7 +88,14 @@
                     </div>
                     <div>
                         <img src="./imgs/fuelIcon.png" alt="">
-                        <p><%= info.trunkL%>L</p>
+                        <p>
+                            <%= info.trunkL%>
+                            <% if (String(info.fuel) == "Elétrico") { %>
+                                kW/h
+                            <% } else { %>
+                                L
+                            <% } %>
+                        </p>
                     </div>
                 </div>
                 <a href="#" id="alugar">ALUGAR</a>

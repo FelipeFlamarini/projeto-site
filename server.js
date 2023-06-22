@@ -60,7 +60,6 @@ app.get("/index", async function (req, res) {
     if (fs.existsSync("public/imgs/cars/" + productsInfo[i].id)) imgs[i] = imgsPath + "/" + fs.readdirSync("public/" + imgsPath)[0];
     else imgs[i] = 0;
   }
-  console.log(imgs);
 
   res.render(path + "/index" + ext, {
     productsInfo: productsInfo,

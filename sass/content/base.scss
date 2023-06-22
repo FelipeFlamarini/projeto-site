@@ -1,5 +1,5 @@
 @use '../common/index' as c;
-$headerHeight: 7vh;
+$headerHeight: 15vh;
 $navHeight: 5vh;
 
 a {
@@ -20,6 +20,10 @@ html, body {
     height: 100%;
 }
 
+.unactive {
+    display: none;
+}
+
 .baseContainer {
     display: grid;
     grid-template-areas: 
@@ -28,7 +32,6 @@ html, body {
     "main"
     "main"
     "footer";
-    grid-template-rows: auto auto 2fr auto auto;
     background: c.$divider;
     min-height: 100%;
     width: 100%;
@@ -45,16 +48,30 @@ html, body {
 
         .logo {
             @include c.flex(center, center, row, nowrap);
-            gap: 3rem;
+            gap: 7.5rem;
             transform:scale(0.8);
 
-            a {
-                img {
-                    margin-top: 2rem;
-                }
+            div:nth-child(1) {
+                @include c.flex-center;
+                margin-left: 1rem;
+                width: 10rem;
+                height: 5rem;
 
-                i {
+                a img {
+                    width: inherit;
+                    height: inherit;
+                    margin-top: 2rem;
+                    object-fit: contain;
+                    overflow: hidden;
+                }
+            }
+
+            div:nth-child(2) {
+                @include c.flex-center;
+                gap: 1rem;
+                a i {
                     font-size: 3rem;
+                    margin-top: 1rem;
                     color: c.$darkPrimary;  
                 }
             }
@@ -78,6 +95,7 @@ html, body {
     nav {
         display: flex;
         justify-content: space-between;
+        justify-content: space-between;
         grid-area: nav;
         height: $navHeight;
         width: 100%;
@@ -94,6 +112,7 @@ html, body {
             background-color: inherit;
             align-self: center;
             width: auto;
+            width: auto;
 
             a {
                 color: c.$primaryText;
@@ -101,6 +120,21 @@ html, body {
             }
         }
 
+        .logout-nav{
+            @include c.flex-center;
+            height: 100%;
+            margin-right: 5.5rem;
+
+            i{
+                font-size: 2.3rem;
+                color: black;
+            }
+
+            span{
+                font-weight: bold;
+                color: black
+            }
+        }
         .logout-nav{
             @include c.flex-center;
             height: 100%;
@@ -147,19 +181,16 @@ html, body {
         }
     }
 
-    .responsive-navBar{
-        display: none;
-    }
 
     @media(max-width:640px){
 
         header{
-            padding: 0;
+            padding: 2rem;
             display: flex;
             justify-content: space-between;
 
             .logo{
-                margin-left: -3.2rem;
+                // margin-left: -3.2rem;
             }
 
             .btn-dropdown{
@@ -168,7 +199,7 @@ html, body {
                 height: 4rem;
                 width: 4rem;
                 @include c.flex-center;
-                i{
+                    i {
                     font-size: 3rem;
                     color: c.$darkPrimary;
                 }
@@ -196,29 +227,27 @@ html, body {
                 list-style: none;
                 
                 li{
+                    padding: .5rem;
                     background-color: c.$accent;
+                    min-width: 100%;
+                    text-align: center;
                     &:hover{
                         background-color:#0395d8 ;
                     }
                     
-                    span{
-                        font-size: 1.7rem;
-                        color: black;
-                        font-weight: bold;
-                    }
+                        span{
+                            font-size: 1.7rem;
+                            color: black;
+                            font-weight: bold;
+                        }
                 }
+                z-index: 2;
+                position: absolute;
+                left: 0rem;
+                top: 5.6rem;
+                width: 100%;
             }
-            
-    
-            position: absolute;
-            left: 0rem;
-            top: 3.9rem;
-            width: 100%;
-            display: none;
-        }
 
-        .active{
-            display: block;
         }
 
         footer{

@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="./css/base.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Remoção de produto</title>
+    <script src="./js/baseResponsive.js" defer></script>
 </head>
 <body>
     <div class="baseContainer">
@@ -15,14 +16,14 @@
 
         <%- include("./partials/nav.ejs") %>
 
-        <main>
+        
             <div class="deleteProductContainer">
                 <form method="post" action="http://localhost:8080/deleteProductPost">
                     <input required type="number" id="productId" name="productId" placeholder="ID do produto">
                     <button><strong>Remover</strong></button>
                 </form>
             </div>
-        </main>
+        
 
         <%- include("./partials/footer.ejs") %>
 

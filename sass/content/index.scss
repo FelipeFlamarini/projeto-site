@@ -19,57 +19,74 @@ $altura-search-celular:5.8rem;
 
     .bg-image{
         width: 100%;
-        height:50rem;
-        
-        background-image: url(../imgs/imagem-banner-site.jpg);
-        background-size:cover;
-        background-repeat: no-repeat;
+        height: 50rem;
+        margin-top: -1rem;
+
+        img {
+            width: inherit;
+            height: inherit;
+            object-fit: fill;
+            position: absolute;
+            z-index: 0;
+            filter: blur(.2rem);
+        }
+
+        > * {
+            z-index: 1;
+        }
         
         @include c.flex(none,center,column,nowrap);
         gap: 1rem;
         padding: 1rem;
-    .titulo-index{
-        height: auto;
-        h1{
-            font-size: 6rem;
-            color:c.$accent;
-            text-align: center;
-        }
 
-        .h1-tela-pequena{
-            display: none
-        }
-    }
+        .titulo-index{
+            height: auto;
+            h1{
+                font-size: 6rem;
+                color: lightgreen;
+                text-align: center;
+                text-shadow: 0 0 .8rem black;
+            }
 
-    .vantagens-index{
-        @include c.flex-center;
-        gap: 1rem;
-        div{
-            
-            span{
-                font-size: 2.2rem;
+            .h1-tela-pequena{
+                display: none;
+                color: lightgreen;
+                text-align: center;
+                text-shadow: 0 0 .8rem black;
                 
             }
+        }
 
-            i{
-                font-size: 2.3rem;
-            }
+        .vantagens-index{
+            @include c.flex-center;
+            gap: 1rem;
+            div{
+                
+                span{
+                    font-size: 2.2rem;
+                    
+                }
 
-            i,span{
-                color: c.$icons;
+                i{
+                    font-size: 2.3rem;
+                }
+
+                i,span{
+                    color: c.$icons;
+                }
             }
         }
-    }
 
    
-    .all-search-date{
-        margin-top: 8rem;
-        @include c.widhgt(100rem,15rem);
-        @include c.flex(center,center,column,nowrap);
-        gap: .7rem;
-        background-color:c.$accent ;
-        padding: 1rem;
-        border-radius: c.$borderRadius;
+        .all-search-date{
+            margin-top: 8rem;
+            @include c.widhgt(100rem,15rem);
+            @include c.flex(center,center,column,nowrap);
+            box-shadow: 0 0 .5rem black;
+            gap: .7rem;
+            background-color:c.$accent ;
+            padding: 1rem;
+            border-radius: c.$borderRadius;
     
 
     .search-date{
@@ -386,19 +403,23 @@ $altura-search-celular:5.8rem;
     .all-cars{
         @include c.flex(flex-start,center,column);
         background-color:c.$divider ;
-        height: 50rem;
+        height: auto;
+        
         .h1-cars{
+            // margin-top: 1rem;
             h1{
                 font-size: 5rem;
-                color: c.$accent;
+                color: lightgreen;
+                text-align: center;
+                text-shadow: 0 0 .8rem black;
             }
         }
 
         .texto-cars{
             p{
-                font-size: 1.4rem;
                 text-align: center;
-                padding: .5rem;
+                padding: 1rem;
+                font-weight: bold;
             }
         }
         
@@ -550,7 +571,7 @@ $altura-search-celular:5.8rem;
 
             .texto-cars{
                 p{
-                    font-size: 1.2rem;
+                    font-size: 1.4rem;
                     text-align: center;
                 }
             }
@@ -678,7 +699,7 @@ $altura-search-celular:5.8rem;
                 gap: 1rem;
 
             .h2-accordion{
-                align-self: flex-start;
+                align-self: center;
             }
 
             .accordion-1{
@@ -687,12 +708,12 @@ $altura-search-celular:5.8rem;
                     background-color: c.$primaryText;
                     color: white;
                     cursor: pointer;
-                    padding: 18px;
+                    padding: 1.8rem;
                     width: 100%;
                     border: none;
                     text-align: left;
                     outline: none;
-                    font-size: 15px;
+                    font-size: 1.5rem;
                     transition: 0.4s;
                     
                   }
@@ -716,7 +737,7 @@ $altura-search-celular:5.8rem;
                   }
                   
                   .content {
-                    padding: 0 18px;
+                    padding: 0 1.8rem;
                     background-color: c.$primaryText;
                     color: white;
                     max-height: 0;

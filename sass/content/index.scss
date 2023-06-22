@@ -1,0 +1,674 @@
+@use '../common/index' as c;
+
+
+@import "../../node_modules/@glidejs/glide/src/assets/sass/glide.core";
+
+// Optional Theme Stylesheet
+@import "../../node_modules/@glidejs/glide/src/assets/sass/glide.theme";
+
+
+$altura-search:6.4rem;
+$altura-search-celular:5.8rem;
+
+
+
+.index-container{
+    width: 100%;
+    height: auto;
+    grid-area: main;
+
+    .bg-image{
+        width: 100%;
+        height:50rem;
+        
+        background-image: url(../sass/img/imagem-banner-site.jpg);
+        
+        @include c.flex(none,center,column,nowrap);
+        gap: 1rem;
+        padding: 1rem;
+    .titulo-index{
+        height: auto;
+        h1{
+            font-size: 6rem;
+            color:c.$accent
+        }
+
+        .h1-tela-pequena{
+            display: none
+        }
+    }
+
+    .vantagens-index{
+        @include c.flex-center;
+        gap: 1rem;
+        div{
+            
+            span{
+                font-size: 2.2rem;
+                
+            }
+
+            i{
+                font-size: 2.3rem;
+            }
+
+            i,span{
+                color: c.$icons;
+            }
+        }
+    }
+
+   
+    .all-search-date{
+        margin-top: 8rem;
+        @include c.widhgt(100rem,15rem);
+        @include c.flex(center,center,column,nowrap);
+        gap: .7rem;
+        background-color:c.$accent ;
+        padding: 1rem;
+        border-radius: c.$borderRadius;
+    
+
+    .search-date{
+        @include c.widhgt(99rem,none);
+        @include c.flex-center;
+        gap: 1rem;
+        >div{
+            background-color: c.$icons;
+            border-radius: c.$borderRadius
+
+        }
+
+        .local-retirada{
+            @include c.widhgt(48.9rem,$altura-search);
+            @include c.flex('flex-start',center);
+            gap: .5rem;
+            padding:1rem;
+            i{
+                font-size: 2rem;
+            }
+
+            input{
+                width:44rem;
+                border: none;
+                outline: none;
+                font-weight: bold;
+                font-size: 1.5rem;
+            }
+        }
+        
+        .data-retirda{
+            @include c.widhgt(13.4rem,$altura-search);
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+            span{
+                font-size:1.2rem; 
+            }
+            input[type="date"]{
+                border: none;
+                outline: none;
+                font-size: 1.5rem;
+            }
+        }
+
+        .data-devolver{
+            @extend .data-retirda;
+        }
+
+        .hora-retirda{
+            @include c.widhgt(9.5rem,$altura-search);
+            display: flex;
+            padding: 1rem;
+            >div:nth-child(1){
+                @include c.widhgt(auto,100%); 
+                @include c.flex(flex-start,center);
+                
+                i{
+                    font-size: 2rem;
+                    
+                }
+            }
+            >div:nth-child(2){
+                display: flex;
+                flex-direction: column;
+                span:nth-child(1){
+                    font-size: 1.2rem;
+                    margin-left: 0.5rem;
+                }
+                .select-bg{
+                    border: none;
+                    font-size:1.5rem;
+                    outline: none;
+                    
+                }
+            }
+        }
+
+        .hora-devolver{
+            @extend .hora-retirda;
+        }
+    }
+
+    .btn-search{
+        @include c.widhgt(94rem,3rem);
+        border: none;
+        border-radius:c.$borderRadius ;
+        background-color:c.$btnSearch;
+        cursor: pointer;
+        &:hover{
+            transition: .2s;
+            background-color:c.$btnSearchHover ;
+        }
+        span{
+            color: c.$icons;
+            font-size: 2rem;
+        }
+    }
+
+    @media(max-width:1080px){
+
+
+        .search-date{
+            display: grid;
+            grid-template-rows: repeat(3,auto);
+            grid-template-columns: repeat(2,auto);
+            gap: 1rem;
+            @include c.widhgt(70rem,auto);
+            
+            .local-retirada{
+                grid-column: 1/3;
+                width: 65rem;
+            }
+
+            .data-retirda{
+                width: 100%;
+                input[type="date"]{
+                    width: 11rem;
+                    font-size: 1.5rem;
+                }
+            }
+
+            .hora-retirda{
+                width: 100%;
+            }
+        }
+
+    
+    }
+
+    @media(max-width:810px){
+        .search-date{
+            @include c.widhgt(50rem,auto);
+                
+                .local-retirada{
+                    grid-column: 1/3;
+                    width: 45rem;
+
+                    input{
+                        width: 90%;
+                    }
+                }
+        }
+    }
+
+    @media(max-width:630px){
+
+        
+
+        .search-date{
+            @include c.widhgt(40rem,42rem);
+            display: grid;
+            grid-template-rows: repeat(5,auto);
+            grid-template-columns: none;
+            
+            .local-retirada{
+                grid-column: 1/3;
+                width: 35rem;
+                height: $altura-search-celular;
+            }
+
+            .data-retirda{
+                grid-column: 1/3;
+                height: $altura-search-celular;
+                
+            }
+            .hora-retirda{
+                grid-column: 1/3;
+                height: $altura-search-celular;
+            }
+        }
+    }
+
+    @media(max-width:530px){
+
+        .search-date{
+            width: 35rem;
+
+        .local-retirada{
+            grid-column: 1/3;
+            width: 30rem;
+            height: $altura-search-celular;
+        }
+
+        }
+    }
+
+    @media(max-width:415px){
+
+        .search-date{
+            width: 27rem;
+
+        .local-retirada{
+            grid-column: 1/3;
+            width: 25rem;
+            height: $altura-search-celular;
+
+            input{
+                width: 85%;
+            }
+        }
+
+        }
+    }
+}
+
+@media(max-width:1080px){
+    .titulo-index{
+        h1{
+            font-size: 5rem;
+        }
+    }
+
+    .vantagens-index{
+        display: none
+    }
+
+        .all-search-date{
+            @include c.widhgt(80rem,28rem);
+            margin-top: 0rem;
+            
+            .btn-search{
+                @include c.widhgt(70rem,3rem);
+            }
+        }
+    
+}
+
+@media(max-width:900px){
+    .titulo-index{
+        h1{
+            font-size: 4rem;
+        }
+    }
+}
+
+@media(max-width:715px){
+    .titulo-index{
+        h1{
+            font-size: 3.5rem;
+        }
+    }
+}
+
+@media(max-width:630px){
+    .titulo-index{
+        .h1-tela-pequena{
+            display: block;
+            font-size: 4.5rem;
+        }
+        .h1-tela-grande{
+            display: none;
+        }
+    }
+}
+
+@media(max-width:415px){
+    .titulo-index{
+        .h1-tela-pequena{
+            font-size: 3.4rem;
+        }
+    }
+}
+
+@media(max-width:810px){
+    .all-search-date{
+        @include c.widhgt(60rem,28rem);
+         
+        .btn-search{
+            @include c.widhgt(55rem,3rem);
+        }
+    }
+}
+
+@media(max-width:630px){
+    .all-search-date{
+        @include c.widhgt(50rem,38rem);
+         
+        .btn-search{
+            @include c.widhgt(45rem,3rem);
+        }
+    }
+}
+
+
+@media(max-width:530px){
+    .all-search-date{
+        @include c.widhgt(38rem,38rem);
+         
+        .btn-search{
+            @include c.widhgt(33rem,3rem);
+        }
+    }
+}
+
+@media(max-width:415px){
+    .all-search-date{
+        @include c.widhgt(28rem,38rem);
+         
+        .btn-search{
+            @include c.widhgt(27rem,3rem);
+        }
+    }
+}
+
+}
+
+@media(max-width:630px){
+    .bg-image{
+        @include c.flex-center(column)
+    }
+}
+
+    .all-cars{
+        @include c.flex(flex-start,center,column);
+        background-color:c.$divider ;
+        height: 50rem;
+        .h1-cars{
+            h1{
+                font-size: 5rem;
+                color: c.$accent;
+            }
+        }
+
+        .texto-cars{
+            p{
+                font-size: 1.4rem;
+                text-align: center;
+            }
+        }
+        
+        .carros-img{
+            width: 20rem;
+            border-radius: c.$borderRadius ;
+            
+        }
+
+
+        .container-carousel{
+            width: 94rem;
+            height: auto;
+            @include c.flex-center;
+
+            .glide__arrow{
+                color: black;
+                border: 1px solid black;
+                font-size: 4rem;
+                padding: 0;
+                border-radius: 50%;
+            } 
+
+            .glide__arrow--left{
+                left: -3.2rem;
+            }
+
+            .glide__arrow--right{
+                right: -3.2rem;
+            }
+
+            .glide__slide{
+                @include c.flex-center;
+
+                .carro{
+
+                    @include c.widhgt(30rem,36rem);
+                    border-radius: c.$borderRadius;
+                    padding: .5rem;
+                    border: 1px solid c.$secondaryText;
+                    display: flex;
+                    flex-direction: column;
+                    background-color: c.$icons;
+                    font-weight: 500;
+                    div:nth-child(1){
+                        align-self: center;    
+                    }
+        
+        
+                    >div:nth-child(3){
+                        display: flex;
+                        gap: 1rem;
+                        
+                    }
+        
+                    .alugar{
+                        display: grid;
+                        height: 10rem;
+                        grid-template-rows: auto auto;
+                        grid-template-columns: 60% 40%;
+                        
+                        
+                        >span:nth-child(1){
+                            grid-column: 1/3;
+                            grid-row: 1/2;
+                            font-size: 2rem;
+                        }
+        
+                        >span:nth-child(2){
+                            font-size: 2.4rem;
+                            
+                        }
+        
+                        button{
+                            grid-column: 2/3;
+                            grid-row: 1/3;
+                            height: 5rem;
+                            width: 8rem;
+                            align-self: center;
+                            justify-self: center;
+                            border-radius: c.$borderRadius;
+                            border: none;
+                            background-color: c.$btnSearch;
+                            cursor: pointer;
+                            span{
+                                color: white;
+                                font-weight: bold;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        @media (max-width:1028px){
+            .container-carousel{
+                width: 70rem;
+            }
+        }
+
+        @media (max-width:820px){
+            .container-carousel{
+                width: 40rem;
+            }
+
+            .texto-cars{
+                p{
+                    font-size: 1.2rem;
+                    text-align: center;
+                }
+            }
+
+        }
+
+        @media (max-width:630px){
+            .container-carousel{
+                width: 40rem;
+
+                .glide__arrow--left{
+                    left: .9rem;
+                }
+    
+                .glide__arrow--right{
+                    right: .9rem;
+                    
+                }
+            }
+
+            .h1-cars{
+                h1{
+                    font-size: 4rem;
+                    
+                }
+            }
+
+            .texto-cars{
+                p{
+                    font-size: 1.2rem;
+                    text-align: center;
+                }
+            }
+
+        }
+
+        @media (max-width:510px){
+            .container-carousel{
+                width: 40rem;
+            }
+
+            .h1-cars{
+                h1{
+                    font-size: 3.5rem;
+                    
+                }
+            }
+
+            .texto-cars{
+                p{
+                    font-size: 1.2rem;
+                    text-align: center;
+                }
+            }
+
+        }
+
+        @media(max-width:415px){
+            .h1-cars{
+                h1{
+                    font-size: 2.6rem;
+                }
+            }
+
+            .container-carousel{
+                width: 30rem;
+                .glide__slide{
+                    .carro{
+                        width: 22rem;
+                    }
+                }
+            }
+            
+        }
+    }
+
+    
+
+
+    
+
+        .container-accordion{
+            padding: 1rem;
+            @include c.flex-center;
+            background-color: c.$divider;
+            
+            .all-accordion{
+                width: 72%;
+                @include c.flex-center(column);
+                gap: 1rem;
+
+            .h2-accordion{
+                align-self: flex-start;
+            }
+
+            .accordion-1{
+                width: 100%;
+                .title-accordion {
+                    background-color: c.$primaryText;
+                    color: white;
+                    cursor: pointer;
+                    padding: 18px;
+                    width: 100%;
+                    border: none;
+                    text-align: left;
+                    outline: none;
+                    font-size: 15px;
+                    transition: 0.4s;
+                    
+                  }
+                  
+                  .title-accordion:nth-child(1){
+                    border-radius: c.$borderRadius c.$borderRadius 0 0;
+                  }
+
+                  .title-accordion:nth-child(5){
+                    border-radius: 0 0 c.$borderRadius c.$borderRadius ;
+
+                    
+                    }
+
+                    .no-border{
+                        border-radius: 0 !important;
+                    }
+
+                  .active, .title-accordion:hover {
+                    background-color:c.$secondaryText ;
+                  }
+                  
+                  .content {
+                    padding: 0 18px;
+                    background-color: c.$primaryText;
+                    color: white;
+                    max-height: 0;
+                    overflow: hidden;
+                    transition: max-height 0.2s ease-out;
+                    width: 100%;
+                  }
+
+                #content-3{
+                    border-radius: 0 0 c.$borderRadius c.$borderRadius;
+                }
+            }
+            }
+        }
+
+        @media(max-width:425px){
+            .container-accordion{
+                .all-accordion{
+                    .h2-accordion{
+                        font-size: 1.3rem;
+                    }
+                    
+                    .accordion-1{
+                        .title-accordion{
+                            font-size: 1.3rem;
+                        }
+
+                        .content{
+                            font-size: 1.3rem;
+                        }
+                    }
+                }
+            }
+        }
+
+}
+
+

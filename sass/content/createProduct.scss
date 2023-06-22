@@ -2,9 +2,7 @@
 
 $boxSize: 8rem;
 
-main {
-    @include c.flex-center;
-}
+
 
 .createProductContainer {
     @include c.flex-center;

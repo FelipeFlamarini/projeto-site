@@ -80,11 +80,12 @@ html {
 }
 .baseContainer nav {
   display: flex;
+  justify-content: space-between;
   grid-area: nav;
   height: 5vh;
   width: 100%;
   background-color: #D32F2F;
-  padding: 0 10rem;
+  padding-left: 10rem;
 }
 .baseContainer nav .links {
   display: flex;
@@ -95,11 +96,27 @@ html {
   gap: 2rem;
   background-color: inherit;
   align-self: center;
-  width: 100%;
+  width: auto;
 }
 .baseContainer nav .links a {
   color: #212121;
   font-weight: bold;
+}
+.baseContainer nav .logout-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  height: 100%;
+  margin-right: 5.5rem;
+}
+.baseContainer nav .logout-nav i {
+  font-size: 2.3rem;
+  color: black;
+}
+.baseContainer nav .logout-nav span {
+  font-weight: bold;
+  color: black;
 }
 .baseContainer footer {
   display: flex;
@@ -171,7 +188,7 @@ html {
   .baseContainer .responsive-navBar ul li:hover {
     background-color: #0395d8;
   }
-  .baseContainer .responsive-navBar ul li a {
+  .baseContainer .responsive-navBar ul li span {
     font-size: 1.7rem;
     color: black;
     font-weight: bold;
@@ -236,7 +253,7 @@ html {
   .baseContainer .responsive-navBar ul li:hover {
     background-color: #0395d8;
   }
-  .baseContainer .responsive-navBar ul li a {
+  .baseContainer .responsive-navBar ul li span {
     font-size: 1.7rem;
     color: black;
     font-weight: bold;
@@ -477,13 +494,6 @@ html {
   .productContainer .description {
     grid-column: 1/3;
   }
-}
-
-main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
 }
 
 .createProductContainer {

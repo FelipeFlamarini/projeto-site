@@ -1,5 +1,7 @@
 @use '../common/index' as c;
 
+    
+
 .deleteProductContainer {
     grid-area: main;
     @include c.flex-center;

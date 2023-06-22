@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./css/base.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>
+        Registro de produto
+    </title>
+</head>
+<body>
+    <div class="baseContainer">
+
+        <%- include("../partials/header.ejs") %>
+
+        <%- include("../partials/nav.ejs") %>
+
+        <!-- CONTAINER PRINCIPAL -->
+        <main>
+            <div class="createProductPostContainer">
+                <% if (result) { %>
+                    <p><strong>Seu produto foi criado</strong></p>
+                    <a href="<%= productUrl %>">Ir à página do produto</a>
+                <% } else { %>
+                    <p><strong>Seu produto não foi criado, tente novamente</strong></p>
+                <% } %>
+                <a href="http://localhost:8080/createProduct">Retornar</a>
+            </div>
+        </main>
+
+        <%- include("../partials/footer.ejs") %>
+    </div>
+</body>
+</html>

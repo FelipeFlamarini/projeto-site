@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="./css/base.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="./js/login-error/loginError.js" defer></script>
+</head>
+
+<body>
+        <!----------------- CONTAINER PRINCIPAL --------------->
+        <div class="container-login">
+            <a href="./"><img class="img-login" src="./imgs/logo-login-menor.png" alt=""></a>
+            <div class="all-login">
+                <form action="" id="sub-login">
+                    <div class="login-email">
+                        <label for="email">Email</label>
+                        <div>
+                            <i class='bx bx-user'></i>
+                            <input type="text" name="email" id="email" placeholder="Email" required>
+                        </div>
+                    </div>
+                    
+                    <div class="login-password">
+                        <label for="password">Password</label>
+                        <div>
+                            <i class='bx bx-lock-alt'></i> 
+                            <input type="password" name="password" id="password" placeholder="Senha" required>
+                        </div>
+                    </div>
+                </form>
+                    <button id="submit-login" type="submit" form="sub-login">
+                            <span>Login</span>
+                    </button>
+            </div>
+        </div>
+</body>
+</html>

@@ -3,12 +3,13 @@
 .createProductPostContainer {
     grid-area: main;
     @include c.flex-center;
-    flex-flow: column wrap;
+    flex-flow: column nowrap;
     background-color: white;
-    border: 1px solid red;
+    // border: 1px solid red;
+    box-shadow: 0 0 .5rem black;
     border-radius: c.$borderRadius;
     width: 30rem;
-    height: 10rem;
+    // height: 10rem;
     gap: 2rem;
     padding: 3rem;
 

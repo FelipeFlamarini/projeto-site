@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="./css/base.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <title>Registrar produto</title>
+    <title>Registro de produto</title>
 </head>
 <body>
     <div class="baseContainer">
@@ -91,84 +91,78 @@
                     </div>
                     <label for="details">Detalhes</label>
                     <div class="details">
-                        <div class="row">
-                            <div>
-                                <label for="seats">Lugares: </label>
-                                <input required type="number" step="1" min="1" max="1000" id="seats" name="seats">
-                            </div>
-                            
-                            <div>
-                                <label for="doors">Portas: </label>
-                                <input required type="number" step="1" min="1" max="10" id="doors" name="doors">
-                            </div>
-
-                            <div>
-                                <label for="trunkL">Capacidade do tanque em litros: </label>
-                                <input required type="number" step="1" max="99999" id="trunkL" name="trunkL">
-                            </div>
+                        <div>
+                            <label for="seats">Lugares: </label>
+                            <input required type="number" step="1" min="1" max="1000" id="seats" name="seats">
+                        </div>
+                        
+                        <div>
+                            <label for="doors">Portas: </label>
+                            <input required type="number" step="1" min="1" max="10" id="doors" name="doors">
                         </div>
 
-                        <div class="row">
-                            <div>
-                                <label for="fuel">Combustível: </label>
-                                <select id="fuel" name="fuel">
-                                    <option value="Diesel">Diesel</option>
-                                    <option value="Flex">Flex</option>
-                                    <option value="Gasolina">Gasolina</option>
-                                </select>
-                            </div>
-
-                            <div>
-                                <label for="transmission">Transmissão: </label>
-                                <select id="transmission" name="transmission">
-                                    <option value="Automática">Automática</option>
-                                    <option value="Automatizada">Automatizada</option>
-                                    <option value="CVT">CV</option>
-                                    <option value="Manual">Manual</option>
-                                </select>
-                            </div>
-
-                            <div>
-                                <label for="steering">Direção: </label>
-                                <select id="steering" name="steering">
-                                    <option value="Elétrica">Elétrica</option>
-                                    <option value="Eletro-hidráulica">Eletro-hidráulica</option>
-                                    <option value="Hidráulica">Hidráulica</option>
-                                    <option value="Mecânica">Mecânica</option>
-                                </select>
-                            </div>
+                        <div>
+                            <label for="trunkL">Capacidade do tanque em litros: </label>
+                            <input required type="number" step="1" max="99999" id="trunkL" name="trunkL">
                         </div>
 
-                        <div class="row">
-                            <div>
-                                <label for="ABS">Freios ABS: </label>
-                                <select id="ABS" name="ABS">
-                                    <option value="0">Não</option>
-                                    <option value="1">Sim</option>
-                                </select>
-                            </div>
-
-                            <div>
-                                <label for="airbags">Airbags: </label>
-                                <select id="airbags" name="airbags">
-                                    <option value="0">Não</option>
-                                    <option value="1">Sim</option>
-                                </select>
-                            </div>
+                        <div>
+                            <label for="fuel">Combustível: </label>
+                            <select id="fuel" name="fuel">
+                                <option value="Diesel">Diesel</option>
+                                <option value="Flex">Flex</option>
+                                <option value="Gasolina">Gasolina</option>
+                            </select>
                         </div>
 
-                        <div class="row">
-                            <div>
-                                <label for="price">Preço diário: R$</label>
-                                <input required type="number" step="0.01" max="99999" id="price" name="price">
-                            </div>
+                        <div>
+                            <label for="transmission">Transmissão: </label>
+                            <select id="transmission" name="transmission">
+                                <option value="Automática">Automática</option>
+                                <option value="Automatizada">Automatizada</option>
+                                <option value="CVT">CV</option>
+                                <option value="Manual">Manual</option>
+                            </select>
                         </div>
 
-                        <div class="row">
-                            <label for="img">Escolha até 5 imagens: </label>
+                        <div>
+                            <label for="steering">Direção: </label>
+                            <select id="steering" name="steering">
+                                <option value="Elétrica">Elétrica</option>
+                                <option value="Eletro-hidráulica">Eletro-hidráulica</option>
+                                <option value="Hidráulica">Hidráulica</option>
+                                <option value="Mecânica">Mecânica</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="ABS">Freios ABS: </label>
+                            <select id="ABS" name="ABS">
+                                <option value="0">Não</option>
+                                <option value="1">Sim</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="airbags">Airbags: </label>
+                            <select id="airbags" name="airbags">
+                                <option value="0">Não</option>
+                                <option value="1">Sim</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="price">Preço diário: R$</label>
+                            <input required type="number" step="0.01" max="99999" id="price" name="price">
+                        </div>
+
+                        <div>
+                            <label for="img" id="imgLabel">Escolha até 5 imagens: </label>
                             <input multiple type="file" name="img" id="img" enctype="multipart/form-data">
                         </div>
-                        <div class="row">
+
+                        <div>
+                            <label for="description" id="descriptionLabel">Faça uma descrição breve: </label>
                             <textarea name="description" id="description" cols="80" rows="10"></textarea>
                         </div>
                     </div>

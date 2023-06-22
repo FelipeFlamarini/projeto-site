@@ -50,16 +50,31 @@
 
                 <div class="info">     
                     <p id="price"><span>R$</span><span><%= info.price %></span><span> / Diária</span></p>               
-                    <p id="fuel"><strong>Combustível:</strong> <%= info.fuel%></p>
-                    <p id="transmission"><strong>Transmissão:</strong> <%= info.transmission%></p>
-                    <p id="steering"><strong>Direção:</strong> <%= info.steering%></p>
+                    <div class="infoRow">
+                        <span>Combustível:</span>
+                        <span><%= info.fuel%></span>
+                    </div>
+                    <div class="infoRow">
+                        <span>Transmissão:</span>
+                        <span><%= info.transmission%></span>
+                    </div>
+                    <div class="infoRow">
+                        <span>Direção:</span>
+                        <span><%= info.steering%></span>
+                    </div>
 
                     <% if (info.ABS) { %>
-                        <p id="ABS"><strong>ABS:</strong> sim</p>
+                        <div class="infoRow">
+                            <span>ABS:</span>
+                            <span>sim</span>
+                        </div>
                     <% } %>
                     </p>
                     <% if (info.airbags) { %>
-                        <p id="ABS"><strong>Airbags:</strong> sim</p>
+                        <div class="infoRow">
+                            <span>Airbags:</span>
+                            <span>sim</span>
+                        </div>
                     <% } %>
                     </p>
                     <div class="infoIcons">
@@ -76,7 +91,7 @@
                             <p><%= info.trunkL%>L</p>
                         </div>
                     </div>
-                    <a href="#">ALUGAR</a>
+                    <a href="#" id="alugar">ALUGAR</a>
                 </div>
                 
                 <div class="description">

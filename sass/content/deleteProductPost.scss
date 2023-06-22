@@ -5,7 +5,8 @@
     @include c.flex-center;
     flex-flow: column nowrap;
     background-color: white;
-    border: 1px solid red;
+    // border: 1px solid red;
+    box-shadow: 0 0 .5rem black;
     border-radius: c.$borderRadius;
     width: 30rem;
     height: 14rem;
@@ -14,5 +15,14 @@
     a {
         text-decoration: none;
         color: black;
+        font-weight: bold;
+        background-color: c.$lightPrimary;
+        padding: 1rem;
+        border-radius: c.$borderRadius;
+        transition: .2s ease-in-out;
+    }
+
+    a:hover {
+        transform:scale(1.1);
     }
 }

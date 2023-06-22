@@ -18,10 +18,20 @@
         <!----------------- CONTAINER PRINCIPAL --------------->
         <main>
             <div class="productNotFoundContainer">
-                <p>Este produto não foi encontrado.</p>
+                <div class="imgContainer"><img src="./imgs/bg/scenario2.png" alt=""></div>
+                <div class="message">
+                    <a href="http://localhost:8080/index">
+                        <p>Este produto não foi encontrado!</p>
+                        <br>
+                        <p>Clique aqui para retornar à lista de carros</p>
+                    </a>
+                </div>
+            </div>
+            <!-- <div class="productNotFoundContainer">
+                <p><strong>Este produto não foi encontrado.</strong></p>
                 <br>
                 <p>Que tal continuar olhando nossa <a href="localhost:8080/productList">lista de carros</a>?</p>
-            </div>
+            </div> -->
         </main>
         
         <%- include("./partials/footer.ejs") %>

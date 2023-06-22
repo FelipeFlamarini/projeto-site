@@ -98,9 +98,17 @@
                                 
                             </div>
                             <div class="info">
-                                <p><span>Transmissão: </span><%= products[i].transmission %></p>
-                                <p><span>Direção: </span><%= products[i].steering %></p>
-                                <p><span>R$</span><%= products[i].price %><span>/Diária</span></p>
+                                <div>
+                                    <span>Transmissão: </span>
+                                    <span><%= products[i].transmission %></span>
+                                </div>
+                                <div>
+                                    <span>Direção: </span>
+                                    <span><%= products[i].steering %></span>
+                                </div>
+                                <div class="infoPrice">
+                                    <span>R$: <%= products[i].price %>/Diária</span></span>
+                                </div>
                             </div>
                             <a href="./product?id=<%= products[i].id %>">MAIS DETALHES</a>
                         </div>

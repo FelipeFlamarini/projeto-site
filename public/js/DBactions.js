@@ -127,10 +127,10 @@ function debug() {
           sql += "ORDER BY " + orderBy + " ";
           if (ASC > 0) sql += "ASC ";
           else sql += "DESC ";
-          sql += "LIMIT " + amount + " OFFSET " + ((page - 1) * amount);
+          // sql += "LIMIT " + amount + " OFFSET " + ((page - 1) * amount);
           console.log(sql);
           const query = await DB.promise().query(sql);
-          return query;
+          return query[0];
         }
 
 

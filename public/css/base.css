@@ -1709,12 +1709,12 @@ html, body {
   background-color: #212121;
   color: white;
   cursor: pointer;
-  padding: 18px;
+  padding: 1.8rem;
   width: 100%;
   border: none;
   text-align: left;
   outline: none;
-  font-size: 15px;
+  font-size: 1.5rem;
   transition: 0.4s;
 }
 .index-container .container-accordion .all-accordion .accordion-1 .title-accordion:nth-child(1) {
@@ -1730,7 +1730,7 @@ html, body {
   background-color: #757575;
 }
 .index-container .container-accordion .all-accordion .accordion-1 .content {
-  padding: 0 18px;
+  padding: 0 1.8rem;
   background-color: #212121;
   color: white;
   max-height: 0;

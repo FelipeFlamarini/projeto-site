@@ -180,6 +180,71 @@ a {
     gap: 2rem;
   }
 }
+.baseContainer .responsive-navBar {
+  display: none;
+}
+@media (max-width: 640px) {
+  .baseContainer header {
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  .baseContainer header .logo {
+    margin-left: -3.2rem;
+  }
+  .baseContainer header .btn-dropdown {
+    display: block;
+    background-color: black;
+    height: 4rem;
+    width: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+  }
+  .baseContainer header .btn-dropdown i {
+    font-size: 3rem;
+    color: #D32F2F;
+  }
+  .baseContainer .nav {
+    display: none;
+  }
+  .baseContainer .btn-reservas {
+    display: none;
+  }
+  .baseContainer .responsive-navBar {
+    position: absolute;
+    left: 0rem;
+    top: 3.9rem;
+    width: 100%;
+    display: none;
+  }
+  .baseContainer .responsive-navBar ul {
+    list-style: none;
+  }
+  .baseContainer .responsive-navBar ul li {
+    background-color: #03A9F4;
+  }
+  .baseContainer .responsive-navBar ul li:hover {
+    background-color: #0395d8;
+  }
+  .baseContainer .responsive-navBar ul li a {
+    font-size: 1.7rem;
+    color: black;
+    font-weight: bold;
+  }
+  .baseContainer .active {
+    display: block;
+  }
+  .baseContainer footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    padding: 1rem;
+    gap: 2rem;
+  }
+}
 
 .glide {
   position: relative;
@@ -936,6 +1001,175 @@ a {
 }
 .container-login .all-login button span {
   color: #FFFFFF;
+}
+
+.container-userConfig {
+  grid-area: main;
+  height: auto;
+}
+.container-userConfig .all-user-config {
+  height: 39rem;
+  display: flex;
+  justify-content: center;
+  align-items: none;
+  flex-direction: none;
+  flex-wrap: wrap;
+  padding: 1rem 2rem;
+  background-color: #BDBDBD;
+  gap: 2rem;
+}
+.container-userConfig .all-user-config .personName {
+  background-color: white;
+  height: 34rem;
+  padding: 1rem;
+  border-radius: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-direction: column;
+  gap: 1rem;
+  margin-right: 3rem;
+}
+.container-userConfig .all-user-config .personName .top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-direction: column;
+}
+.container-userConfig .all-user-config .personName .top img {
+  width: 10rem;
+}
+.container-userConfig .all-user-config .personName .top > span:nth-child(2) {
+  font-weight: bold;
+}
+.container-userConfig .all-user-config .personName .top > span:nth-child(3) {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #757575;
+}
+.container-userConfig .all-user-config .personName .bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.container-userConfig .all-user-config .personName .bottom div {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: none;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.2rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+}
+.container-userConfig .all-user-config .personName .bottom div:hover {
+  background-color: #757575;
+}
+.container-userConfig .all-user-config .personName .bottom div i {
+  font-size: 2rem;
+}
+.container-userConfig .all-user-config .personName .bottom div span {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+.container-userConfig .all-user-config .profile {
+  border-radius: 2rem;
+  height: 34rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 1rem;
+  gap: 1rem;
+  background-color: white;
+}
+.container-userConfig .all-user-config .profile div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.container-userConfig .all-user-config .profile .title span {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.container-userConfig .all-user-config .profile .name-pwd {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.container-userConfig .all-user-config .profile .name-pwd span {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+.container-userConfig .all-user-config .profile .name-pwd input {
+  width: 38rem;
+  height: 4rem;
+  outline: none;
+  padding-left: 1rem;
+  font-size: 1.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid #757575;
+}
+.container-userConfig .all-user-config .profile .btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+.container-userConfig .all-user-config .profile .btn button {
+  width: 20rem;
+  height: 4rem;
+  border: none;
+  border-radius: 2rem;
+  background-color: #068323;
+  font-weight: bold;
+}
+.container-userConfig .all-user-config .profile .btn button span {
+  color: #FFFFFF;
+}
+@media (max-width: 1031px) {
+  .container-userConfig .all-user-config {
+    height: 95rem;
+  }
+  .container-userConfig .all-user-config .personName {
+    width: 80%;
+    display: flex;
+    justify-content: none;
+    align-items: flex-start;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 40rem;
+    margin-right: 0;
+  }
+  .container-userConfig .all-user-config .personName .top {
+    align-self: center;
+  }
+  .container-userConfig .all-user-config .personName .bottom div {
+    width: 100%;
+  }
+  .container-userConfig .all-user-config .personName .bottom div i {
+    font-size: 2.3rem;
+  }
+  .container-userConfig .all-user-config .personName .bottom div span {
+    font-size: 2rem;
+  }
+  .container-userConfig .all-user-config .profile {
+    width: 80%;
+    height: 42rem;
+    margin-bottom: 4rem;
+  }
+  .container-userConfig .all-user-config .profile .name-pwd {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, auto);
+  }
+  .container-userConfig .all-user-config .profile .name-pwd input {
+    width: 100%;
+  }
 }
 
 /*# sourceMappingURL=base.css.map */

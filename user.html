@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/base.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="./js/baseResponsive.js" defer></script>
+</head>
+
+<body>
+    <div class="baseContainer">
+        <!----------------------- HEADER ----------------------->
+        <header>
+            <div class="logo">
+                <a href="./index.html"><img src="imgs/logo.png" alt=""></a>
+                <a href="#"><i class='bx bxl-facebook-square'></i></a>
+                <a href="#"><i class='bx bxl-instagram-alt' ></i></a>
+            </div>
+            <a class="btn-reservas" href="./account.html">Minhas reservas</a>
+
+            <div class="btn-dropdown" id="BtnDrop">
+                <i class='bx bx-align-justify'></i>
+            </div>
+        </header>
+
+        <!------------------------- NAV ------------------------>
+        <nav class="nav">
+            <div class="links">
+                <a href="./index.html">Home</a>
+                <a href="./listaDeCarros.html">Lista de carros</a>
+                <a href="./quemSomos.html">Quem somos</a>
+                <a href=""></a>
+            </div>
+        </nav>
+
+        <div class="responsive-navBar" id="RnavBar">
+            <ul>
+                <li>
+                    <a href="./account.html">Minhas reservas</a>
+                </li>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./listaDeCarros.html">Lista de carros</a></li>
+                <li><a href="./quemSomos.html">Quem somos</a></li>
+            </ul>
+        </div>
+
+        <!----------------- CONTAINER PRINCIPAL --------------->
+        <div class="container-userConfig">
+            <div class="all-user-config">
+                <div class="personName">
+                    <div class="top">
+                        <div>
+                            <img src="./imgs/pngwing.com.png" alt="">
+                        </div>
+                        <span>user sub</span>
+                        <span>usersub@gmail.com</span>
+                    </div>
+
+                    <div class="bottom">
+                        <div>
+                            <i class='bx bxs-home-smile'></i>
+                            <span>Dashboard</span>
+                        </div>
+                        <div>
+                            <i class='bx bxs-user'></i>
+                            <span>My Profile</span>
+                        </div>
+                        <div>
+                            <i class='bx bx-calendar'></i>
+                            <span>My Orders</span>
+                        </div>
+                        <div>
+                            <i class='bx bxs-car'></i>
+                            <span>My Favorite Cars</span>
+                        </div>
+                        <div>
+                            <i class='bx bx-log-out'></i>
+                            <span>Sign Out</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile">
+                    <div class="title">
+                        <span>Profile</span>
+                    </div>
+                    <div class="name-pwd">
+                        <div>
+                            <span>Nome do Usuario</span>
+                            <input type="text" name="" id="" placeholder="">
+                        </div>
+                        <div>
+                            <span>Email</span>
+                            <input type="text" name="" id="">
+                        </div>
+                        <div>
+                            <span>Nova Senha</span>
+                            <input type="password" name="" id="">
+                        </div>
+                        <div>
+                            <span>Repita Nova Senha</span>
+                            <input type="password" name="" id="">
+                        </div>
+                    </div>
+                    <div class="btn">
+                        <button>
+                            <span>Update Profile</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!------------------ FOOTER ------------------->
+        <footer>
+            <div class="duvidas">
+                <h2>Dúvidas</h2>
+                <ul>
+                    <li><a href="#">Quem somos</a></li>
+                    <li><a href="#">Perguntas frequentes</a></li>
+                </ul>
+            </div>
+
+            <div class="ajuda">
+                <h2>Ajuda</h2>
+                <ul>
+                    <li><a href="#">Fale conosco</a></li>
+                    <li><a href="#">Erros comuns</a></li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

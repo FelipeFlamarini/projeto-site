@@ -403,7 +403,8 @@ $altura-search-celular:5.8rem;
     .all-cars{
         @include c.flex(flex-start,center,column);
         background-color:c.$divider ;
-        height: 50rem;
+        height: auto;
+        
         .h1-cars{
             // margin-top: 1rem;
             h1{

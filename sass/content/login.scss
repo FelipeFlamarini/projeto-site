@@ -17,7 +17,7 @@
     padding:1rem;
     @include c.flex(flex-start,center,column);
     border-radius: c.$borderRadius;
-    @include c.widhgt(30rem,30rem);
+    @include c.widhgt(30rem,25rem);
     gap: 1rem;
     background-color: c.$lightPrimary;
     

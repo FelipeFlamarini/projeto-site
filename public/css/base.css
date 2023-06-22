@@ -1471,7 +1471,7 @@ html, body {
   flex-direction: column;
   flex-wrap: wrap;
   background-color: #BDBDBD;
-  height: 50rem;
+  height: auto;
 }
 .index-container .all-cars .h1-cars h1 {
   font-size: 5rem;
@@ -1775,7 +1775,7 @@ html, body {
   flex-wrap: wrap;
   border-radius: 2rem;
   width: 30rem;
-  height: 30rem;
+  height: 25rem;
   gap: 1rem;
   background-color: #FFCDD2;
 }
@@ -1900,8 +1900,10 @@ html, body {
 }
 .container-userConfig .all-user-config .personName .bottom div i {
   font-size: 2rem;
+  color: black;
 }
 .container-userConfig .all-user-config .personName .bottom div span {
+  color: black;
   font-weight: bold;
   font-size: 1.5rem;
 }

@@ -9,6 +9,7 @@ btn.addEventListener('click',function(event){
         console.log('oi')
         console.log(password.value)
         console.log(email.value)
+        window.location.href = "./user"
     }
     else{
         console.log('error')

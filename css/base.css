@@ -859,4 +859,83 @@ a {
   }
 }
 
+.container-login {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-image: url(../sass/img/bg-login2.jpg);
+}
+.container-login .img-login {
+  cursor: pointer;
+}
+.container-login .all-login {
+  padding: 1rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  border-radius: 2rem;
+  width: 30rem;
+  height: 30rem;
+  gap: 1rem;
+  background-color: #FFCDD2;
+}
+.container-login .all-login .login-email {
+  margin-bottom: 2rem;
+}
+.container-login .all-login .error {
+  position: relative; /*FOR ANY ANIMATION IT SHOLUD BE RELATIVE*/
+  animation: shake 0.2s;
+}
+@keyframes shake {
+  0%, 100% {
+    left: 0px;
+  }
+  20%, 80% {
+    left: -15px;
+  }
+  40%, 60% {
+    left: 15px;
+  }
+}
+.container-login .all-login .login-email label, .container-login .all-login .login-password label {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.container-login .all-login .login-email div, .container-login .all-login .login-password div {
+  display: flex;
+}
+.container-login .all-login .login-email div i, .container-login .all-login .login-password div i {
+  font-size: 3rem;
+  margin-right: 0.5rem;
+}
+.container-login .all-login .login-email div input, .container-login .all-login .login-password div input {
+  height: 3rem;
+  border: none;
+  border-radius: 1rem;
+  outline: none;
+  padding-left: 1rem;
+  font-size: 1.5rem;
+}
+.container-login .all-login button {
+  margin-top: 1rem;
+  width: 20rem;
+  height: 3rem;
+  border-radius: 2rem;
+  border: none;
+  cursor: pointer;
+  background-color: #068323;
+  font-weight: bold;
+}
+.container-login .all-login button:hover {
+  background-color: #017a1e;
+}
+.container-login .all-login button span {
+  color: #FFFFFF;
+}
+
 /*# sourceMappingURL=base.css.map */

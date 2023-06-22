@@ -6,16 +6,31 @@ a {
     text-decoration: none;
 }
 
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: c.$divider;
+}
+
+html, body {
+    height: 100%;
+}
+
 .baseContainer {
     display: grid;
     grid-template-areas: 
     "header"
     "nav"
     "main"
+    "main"
     "footer";
-    grid-template-rows: $headerHeight $navHeight;
+    grid-template-rows: auto auto 2fr auto auto;
     background: c.$divider;
-    height: 100vh;
+    min-height: 100%;
     width: 100%;
 
 
@@ -40,7 +55,7 @@ a {
 
                 i {
                     font-size: 3rem;
-                    color: c.$darkPrimary;
+                    color: c.$darkPrimary;  
                 }
             }
         }
@@ -62,23 +77,43 @@ a {
 
     nav {
         display: flex;
+        justify-content: space-between;
         grid-area: nav;
         height: $navHeight;
         width: 100%;
-        background-color: c.$darkPrimary;
-        padding: 0 10rem;
-        border-radius: 0 0 c.$borderRadius c.$borderRadius;
+        padding-left: 10rem;
+        // border-radius: 0 0 c.$borderRadius c.$borderRadius;
+
+        @media screen and (min-width: 641px) {
+            background-color: c.$darkPrimary;
+        }
 
         .links {
             @include c.flex(initial, initial, row, nowrap);
             gap: 2rem;
             background-color: inherit;
             align-self: center;
-            width: 100%;
+            width: auto;
 
             a {
                 color: c.$primaryText;
                 font-weight: bold;
+            }
+        }
+
+        .logout-nav{
+            @include c.flex-center;
+            height: 100%;
+            margin-right: 5.5rem;
+
+            i{
+                font-size: 2.3rem;
+                color: black;
+            }
+
+            span{
+                font-weight: bold;
+                color: black
             }
         }
 
@@ -93,7 +128,7 @@ a {
         width: 100%;
         background-color: black;
         padding: 2rem 5rem;
-        border-radius: c.$borderRadius c.$borderRadius 0 0;
+        // border-radius: c.$borderRadius c.$borderRadius 0 0;
 
         .duvidas, .ajuda {
             h2:nth-child(1) {
@@ -142,7 +177,12 @@ a {
 
 
         .nav{
-            display: none;
+            background-color: none;
+
+            .links {
+                display: none;
+            }
+
         }
 
         .btn-reservas{
@@ -161,7 +201,7 @@ a {
                         background-color:#0395d8 ;
                     }
                     
-                    a{
+                    span{
                         font-size: 1.7rem;
                         color: black;
                         font-weight: bold;
@@ -188,7 +228,3 @@ a {
         }
     }
 }
-
-
-
-

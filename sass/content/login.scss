@@ -1,0 +1,89 @@
+@use '../common/index' as c;
+
+
+.container-login{
+    height: 100vh;
+    width: 100%;
+    @include c.flex-center(column);
+    background-image: url(../imgs/bg-login2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    .img-login{
+        cursor: pointer;
+    }
+
+    .all-login{
+    padding:1rem;
+    @include c.flex(flex-start,center,column);
+    border-radius: c.$borderRadius;
+    @include c.widhgt(30rem,30rem);
+    gap: 1rem;
+    background-color: c.$lightPrimary;
+    
+    .login-email{
+        margin-bottom: 2rem;
+    }
+
+    .error {
+        position: relative; /*FOR ANY ANIMATION IT SHOLUD BE RELATIVE*/
+        animation: shake 0.2s;
+    }
+    
+    @keyframes shake {
+        0%,100%{
+            left: 0px;
+        }
+        20%,80%{
+            left: -15px;
+        }
+        40%,60%{
+            left: 15px;
+        }
+    }
+
+    .login-email,.login-password{
+
+        label{
+            font-size: 2rem;
+            font-weight: bold;
+            }
+        div{
+            display: flex;
+            i{
+                font-size: 3rem;
+                margin-right: .5rem;
+            }
+
+            input{
+                height: 3rem;
+                border: none;
+                border-radius: 1rem;
+                outline: none;
+                padding-left: 1rem;
+                font-size: 1.5rem;
+            }
+        }
+    }
+
+    
+
+    button{
+        margin-top: 1rem;
+        @include c.widhgt(20rem,3rem);
+        border-radius: c.$borderRadius;
+        border: none;
+        cursor: pointer;
+        background-color: c.$btnSearch;
+        font-weight: bold;
+        &:hover{
+            background-color:c.$btnSearchHover ;
+        }
+        span{
+            color: c.$icons;
+            
+        }
+    }
+}
+        
+}

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="./css/base.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="./js/baseResponsive.js" defer></script>
+    <title>Carros - página <%= page %> | LocaCar</title>
+</head>
+<body>
+    <div class="baseContainer">
+
+        <%- include("./partials/header.ejs") %>
+
+        <%- include("./partials/nav.ejs") %>
+
+        <div class="productListContainer">
+
+            <%- include("./partials/pageSelector.ejs") %>
+
+            <div class="filtersContainer">
+                <form method="post" action="./productListFilter">
+                    <div class="orderByContainer">
+                        <div>
+                            <label for="">Ordernar por </label>
+                            <select name="orderBy" id="orderBy">
+                                <option value="id">registro</option>
+                                <option value="year">ano</option>
+                                <option value="price">preço</option>
+                            </select>
+                            <select name="ASC" id="ASC">
+                                <option value="1">crescente</option>
+                                <option value="0">decrescente</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <% Object.keys(filters).forEach(function (key) { %>
+                        <% if (String(key) != "id" & String(key) != "model2" & String(key) != "trunkL" & String(key) != "price" & String(key) != "id" & String(key) != "seats" & String(key) != "doors" & String(key) != "views") { %>
+                            <div class="filter">
+                                <label for="">
+                                    <% if (key == "name") { %>
+                                        Marca
+                                    <% } else if (key == "model1") { %>
+                                        Modelo
+                                    <% } else if (key == "year") { %>
+                                        Ano
+                                    <% } else if(key == "fuel") { %>
+                                        Combustível
+                                    <% } else if (key == "transmission") { %>
+                                        Transmissão
+                                    <% } else if (key == "steering") { %>
+                                        Direção
+                                    <% } else if (key == "airbags") { %>
+                                        Airbags
+                                    <% } else { %>
+                                        <%= key %>
+                                    <% } %>
+                                </label>
+                                <div class="filterOptions">
+                                    <% Object.values(filters[key]).forEach(function (value) { %>
+                                        <div>
+                                            <input type="checkbox" name="<%= key %>" value="<%= value %>">
+                                            <label for="">
+                                                <% if (value == 0) { %>
+                                                    Não
+                                                <% } else if (value == 1) { %>
+                                                    Sim
+                                                <% } else { %>
+                                                    <%= value %>
+                                                <% } %>
+                                            </label>
+                                        </div>
+                                    <% }) %>
+                                </div>
+                            </div>
+                         <% } %>
+                    <% }) %>
+
+                    <div class="apply">
+                        <button>Aplicar filtros</button>
+                    </div>
+
+                </form>
+            </div>
+
+            <div class="products">
+                    <% for (var i = 0; i < products.length; i++) { %>
+                        <div class="product">
+                            <div class="main">
+                                <p><%= products[i].name %> <%= products[i].model1 %> <%= products[i].model2 %> <%= products[i].year %></p>
+                                <% if (imgs[i]) { %>
+                                    <img id="mainImage" src="<%= imgs[i] %>" alt="">
+                                <% } else { %>
+                                    <p id="mainImage">Imagem indisponível</p>
+                                <% } %>
+                                
+                            </div>
+                            <div class="info">
+                                <div>
+                                    <span>Transmissão: </span>
+                                    <span><%= products[i].transmission %></span>
+                                </div>
+                                <div>
+                                    <span>Direção: </span>
+                                    <span><%= products[i].steering %></span>
+                                </div>
+                                <div class="infoPrice">
+                                    <span>R$: <%= products[i].price %>/Diária</span></span>
+                                </div>
+                            </div>
+                            <a href="./product?id=<%= products[i].id %>">MAIS DETALHES</a>
+                        </div>
+                    <% } %>
+            </div>
+
+            <%- include("./partials/pageSelector.ejs") %>
+
+        </div>
+
+        <%- include("./partials/footer.ejs") %>
+
+    </div>
+</body>
+</html>

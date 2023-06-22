@@ -1,0 +1,53 @@
+@use '../common/index' as c;
+
+.deleteProductContainer {
+    grid-area: main;
+    @include c.flex-center;
+    background-color: white;
+    border-radius: c.$borderRadius;
+    width: 30rem;
+    height: 14rem;
+    margin: 3rem auto;
+    // border: 1px solid red;
+    box-shadow: 0 0 .5rem black;
+
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    /* Firefox */
+    input[type=number] {
+        -moz-appearance: textfield;
+    }
+
+    form {
+        @include c.flex-center;
+        flex-flow: column nowrap;
+        gap: 2rem;
+
+        input {
+            text-align: center;
+            // box-shadow: 0 0 .1rem black;
+            width: 12rem;
+        }
+
+        button {
+            border: none;
+            background-color: c.$lightPrimary;
+            box-shadow: 0 0 .5rem black;
+            border-radius: c.$borderRadius;
+            width: 10rem;
+            height: 3rem;
+            font-weight: bold;
+            font-size: 1.6rem;
+            transition: .2s ease-in-out;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+        }
+    }
+}

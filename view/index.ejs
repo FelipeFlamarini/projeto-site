@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="./css/base.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="./js/baseResponsive.js" defer></script>
+    <script src="./js/accordion/accordion.js" defer></script>
+    <script src="./js/calendario/calendario.js" defer></script>
+</head>
+
+<body>
+    <div class="baseContainer">
+        <!----------------------- HEADER ----------------------->
+        <%- include('./partials/header.ejs') %>
+
+        <!------------------------- NAV ------------------------>
+        <%- include('./partials/nav.ejs') %>
+
+        <!----------------- CONTAINER PRINCIPAL --------------->
+        <div class="index-container">
+            <div class="bg-image">
+
+                <div class="titulo-index">
+                    <h1 class="h1-tela-grande">
+                        Descubra a liberdade sobre rodas: <br> alugue um carro conosco!
+                    </h1>
+                    <h1 class="h1-tela-pequena">
+                        Faça sua reserva
+                    </h1>
+                </div>
+
+                <div class="vantagens-index">
+                    <div>
+                        <i class='bx bx-check'></i>
+                        <span>Variedade de veiculos</span>
+                    </div>
+                    <div>
+                        <i class='bx bx-check'></i>
+                        <span>Preços competitivos</span>
+                    </div>
+                    <div>
+                        <i class='bx bx-check'></i>
+                        <span>Reserva online fácil</span>
+                    </div>
+                </div>
+                <div class="all-search-date">
+                    <div class="search-date">
+                        <div class="local-retirada">
+                                <i class='bx bx-search'></i>
+                            <input type="text" name="" id="" placeholder="Selecione o local">
+                        </div>
+                        <div class="data-retirda">
+                            
+                                <span>Data</span>
+                                <input  class="calendario-bg" type="date" name="" id="primeiraData">
+                            
+                        </div>
+                        <div class="hora-retirda">
+                            <div>
+                                <i class='bx bx-time'></i>
+                            </div>
+                            <div>
+                                <span>Hora</span>
+                                <select class="select-bg" name="" id="">
+                                    <option value="0">10:00</option>
+                                    <option value="1">11:00</option>
+                                    <option value="2">11:30</option>
+                                    <option value="3">12:00</option>
+                                    <option value="4">21:00</option>
+                                    <option value="5">22:00</option>
+                                    <option value="6">23:00</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="data-devolver">
+                                <span>Data</span>
+                                <input class="calendario-bg" type="date" name="" id="segundaData">
+                        </div>
+                        <div class="hora-devolver">
+                            <div>
+                                <i class='bx bx-time'></i>
+                            </div>
+                            <div>
+                                <span>Hora</span>
+                                <select class="select-bg" name="" id="">
+                                    <option value="0">10:00</option>
+                                    <option value="1">11:00</option>
+                                    <option value="2">11:30</option>
+                                    <option value="3">12:00</option>
+                                    <option value="4">21:00</option>
+                                    <option value="5">22:00</option>
+                                    <option value="6">23:00</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                        <button class="btn-search">
+                            <span>Pesquisar</span>
+                        </button>
+                </div>
+            </div>
+
+            <div class="all-cars">
+                <div class="h1-cars">
+                    <h1>Nossa frota de veiculos</h1>
+                </div>
+                <div class="texto-cars">
+                    <p>Explore nossa diversificada frota de veículos para alugar, que inclui desde carros compactos e eficientes até SUVs espaçosos e elegantes, garantindo que você encontre o veículo perfeito para sua próxima aventura.</p>
+                </div>
+                <div class="container-carousel">
+                    <div class="glide">
+                        <div class="glide__track" data-glide-el="track">
+                          <ul class="glide__slides">
+                            <% for (var i = 0; i < productsInfo.length; i++) { %>
+                                <li class="glide__slide">
+                                    <div class="carro">
+                                        <div>
+                                            <span><%= productsInfo[i].name%> <%= productsInfo[i].model1%> <%= productsInfo[i].model2%> <%= productsInfo[i].year%></span>
+                                        </div>
+                                        <div>
+                                            <% if (imgs[i]) { %>
+                                                <img class="carros-img" src="<%= imgs[i] %>" alt="">
+                                            <% } else { %>
+                                                <p class="carros-img">Imagem indisponível</p>
+                                            <% } %>
+                                            
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <i class='bx bx-user'></i>
+                                                <span><%= productsInfo[i].seats %></span>
+                                            </div>
+
+                                        </div>
+                                        <div>
+                                            <span>Carro espaçoso, confortável, seguro, econômico e ideal para viagens familiares.</span>
+                                        </div>
+
+                                        
+                                        <div class="alugar">
+                                            <span>Preço diário</span>
+                                            <span>R$<%= productsInfo[i].price %></span>
+                                            <a href="./product?id=<%= productsInfo[i].id %>">
+                                                Ver mais
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                            <% } %>
+                        </div>
+                        <div class="glide__arrows" data-glide-el="controls">
+                            <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><i class='bx bx-chevron-left'></i></button>
+                            <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><i class='bx bx-chevron-right'></i></button>
+                          </div>
+                      </div>
+                </div>
+        </div>
+        <div class="container-accordion">
+                
+                <div class="all-accordion">
+                    <div class="h2-accordion">
+                        <h2>Perguntas frequentes</h2>
+                    </div>
+                    <div class="accordion-1">
+                        <div class="title-accordion">
+                            <span>É necessário ter um seguro próprio para alugar um carro?
+                            </span>
+                        </div>
+                            <div class="content">
+                                <p> Normalmente, a empresa de aluguel de carros oferece um seguro básico incluído no valor do aluguel. No entanto, é recomendável verificar os detalhes do seguro oferecido e considerar a contratação de um seguro adicional para maior proteção e tranquilidade durante o período de locação.
+                                    </p>
+                            </div>
+                        <div  class="title-accordion">
+                            <span> Qual é a idade mínima para alugar um carro?</span>
+                        </div>
+                            <div class="content">
+                                <p>A idade mínima pode variar dependendo do local e da empresa de aluguel de carros, mas geralmente é entre 21 e 25 anos. No entanto, os motoristas mais jovens podem ser elegíveis para alugar um carro mediante o pagamento de uma taxa adicional de motorista jovem.</p>
+                            </div>
+                        <div class="title-accordion" id="3-accordion">
+                            <span>Quais são os documentos necessários para alugar um carro?</span>
+                        </div>
+                            <div class="content" id="content-3">
+                                <p> Geralmente, é necessário apresentar uma carteira de motorista válida, um documento de identificação válido, como um passaporte ou RG, e um cartão de crédito válido no nome do locatário.</p>
+                            </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+        
+        
+        <!------------------ FOOTER ------------------->
+        <%- include('./partials/footer.ejs') %>
+
+    </div>
+    <script src="node_modules/@glidejs/glide/dist/glide.min.js"></script>
+    <script>
+        const config = {
+    type: "carousel",
+    perView:3,
+    breakpoints:{
+        1028:{
+            perView:2
+        },
+        820:{
+            perView:1
+        }
+    }
+}
+new Glide('.glide',config).mount()
+      </script>
+</body>
+</html>

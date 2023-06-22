@@ -19,9 +19,19 @@ a {
   text-decoration: none;
 }
 
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #BDBDBD;
+}
+
 .baseContainer {
   display: grid;
-  grid-template-areas: "header" "nav" "main" "footer";
+  grid-template-areas: "header" "nav" "main" "main" "footer";
   grid-template-rows: 7vh 5vh;
   background: #BDBDBD;
   height: 100vh;
@@ -242,6 +252,736 @@ a {
     padding: 1rem;
     gap: 2rem;
   }
+}
+
+.errorContainer {
+  grid-area: main;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  height: 70rem;
+  overflow: hidden;
+  position: relative;
+}
+.errorContainer > .imgContainer {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin: 0;
+}
+.errorContainer > .imgContainer img {
+  transform: scale(1.3) translateY(-25%);
+  object-fit: contain;
+  filter: blur(0.1rem);
+}
+.errorContainer .message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  position: absolute;
+  background-color: white;
+  box-shadow: 0 0 0.5rem black;
+  border-radius: 2rem;
+  font-weight: bold;
+  padding: 1rem;
+  font-size: 1.3rem;
+  margin: 3rem;
+}
+.errorContainer .message a {
+  text-align: center;
+  text-decoration: none;
+  color: black;
+}
+.errorContainer .message a p {
+  font-size: 1.6rem;
+}
+
+.productContainer {
+  display: grid;
+  gap: 2rem;
+  padding: 3rem 3rem;
+  align-items: center;
+  justify-content: center;
+}
+@media screen and (min-width: 1367px) {
+  .productContainer {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media screen and (max-width: 1366px) {
+  .productContainer {
+    grid-template-columns: 1fr;
+  }
+}
+.productContainer .image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-direction: column;
+  width: 58.6rem;
+  background-color: white;
+  border-radius: 2rem;
+  box-shadow: 0 0 0.5rem black;
+}
+@media screen and (min-width: 1367px) {
+  .productContainer .image {
+    justify-self: end;
+  }
+}
+@media screen and (max-width: 1366px) {
+  .productContainer .image {
+    justify-self: center;
+  }
+}
+.productContainer .image #carName {
+  margin-top: 1rem;
+  font-size: 3rem;
+}
+.productContainer .image .main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: inherit;
+  margin: 1rem;
+  height: 31.6rem;
+  background-color: white;
+  overflow: hidden;
+}
+.productContainer .image .main #mainImage {
+  width: inherit;
+  height: inherit;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  margin: 1rem;
+}
+.productContainer .image .main p {
+  font-size: 4rem;
+}
+.productContainer .image .alt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  height: 5rem;
+  width: 58.6rem;
+  gap: 2rem;
+}
+.productContainer .image .alt a {
+  height: 1.5rem;
+  width: 1.5rem;
+  background-color: black;
+  border-radius: 50%;
+  border: none;
+  transition: 0.2s ease-in-out;
+  box-shadow: 0 0 0.5rem black;
+}
+.productContainer .image .alt a:hover {
+  transform: scale(1.3);
+}
+.productContainer .info {
+  display: flex;
+  justify-content: center;
+  flex-flow: column nowrap;
+  background-color: white;
+  border-radius: 2rem;
+  padding: 3rem 4rem;
+  box-shadow: 0 0 0.5rem black;
+  width: 58.6rem;
+  height: 100%;
+}
+@media screen and (max-width: 1366px) {
+  .productContainer .info {
+    justify-self: center;
+    width: 58.6rem;
+  }
+}
+.productContainer .info * {
+  font-size: 2rem;
+}
+.productContainer .info > .infoRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  gap: 1rem;
+}
+.productContainer .info > .infoRow > span:nth-child(1) {
+  font-weight: bold;
+  justify-self: end;
+}
+.productContainer .info .infoIcons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin-top: 1rem;
+  gap: 6rem;
+}
+.productContainer .info .infoIcons div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-direction: column;
+}
+.productContainer .info .infoIcons div > img {
+  height: 50px;
+  width: 50px;
+}
+.productContainer .info .infoIcons div > p {
+  font-weight: bold;
+}
+.productContainer .info #price {
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+.productContainer .info #price span:nth-child(2) {
+  font-size: 4rem;
+}
+.productContainer .info > #alugar {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 2rem;
+  align-self: center;
+  background-color: #FFCDD2;
+  text-decoration: none;
+  font-weight: bold;
+  color: #212121;
+  transition: 0.2s ease-in-out;
+}
+.productContainer .info > #alugar:hover {
+  transform: scale(1.1);
+}
+.productContainer .description {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 2rem;
+  box-shadow: 0 0 0.5rem black;
+  border-radius: 2rem;
+  width: 100%;
+  background-color: white;
+  padding: 2rem 4rem;
+}
+@media screen and (min-width: 1367px) {
+  .productContainer .description {
+    grid-column: 1/3;
+  }
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.createProductContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  grid-area: main;
+  background-color: white;
+  padding: 1rem;
+  margin: 3rem 3rem;
+  border-radius: 2rem;
+  box-shadow: 0 0 0.5rem black;
+  height: auto;
+}
+@media screen and (min-width: 767px) {
+  .createProductContainer {
+    width: 70rem;
+  }
+}
+.createProductContainer form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-flow: column wrap;
+  gap: 1rem;
+  /* Chrome, Safari, Edge, Opera */
+  /* Firefox */
+}
+.createProductContainer form .nomeDoVeiculo {
+  margin-bottom: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 1rem;
+}
+@media screen and (max-width: 766px) {
+  .createProductContainer form .nomeDoVeiculo {
+    flex-flow: column nowrap;
+  }
+  .createProductContainer form .nomeDoVeiculo > input, .createProductContainer form .nomeDoVeiculo > select {
+    width: 20rem;
+    text-align: center;
+  }
+}
+.createProductContainer form .details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-flow: column wrap;
+  gap: 0.8rem;
+}
+.createProductContainer form .details > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.createProductContainer form .details > div > label {
+  justify-self: end;
+}
+.createProductContainer form .details > div > input, .createProductContainer form .details > div > select {
+  width: 20rem;
+}
+.createProductContainer form .details > div > textarea {
+  grid-column: 1/3;
+  width: 100%;
+}
+.createProductContainer form .details > div > #trunkL {
+  height: 2.5rem;
+  align-self: center;
+}
+.createProductContainer form .details > div > #imgLabel, .createProductContainer form .details > div > input[type=file] {
+  grid-column: 1/3;
+  justify-self: center;
+}
+.createProductContainer form .details > div > #descriptionLabel {
+  grid-column: 1/3;
+  justify-self: center;
+}
+.createProductContainer form .details > div > input[type=file] {
+  width: 100%;
+  display: hidden;
+}
+.createProductContainer form .details > div > input[type=file]::file-selector-button {
+  background-color: #FFCDD2;
+  border: none;
+  padding: 1rem;
+  border-radius: 2rem;
+  font-weight: bold;
+}
+.createProductContainer form label {
+  font-weight: bold;
+}
+.createProductContainer form input::-webkit-outer-spin-button,
+.createProductContainer form input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.createProductContainer form input[type=number] {
+  -moz-appearance: textfield;
+}
+.createProductContainer form button {
+  margin-top: 3rem;
+  background-color: #FFCDD2;
+  border: none;
+  width: 10rem;
+  height: 4rem;
+  border-radius: 2rem;
+  font-size: 2rem;
+  box-shadow: 0 0 0.5rem black;
+  transition: all 0.2s ease-in-out;
+}
+.createProductContainer form button:hover {
+  transform: scale(1.1);
+}
+
+.createProductPostContainer {
+  grid-area: main;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-flow: column nowrap;
+  background-color: white;
+  box-shadow: 0 0 0.5rem black;
+  border-radius: 2rem;
+  width: 30rem;
+  gap: 2rem;
+  padding: 3rem;
+}
+.createProductPostContainer a {
+  text-decoration: none;
+  color: black;
+}
+
+.deleteProductContainer {
+  grid-area: main;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  background-color: white;
+  border-radius: 2rem;
+  width: 30rem;
+  height: 14rem;
+  box-shadow: 0 0 0.5rem black;
+  /* Chrome, Safari, Edge, Opera */
+  /* Firefox */
+}
+.deleteProductContainer input::-webkit-outer-spin-button,
+.deleteProductContainer input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.deleteProductContainer input[type=number] {
+  -moz-appearance: textfield;
+}
+.deleteProductContainer form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-flow: column nowrap;
+  gap: 2rem;
+}
+.deleteProductContainer form input {
+  text-align: center;
+  width: 12rem;
+}
+.deleteProductContainer form button {
+  border: none;
+  background-color: #FFCDD2;
+  box-shadow: 0 0 0.5rem black;
+  border-radius: 2rem;
+  width: 10rem;
+  height: 3rem;
+  font-weight: bold;
+  font-size: 1.6rem;
+  transition: 0.2s ease-in-out;
+}
+.deleteProductContainer form button:hover {
+  transform: scale(1.1);
+}
+
+.deleteProductPostContainer {
+  grid-area: main;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-flow: column nowrap;
+  background-color: white;
+  box-shadow: 0 0 0.5rem black;
+  border-radius: 2rem;
+  width: 30rem;
+  height: 14rem;
+  gap: 2rem;
+}
+.deleteProductPostContainer a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  background-color: #FFCDD2;
+  padding: 1rem;
+  border-radius: 2rem;
+  transition: 0.2s ease-in-out;
+}
+.deleteProductPostContainer a:hover {
+  transform: scale(1.1);
+}
+
+.productNotFoundContainer {
+  grid-area: main;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  height: 70rem;
+  overflow: hidden;
+  position: relative;
+}
+.productNotFoundContainer > .imgContainer {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin: 0;
+}
+.productNotFoundContainer > .imgContainer img {
+  transform: scale(2) translateY(-13%);
+  object-fit: contain;
+  filter: blur(0.1rem);
+}
+.productNotFoundContainer .message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  position: absolute;
+  background-color: white;
+  box-shadow: 0 0 0.5rem black;
+  border-radius: 2rem;
+  font-weight: bold;
+  padding: 1rem;
+  font-size: 1.3rem;
+  margin: 3rem;
+}
+.productNotFoundContainer .message a {
+  text-align: center;
+  text-decoration: none;
+  color: black;
+}
+.productNotFoundContainer .message a p {
+  font-size: 1.6rem;
+}
+
+.productListContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-flow: column nowrap;
+  padding: 2rem;
+}
+.productListContainer .pageSelector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  justify-self: center;
+  width: 20rem;
+  height: 5rem;
+  background-color: white;
+  grid-column: 1/3;
+  box-shadow: 0 0 0.5rem black;
+  border-radius: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.productListContainer .pageSelector a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  color: black;
+}
+.productListContainer .pageSelector a i {
+  font-size: 3rem;
+}
+.productListContainer .pageSelector .pages {
+  width: 80%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  font-size: 2rem;
+  font-weight: bold;
+  gap: 2rem;
+}
+.productListContainer .pageSelector .pages .unclickable {
+  pointer-events: none;
+  cursor: default;
+}
+.productListContainer .filtersContainer {
+  background-color: white;
+  box-shadow: 0 0 0.5rem black;
+  border-radius: 2rem;
+}
+@media screen and (min-width: 1440px) {
+  .productListContainer .filtersContainer {
+    width: 135rem;
+  }
+}
+@media screen and (min-width: 740px) and (max-width: 1439px) {
+  .productListContainer .filtersContainer {
+    width: 65rem;
+  }
+}
+@media screen and (min-width: 320px) and (max-width: 739px) {
+  .productListContainer .filtersContainer {
+    width: 40rem;
+  }
+}
+.productListContainer .filtersContainer form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-flow: row wrap;
+  gap: 1rem;
+  padding: 2rem;
+  height: 100%;
+}
+.productListContainer .filtersContainer form .orderByContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+}
+.productListContainer .filtersContainer form .apply {
+  border: none;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+.productListContainer .filtersContainer form .apply button {
+  box-shadow: 0 0 0.5rem black;
+}
+.productListContainer .filtersContainer form .filter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-flow: column nowrap;
+  box-shadow: 0 0 0.5rem black;
+  padding: 1rem;
+  border-radius: 2rem;
+  gap: 0.5rem;
+  width: 30rem;
+}
+.productListContainer .filtersContainer form .filter .filterOptions {
+  line-height: 2rem;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  min-height: 0;
+  overflow-y: auto;
+  height: 8rem;
+  width: 20rem;
+  background-color: lightgray;
+  padding: 0.5rem;
+  box-shadow: 0 0 0.8rem black;
+}
+.productListContainer .filtersContainer form .filter .filterOptions > div {
+  width: inherit;
+}
+.productListContainer .filtersContainer form button, .productListContainer .filtersContainer form a {
+  color: black;
+  border: none;
+  background-color: #FFCDD2;
+  padding: 1rem;
+  border-radius: 2rem;
+  font-weight: bold;
+  font-size: 1.6rem;
+}
+.productListContainer .filtersContainer form label {
+  font-weight: bold;
+}
+.productListContainer .filtersContainer form select {
+  text-align: center;
+}
+.productListContainer .filters, .productListContainer .products {
+  border-radius: 2rem;
+  margin: 3rem;
+}
+.productListContainer .filters {
+  height: 42rem;
+}
+.productListContainer .products {
+  display: grid;
+  gap: 1rem;
+}
+@media screen and (min-width: 2001px) {
+  .productListContainer .products {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 180rem;
+  }
+}
+@media screen and (min-width: 1440px) and (max-width: 2000px) {
+  .productListContainer .products {
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 135rem;
+  }
+}
+@media screen and (min-width: 1000px) and (max-width: 1439px) {
+  .productListContainer .products {
+    grid-template-columns: 1fr 1fr;
+    width: 90rem;
+  }
+}
+.productListContainer .products .product {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-flow: column nowrap;
+  border-radius: 2rem;
+  box-shadow: 0 0 0.5rem black;
+  width: 100%;
+  background-color: white;
+  height: 45rem;
+}
+.productListContainer .products .product .main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-flow: column wrap;
+  padding: 1rem;
+}
+.productListContainer .products .product .main p {
+  font-weight: bold;
+  font-size: 2.2rem;
+  padding: 1rem;
+}
+.productListContainer .products .product .main #mainImage {
+  text-align: center;
+  line-height: 20rem;
+  max-height: 20rem;
+  max-width: 38rem;
+  margin-bottom: 1rem;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  box-shadow: 0 0 1rem black;
+}
+.productListContainer .products .product .info > div:nth-child(1), .productListContainer .products .product .info div:nth-child(2) {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.productListContainer .products .product .info > div:nth-child(1) span:nth-child(1), .productListContainer .products .product .info div:nth-child(2) span:nth-child(1) {
+  justify-self: end;
+  font-weight: bold;
+}
+.productListContainer .products .product .info > .infoPrice {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.productListContainer .products .product .info > .infoPrice span {
+  grid-column: 1/3;
+  justify-self: center;
+  font-weight: bold;
+}
+.productListContainer .products .product .info p:nth-child(3) {
+  align-self: center;
+  font-size: 2rem;
+}
+.productListContainer .products .product a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  background-color: #FFCDD2;
+  padding: 1rem;
+  border-radius: 2rem;
+  box-shadow: 0 0 0.6rem black;
+  transition: all 0.2s ease-in-out;
+}
+.productListContainer .products .product a:hover {
+  transform: scale(1.1);
 }
 
 .glide {

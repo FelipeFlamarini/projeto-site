@@ -6,11 +6,22 @@ a {
     text-decoration: none;
 }
 
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: c.$divider;
+}
+
 .baseContainer {
     display: grid;
     grid-template-areas: 
     "header"
     "nav"
+    "main"
     "main"
     "footer";
     grid-template-rows: $headerHeight $navHeight;
@@ -40,7 +51,7 @@ a {
 
                 i {
                     font-size: 3rem;
-                    color: c.$darkPrimary;
+                    color: c.$darkPrimary;  
                 }
             }
         }

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./css/base.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Registro de produto</title>
+</head>
+<body>
+    <div class="baseContainer">
+
+        <%- include("./partials/header.ejs") %>
+
+        <%- include("./partials/nav.ejs") %>
+
+        <!-- CONTAINER PRINCIPAL -->
+        <main>
+            <div class="createProductContainer">
+                <form method="post" action="http://localhost:8080/createProductPost" enctype="multipart/form-data">
+                    <label for="">Nome do veículo</label>
+                    <div class="nomeDoVeiculo">
+                        <select id="name" name="name">
+                            <option value="Abarth">Abarth</option>
+                            <option value="Alfa Romeo">Alfa Romeo</option>
+                            <option value="Aston Martin">Aston Martin</option>
+                            <option value="Audi">Audi</option>
+                            <option value="Bentley">Bentley</option>
+                            <option value="BMW">BMW</option>
+                            <option value="Bugatti">Bugatti</option>
+                            <option value="Buick">Buick</option>
+                            <option value="Cadillac">Cadillac</option>
+                            <option value="Chevrolet">Chevrolet</option>
+                            <option value="Chrysler">Chrysler</option>
+                            <option value="Citroën">Citroën</option>
+                            <option value="Dacia">Dacia</option>
+                            <option value="Daewoo">Daewoo</option>
+                            <option value="Daihatsu">Daihatsu</option>
+                            <option value="Dodge">Dodge</option>
+                            <option value="Ferrari">Ferrari</option>
+                            <option value="Fiat">Fiat</option>
+                            <option value="Ford">Ford</option>
+                            <option value="Geely">Geely</option>
+                            <option value="Genesis">Genesis</option>
+                            <option value="GMC">GMC</option>
+                            <option value="Honda">Honda</option>
+                            <option value="Hyundai">Hyundai</option>
+                            <option value="Infiniti">Infiniti</option>
+                            <option value="Jaguar">Jaguar</option>
+                            <option value="Jeep">Jeep</option>
+                            <option value="Kia">Kia</option>
+                            <option value="Koenigsegg">Koenigsegg</option>
+                            <option value="Lada">Lada</option>
+                            <option value="Lamborghini">Lamborghini</option>
+                            <option value="Lancia">Lancia</option>
+                            <option value="Land Rover">Land Rover</option>
+                            <option value="Lexus">Lexus</option>
+                            <option value="Lincoln">Lincoln</option>
+                            <option value="Lotus">Lotus</option>
+                            <option value="Maserati">Maserati</option>
+                            <option value="Mazda">Mazda</option>
+                            <option value="McLaren">McLaren</option>
+                            <option value="Mercedes-Benz">Mercedes-Benz</option>
+                            <option value="Mini">Mini</option>
+                            <option value="Mitsubishi">Mitsubishi</option>
+                            <option value="Nissan">Nissan</option>
+                            <option value="Opel">Opel</option>
+                            <option value="Pagani">Pagani</option>
+                            <option value="Peugeot">Peugeot</option>
+                            <option value="Porsche">Porsche</option>
+                            <option value="Ram">Ram</option>
+                            <option value="Renault">Renault</option>
+                            <option value="Rolls-Royce">Rolls-Royce</option>
+                            <option value="Saab">Saab</option>
+                            <option value="Seat">Seat</option>
+                            <option value="Škoda">Škoda</option>
+                            <option value="Smart">Smart</option>
+                            <option value="SsangYong">SsangYong</option>
+                            <option value="Subaru">Subaru</option>
+                            <option value="Suzuki">Suzuki</option>
+                            <option value="Tesla">Tesla</option>
+                            <option value="Toyota">Toyota</option>
+                            <option value="Vauxhall">Vauxhall</option>
+                            <option value="Volkswagen">Volkswagen</option>
+                            <option value="Volvo">Volvo</option>
+                          </select>
+                        <input required type="text" id="model1" name="model1" placeholder="Modelo">
+                        <input required type="text" id="model2" name="model2" placeholder="Variação">
+                        <input required type="number" step="1" min="1886" max="2030" id="year" name="year" placeholder="Ano">
+                    </div>
+                    <label for="details">Detalhes</label>
+                    <div class="details">
+                        <div>
+                            <label for="seats">Lugares: </label>
+                            <input required type="number" step="1" min="1" max="1000" id="seats" name="seats">
+                        </div>
+                        
+                        <div>
+                            <label for="doors">Portas: </label>
+                            <input required type="number" step="1" min="1" max="10" id="doors" name="doors">
+                        </div>
+
+                        <div>
+                            <label for="trunkL">Capacidade do tanque em litros: </label>
+                            <input required type="number" step="1" max="99999" id="trunkL" name="trunkL">
+                        </div>
+
+                        <div>
+                            <label for="fuel">Combustível: </label>
+                            <select id="fuel" name="fuel">
+                                <option value="Diesel">Diesel</option>
+                                <option value="Flex">Flex</option>
+                                <option value="Gasolina">Gasolina</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="transmission">Transmissão: </label>
+                            <select id="transmission" name="transmission">
+                                <option value="Automática">Automática</option>
+                                <option value="Automatizada">Automatizada</option>
+                                <option value="CVT">CV</option>
+                                <option value="Manual">Manual</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="steering">Direção: </label>
+                            <select id="steering" name="steering">
+                                <option value="Elétrica">Elétrica</option>
+                                <option value="Eletro-hidráulica">Eletro-hidráulica</option>
+                                <option value="Hidráulica">Hidráulica</option>
+                                <option value="Mecânica">Mecânica</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="ABS">Freios ABS: </label>
+                            <select id="ABS" name="ABS">
+                                <option value="0">Não</option>
+                                <option value="1">Sim</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="airbags">Airbags: </label>
+                            <select id="airbags" name="airbags">
+                                <option value="0">Não</option>
+                                <option value="1">Sim</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="price">Preço diário: R$</label>
+                            <input required type="number" step="0.01" max="99999" id="price" name="price">
+                        </div>
+
+                        <div>
+                            <label for="img" id="imgLabel">Escolha até 5 imagens: </label>
+                            <input multiple type="file" name="img" id="img" enctype="multipart/form-data">
+                        </div>
+
+                        <div>
+                            <label for="description" id="descriptionLabel">Faça uma descrição breve: </label>
+                            <textarea name="description" id="description" cols="80" rows="10"></textarea>
+                        </div>
+                    </div>
+                    <button><strong>Enviar</strong></button>
+                </form>
+            </div>
+        </main>
+
+        <%- include("./partials/footer.ejs") %>
+    </div>
+</body>
+</html>

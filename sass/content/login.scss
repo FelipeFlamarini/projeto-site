@@ -5,7 +5,9 @@
     height: 100vh;
     width: 100%;
     @include c.flex-center(column);
-    background-image: url(../sass/img/bg-login2.jpg);
+    background-image: url(../imgs/bg-login2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
 
     .img-login{
         cursor: pointer;

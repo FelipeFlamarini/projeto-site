@@ -67,7 +67,7 @@ a {
         width: 100%;
         background-color: c.$darkPrimary;
         padding: 0 10rem;
-        border-radius: 0 0 c.$borderRadius c.$borderRadius;
+        // border-radius: 0 0 c.$borderRadius c.$borderRadius;
 
         .links {
             @include c.flex(initial, initial, row, nowrap);
@@ -95,7 +95,7 @@ a {
         width: 100%;
         background-color: black;
         padding: 2rem 5rem;
-        border-radius: c.$borderRadius c.$borderRadius 0 0;
+        // border-radius: c.$borderRadius c.$borderRadius 0 0;
 
         .duvidas, .ajuda {
             h2:nth-child(1) {

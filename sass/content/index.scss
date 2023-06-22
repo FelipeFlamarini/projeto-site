@@ -21,7 +21,9 @@ $altura-search-celular:5.8rem;
         width: 100%;
         height:50rem;
         
-        background-image: url(../sass/img/imagem-banner-site.jpg);
+        background-image: url(../imgs/imagem-banner-site.jpg);
+        background-size:cover;
+        background-repeat: no-repeat;
         
         @include c.flex(none,center,column,nowrap);
         gap: 1rem;

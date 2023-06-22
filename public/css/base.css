@@ -85,6 +85,7 @@ html, body {
 .baseContainer nav {
   display: flex;
   justify-content: space-between;
+  justify-content: space-between;
   grid-area: nav;
   height: 5vh;
   width: 100%;
@@ -105,10 +106,27 @@ html, body {
   background-color: inherit;
   align-self: center;
   width: auto;
+  width: auto;
 }
 .baseContainer nav .links a {
   color: #212121;
   font-weight: bold;
+}
+.baseContainer nav .logout-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  height: 100%;
+  margin-right: 5.5rem;
+}
+.baseContainer nav .logout-nav i {
+  font-size: 2.3rem;
+  color: black;
+}
+.baseContainer nav .logout-nav span {
+  font-weight: bold;
+  color: black;
 }
 .baseContainer nav .logout-nav {
   display: flex;
@@ -183,15 +201,13 @@ html, body {
   .baseContainer .btn-reservas {
     display: none;
   }
-  .baseContainer .responsive-navBar {
+  .baseContainer .responsive-navBar ul {
+    list-style: none;
     position: absolute;
     left: 0rem;
     top: 3.9rem;
     width: 100%;
     display: none;
-  }
-  .baseContainer .responsive-navBar ul {
-    list-style: none;
   }
   .baseContainer .responsive-navBar ul li {
     background-color: #03A9F4;
@@ -199,15 +215,15 @@ html, body {
   .baseContainer .responsive-navBar ul li:hover {
     background-color: #0395d8;
   }
-  .baseContainer .responsive-navBar ul li span {
+  .baseContainer .responsive-navBar ul li span span {
     font-size: 1.7rem;
     color: black;
     font-weight: bold;
   }
-  .baseContainer .active {
+  .baseContainer .responsive-navBar .active {
     display: block;
   }
-  .baseContainer footer {
+  .baseContainer .responsive-navBar footer {
     display: flex;
     justify-content: center;
     align-items: center;

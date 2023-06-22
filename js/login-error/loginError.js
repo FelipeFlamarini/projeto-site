@@ -3,7 +3,8 @@ const password = document.getElementById('password')
 
 const btn = document.getElementById('submit-login')
 
-btn.addEventListener('click',function(){
+btn.addEventListener('click',function(event){
+    event.preventDefault()
     if(email.value === password.value && password.value !== '' && email.value !== ''){
         console.log('oi')
         console.log(password.value)

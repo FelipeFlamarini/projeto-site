@@ -103,7 +103,7 @@ html, body {
         // border-radius: 0 0 c.$borderRadius c.$borderRadius;
 
         @media screen and (min-width: 641px) {
-            background-color: c.$darkPrimary;
+            background-color: lightgreen;
         }
 
         .links {
@@ -127,12 +127,12 @@ html, body {
 
             i{
                 font-size: 2.3rem;
-                color: black;
+                color: c.$primaryText;
             }
 
             span{
                 font-weight: bold;
-                color: black
+                color: c.$primaryText
             }
         }
         .logout-nav{

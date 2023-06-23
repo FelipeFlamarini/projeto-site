@@ -1550,7 +1550,7 @@ html, body {
   display: flex;
   flex-direction: column;
   background-color: #FFFFFF;
-  font-weight: 500;
+  font-weight: bold;
 }
 .index-container .all-cars .container-carousel .glide__slide .carro div:nth-child(1) {
   align-self: center;
